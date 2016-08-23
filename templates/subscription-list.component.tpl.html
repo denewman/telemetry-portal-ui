@@ -1,0 +1,10 @@
+<h2>Create Subscription</h2>
+Name: <input #newSubName /> Group: <input #groupId /> Sensor: <input #sensorId />
+<button (click)="addSubscription(newSubName.value, groupId.value, sensorId.value);
+    newSubName.value=''; groupId.value=''; sensorId.value=''">Submit</button>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
+<h2>Subscription List:</h2>
+<div *ngFor="let sub of subscriptions">
+  subscription: {{sub.subName}}    |   group: {{sub.groupId}}    |   sensor: {{sub.sensorId}}
+</div>
+<div *ngIf="errorMessage">{{errorMessage}}</div>

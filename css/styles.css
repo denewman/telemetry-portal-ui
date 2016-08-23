@@ -1,0 +1,110 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,600,700');
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline;
+    border: solid;
+    border-width: 1px 1px 0 1px;
+    margin: 0 5px 0 0;
+    padding: 0 10px;
+    font: 20px 'Open Sans', sans-serif;
+}
+
+body {
+    background: #4d4d4d;
+    color: #B9B5C7;
+    font: 14px 'Open Sans', sans-serif;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+h1 {
+    padding: 10px 0;
+    font-weight: 400;
+    text-align: center;
+}
+
+h2 {
+    padding: 10px 0;
+    font-weight: 400;
+    text-align: left;
+    margin: 20px;
+}
+
+p {
+    margin: 0 auto;
+    min-width: 320px;
+    max-width: 800px;
+}
+
+.home-button {
+    background-color: #e7e7e7;
+    border: 2px solid darkgray;;
+    color: black;
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+    padding-bottom: 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font: 24px 'Open Sans', sans-serif;
+    width: 175px;
+    height: 100px;
+}
+
+.home-button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.divider {
+    width:25px;
+    height:auto;
+    display:inline-block;
+}
+
+.content {
+    background: #fff;
+    color: #373737;
+    width: 1000px;
+    height: 400px;
+    text-align: center;
+}
+
+.content > div {
+    display: none;
+    padding-top: 50px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 5px;
+}
+
+label {
+    display: inline-block;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+label:hover {
+    color: #fff;
+    curser: pointer;
+}
+
+#tab1:checked ~ .content #content1,
+#tab2:checked ~ .content #content2 {
+    display: block;
+}
+
+@media screen and (max-width: 400px) {
+    label {
+        padding: 15px 10px;
+    }
+}
+
