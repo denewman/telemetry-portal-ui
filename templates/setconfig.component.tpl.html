@@ -1,0 +1,7 @@
+<div class="config">
+    <h2>Set Config:</h2>
+    <select [(ngModel)]="selectConfig" required>
+        <option *ngFor="let configOption of configOptions" [ngValue]="configOption">{{configOption.name}}</option>
+    </select>
+    {{selectedConfig.name}}
+</div>

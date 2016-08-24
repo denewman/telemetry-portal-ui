@@ -5,7 +5,8 @@ import { Tab } from './tab.interface';
 
 @Component({
   selector: 'tab',
-  templateUrl: '../templates/tab.component.tpl.html'
+  templateUrl: '../templates/tab.component.tpl.html',
+  styleUrls: ['../css/tab.component.css']
 })
 export class TabComponent implements Tab {
   @Input() tabTitle;

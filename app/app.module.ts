@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent }  from './app.component';
 import { routing } from './app.routing';
 
-import { HomeButtonComponent } from "./homebuttons.component";
+import { HomeButtonComponent } from "./sub-homebuttons.component";
 import { TabsComponent } from './tabs.component';
 import { TabComponent } from './tab.component';
 import { HomeComponent } from './home.component';
