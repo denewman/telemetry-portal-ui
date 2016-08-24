@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Config } from './config';
+import { ConfigDataService } from './config-data.service';
 
 @Component({
   selector: 'set-config',
@@ -9,5 +10,5 @@ import { Config } from './config';
 })
 export class SetConfigComponent {
   templates = ['Model Driven', 'Policy Driven'];
-  selectedConfig = new Config(this.templates[0]);
+  constructor(public configDataService: ConfigDataService) {}
 }

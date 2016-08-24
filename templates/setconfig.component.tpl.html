@@ -1,6 +1,7 @@
 <div class="config">
     <h2>Set Config:</h2>
-    <select id="template" required [(ngModel)]="selectedConfig.template" name="template" #template="ngModel">
+    <select id="modelTemplate" required [(ngModel)]="configDataService.selectedConfig.template"
+            name="modelTemplate" #modelTemplate="ngModel">
         <option *ngFor="let t of templates" [value]="t">{{t}}</option>
     </select>
 </div>

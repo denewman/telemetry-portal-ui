@@ -16,6 +16,7 @@ import {ManageSubscriptionsComponent} from "./manage-subscriptions.component";
 import {ApplySubscriptionsComponent} from "./apply-subscriptions.component";
 import {SubscriptionListComponent} from "./subscription-list.component";
 import { SubscriptionService } from './subscription.service';
+import { ConfigDataService } from './config-data.service';
 
 @NgModule({
   imports:      [
@@ -39,6 +40,7 @@ import { SubscriptionService } from './subscription.service';
   ],
     providers: [
         SubscriptionService,
+        ConfigDataService
     ],
   bootstrap:    [ AppComponent ]
 })

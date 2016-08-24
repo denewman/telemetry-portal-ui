@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { TabsComponent } from './tabs.component';
 import { Config } from './config';
+import { ConfigDataService } from './config-data.service';
 
 @Component({
   selector: 'home',
@@ -9,6 +10,5 @@ import { Config } from './config';
   styleUrls: ['../css/setconfig.component.css']
 })
 export class HomeComponent {
-  templates = ['Model Driven', 'Policy Driven'];
-  selectedConfig: Config = new Config(this.templates[0]);
+  constructor(public configDataService: ConfigDataService) {}
 }
