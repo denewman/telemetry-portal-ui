@@ -6,7 +6,8 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent }  from './app.component';
 import { routing } from './app.routing';
 
-import { HomeButtonComponent } from "./sub-homebuttons.component";
+import { SubHomeButtonComponent } from "./sub-homebuttons.component";
+import { PolicyHomeButtonComponent } from './policy-homebuttons.component';
 import { TabsComponent } from './tabs.component';
 import { TabComponent } from './tab.component';
 import { HomeComponent } from './home.component';
@@ -29,7 +30,8 @@ import { SubscriptionService } from './subscription.service';
       ManageSubscriptionsComponent,
       SubscriptionListComponent,
       ApplySubscriptionsComponent,
-      HomeButtonComponent,
+      SubHomeButtonComponent,
+      PolicyHomeButtonComponent,
       TabsComponent,
       TabComponent,
       HomeComponent,

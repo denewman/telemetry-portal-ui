@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { HomeButtonComponent, ButtonContent } from './sub-homebuttons.component';
+import { SubHomeButtonComponent } from './sub-homebuttons.component';
 import { TabComponent } from './tab.component';
 import { Tab } from './tab.interface';
 

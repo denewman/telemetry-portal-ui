@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { TabsComponent } from './tabs.component';
-import { ConfigOption } from './setconfig.component';
-import globals = require('./globals');
+import { Config } from './config';
 
 @Component({
   selector: 'home',
-  templateUrl: '../templates/home.component.tpl.html'
+  templateUrl: '../templates/home.component.tpl.html',
+  styleUrls: ['../css/setconfig.component.css']
 })
 export class HomeComponent {
-  selectedConfig: ConfigOption = new ConfigOption(globals.configId, globals.configName);
+  templates = ['Model Driven', 'Policy Driven'];
+  selectedConfig: Config = new Config(this.templates[0]);
 }

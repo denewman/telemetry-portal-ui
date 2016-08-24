@@ -1,4 +1,4 @@
-<tabs>
+<tabs *ngIf="selectedConfig.template=='Model Driven'">
     <tab tabTitle="Subscription">
         <sub-home-buttons></sub-home-buttons>
     </tab>
@@ -6,6 +6,28 @@
         Content of visualization tab
     </tab>
     <tab tabTitle="Set Config">
-        <set-config></set-config>
+        <div class="config">
+            <h2>Set Config:</h2>
+            <select id="modelTemplate" required [(ngModel)]="selectedConfig.template"
+                    name="modelTemplate" #modelTemplate="ngModel">
+                <option *ngFor="let t of templates" [value]="t">{{t}}</option>
+            </select>
+        </div>
+    </tab>
+</tabs>
+<tabs *ngIf="selectedConfig.template=='Policy Driven'">
+    <tab tabTitle="Policy">
+        <policy-home-buttons></policy-home-buttons>
+    </tab>
+    <tab tabTitle="Visualization">
+        Content of visualization tab
+    </tab>
+    <tab tabTitle="Set Config">
+        <div class="config">
+            <h2>Set Config:</h2>
+            <select id="template" required [(ngModel)]="selectedConfig.template" name="template" #template="ngModel">
+                <option *ngFor="let t of templates" [value]="t">{{t}}</option>
+            </select>
+        </div>
     </tab>
 </tabs>
