@@ -13,10 +13,10 @@ export class PolicyHomeButtonComponent {
     ) { }
 
     goToManage() {
-        this.router.navigate(['/manage-subscriptions'])
+        this.router.navigate(['/manage-policy-groups'])
     }
 
     goToApply() {
-        this.router.navigate(['/apply-subscriptions'])
+        this.router.navigate(['/apply-policy-groups'])
     }
 }

@@ -4,6 +4,8 @@ import { VisualizationComponent } from './visualization.component';
 import { HomeComponent } from './home.component';
 import {ManageSubscriptionsComponent} from "./manage-subscriptions.component";
 import {ApplySubscriptionsComponent} from "./apply-subscriptions.component";
+import {ManagePolicyGroupsComponent} from "./manage-policy-groups.component";
+import {ApplyPolicyGroupsComponent} from "./apply-policy-groups.component";
 
 const appRoutes: Routes = [
     {
@@ -22,6 +24,14 @@ const appRoutes: Routes = [
     {
         path: 'apply-subscriptions',
         component: ApplySubscriptionsComponent
+    },
+    {
+        path: 'manage-policy-groups',
+        component: ManagePolicyGroupsComponent
+    },
+    {
+        path: 'apply-policy-groups',
+        component: ApplyPolicyGroupsComponent
     },
     {
         path: 'visualization',

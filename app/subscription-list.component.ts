@@ -1,25 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Subscription } from './subscription';
-import { SubscriptionService } from './subscription.service';
+import { HttpService } from './http.service';
 import './rxjs-operators';
 
 @Component({
   selector: 'subscription-list',
   templateUrl: '../templates/subscription-list.component.tpl.html',
-  providers: [SubscriptionService]
+  providers: [HttpService]
 })
 export class SubscriptionListComponent implements OnInit {
   errorMessage: string;
   subscriptions: Subscription[];
   mode = 'Observable';
 
-  constructor (private subService: SubscriptionService) {}
+  constructor (private httpService: HttpService) {}
 
   ngOnInit() { this.getSubscriptions(); }
 
   getSubscriptions() {
-    this.subService.getSubscriptions()
+    this.httpService.getSubscriptions()
         .subscribe(
             subscriptions => this.subscriptions = subscriptions,
             error => this.errorMessage = <any>error);
@@ -27,7 +27,7 @@ export class SubscriptionListComponent implements OnInit {
 
   addSubscription(subName: string, groupId: string, sensorId: string) {
     if (!subName || !groupId || !sensorId) { return; }
-    this.subService.addSubscription(subName, groupId, sensorId)
+    this.httpService.addSubscription(subName, groupId, sensorId)
         .subscribe(
             subscription => this.subscriptions.push(subscription),
             error => this.errorMessage = <any>error);

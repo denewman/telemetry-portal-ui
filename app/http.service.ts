@@ -3,13 +3,15 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { Subscription } from './subscription';
+import { PolicyGroup } from './policy-group';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class SubscriptionService {
+export class HttpService {
     constructor (private http: Http) {}
 
     private subscriptionUrl = 'http://localhost:5002/subscriptions';
+    private policyGroupUrl = 'http://localhost:5002/policyGroups';
 
     getSubscriptions(): Observable<Subscription[]> {
         return this.http.get(this.subscriptionUrl)
@@ -26,14 +28,29 @@ export class SubscriptionService {
             .catch(this.handleError);
     }
 
+    getPolicyGroups(): Observable<PolicyGroup[]> {
+        return this.http.get(this.policyGroupUrl)
+            .map(this.extractPolicyData)
+            .catch(this.handleError);
+    }
+    addPolicyGroup (policyGroupName: string, collector: string, policy: string): Observable<PolicyGroup> {
+        let body = JSON.stringify({ policyGroupName, collector, policy });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.policyGroupUrl, body, options)
+            .map(this.extractPolicyData)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body.subscription || {};
     }
 
-    private extractData1(res: Response) {
+    private extractPolicyData(res: Response) {
         let body = res.json();
-        return body || {};
+        return body.policyGroup || {};
     }
 
     private handleError (error: any) {

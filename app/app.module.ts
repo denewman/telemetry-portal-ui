@@ -14,8 +14,11 @@ import { HomeComponent } from './home.component';
 import { SetConfigComponent } from './setconfig.component';
 import {ManageSubscriptionsComponent} from "./manage-subscriptions.component";
 import {ApplySubscriptionsComponent} from "./apply-subscriptions.component";
+import { ApplyPolicyGroupsComponent } from './apply-policy-groups.component';
 import {SubscriptionListComponent} from "./subscription-list.component";
-import { SubscriptionService } from './subscription.service';
+import { PolicyGroupListComponent } from './policy-group-list.component';
+import { ManagePolicyGroupsComponent } from './manage-policy-groups.component';
+import { HttpService } from './http.service';
 import { ConfigDataService } from './config-data.service';
 
 @NgModule({
@@ -31,15 +34,18 @@ import { ConfigDataService } from './config-data.service';
       ManageSubscriptionsComponent,
       SubscriptionListComponent,
       ApplySubscriptionsComponent,
+      ApplyPolicyGroupsComponent,
       SubHomeButtonComponent,
       PolicyHomeButtonComponent,
+      PolicyGroupListComponent,
+      ManagePolicyGroupsComponent,
       TabsComponent,
       TabComponent,
       HomeComponent,
       SetConfigComponent
   ],
     providers: [
-        SubscriptionService,
+        HttpService,
         ConfigDataService
     ],
   bootstrap:    [ AppComponent ]
