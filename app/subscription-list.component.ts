@@ -7,6 +7,7 @@ import './rxjs-operators';
 @Component({
   selector: 'subscription-list',
   templateUrl: '../templates/subscription-list.component.tpl.html',
+  styleUrls: ['../css/subscription-list.component.css'],
   providers: [HttpService]
 })
 export class SubscriptionListComponent implements OnInit {
@@ -25,9 +26,10 @@ export class SubscriptionListComponent implements OnInit {
             error => this.errorMessage = <any>error);
   }
 
-  addSubscription(subName: string, groupId: string, sensorId: string) {
-    if (!subName || !groupId || !sensorId) { return; }
-    this.httpService.addSubscription(subName, groupId, sensorId)
+  addSubscription(subscriptionName: string, destinationGroupName: string,
+                  sensorName: string, subscriptionInterval: number) {
+    if (!subscriptionName || !destinationGroupName || !sensorName || !subscriptionInterval) { return; }
+    this.httpService.addSubscription(subscriptionName, destinationGroupName, sensorName, subscriptionInterval)
         .subscribe(
             subscription => this.subscriptions.push(subscription),
             error => this.errorMessage = <any>error);

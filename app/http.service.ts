@@ -10,7 +10,7 @@ import { Observable } from 'rxjs/Observable';
 export class HttpService {
     constructor (private http: Http) {}
 
-    private subscriptionUrl = 'http://localhost:5002/subscriptions';
+    private subscriptionUrl = 'http://localhost:5002/subscription';
     private policyGroupUrl = 'http://localhost:5002/policyGroups';
 
     getSubscriptions(): Observable<Subscription[]> {
@@ -18,8 +18,9 @@ export class HttpService {
             .map(this.extractData)
             .catch(this.handleError);
     }
-    addSubscription (subName: string, groupId: string, sensorId: string): Observable<Subscription> {
-        let body = JSON.stringify({ subName, groupId, sensorId });
+    addSubscription (subscriptionName: string, destinationGroupName: string,
+                     sensorName: string, subscriptionInterval: number): Observable<Subscription> {
+        let body = JSON.stringify({ subscriptionName, destinationGroupName, sensorName, subscriptionInterval });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

@@ -1,6 +1,7 @@
 export class Subscription {
   constructor(
-    public subName: string,
-    public groupId: string,
-    public sensorId: string) { }
+    public subscriptionName: string,
+    public destinationGroupName: string,
+    public sensorname: string,
+    public subscriptionInterval: number) { }
 }
