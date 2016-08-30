@@ -20,6 +20,7 @@ import { PolicyGroupListComponent } from './policy-group-list.component';
 import { ManagePolicyGroupsComponent } from './manage-policy-groups.component';
 import { HttpService } from './http.service';
 import { ConfigDataService } from './config-data.service';
+import { NewSubscriptionComponent } from './new-subscription.component';
 
 @NgModule({
   imports:      [
@@ -42,7 +43,8 @@ import { ConfigDataService } from './config-data.service';
       TabsComponent,
       TabComponent,
       HomeComponent,
-      SetConfigComponent
+      SetConfigComponent,
+      NewSubscriptionComponent
   ],
     providers: [
         HttpService,

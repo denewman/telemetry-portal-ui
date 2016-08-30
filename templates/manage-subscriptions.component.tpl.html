@@ -1,4 +1,6 @@
 <div class="content">
-   <h2>Manage Subscriptions:</h2>
-   <subscription-list></subscription-list>
+   <h1>Subscriptions:</h1>
+   <button *ngIf="!newSubscription" (click)="onNewSubscriptionClick()">New Subscription</button>
+   <new-subscription *ngIf="newSubscription" (submit)="addSubscription($event)" (cancel)="cancelNewSubscription()"></new-subscription>
+   <subscription-list [subscriptions]="subscriptions"></subscription-list>
 </div>

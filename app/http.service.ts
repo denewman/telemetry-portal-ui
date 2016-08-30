@@ -4,6 +4,8 @@ import 'rxjs/add/operator/map';
 
 import { Subscription } from './subscription';
 import { PolicyGroup } from './policy-group';
+import { DestinationGroup } from './destination-group';
+import { Sensor } from './sensor';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -12,6 +14,8 @@ export class HttpService {
 
     private subscriptionUrl = 'http://localhost:5002/subscription';
     private policyGroupUrl = 'http://localhost:5002/policyGroups';
+    private destinationGroupUrl = 'http://localhost:5002/destinationGroup';
+    private sensorUrl = 'http://localhost:5002/sensor';
 
     getSubscriptions(): Observable<Subscription[]> {
         return this.http.get(this.subscriptionUrl)
@@ -44,6 +48,40 @@ export class HttpService {
             .catch(this.handleError);
     }
 
+    getDestinationGroups(): Observable<DestinationGroup[]> {
+        return this.http.get(this.destinationGroupUrl)
+            .map(this.extractDestinationGroupData)
+            .catch(this.handleError);
+    }
+    addDestinationGroup (destinationGroupName: string, destinationGroupAddress: string,
+                         destinationGroupEncoding: string, destinationGroupPort: string,
+                         destinationGroupProtocol: string): Observable<DestinationGroup> {
+        let body = JSON.stringify({ destinationGroupName, destinationGroupAddress,
+                                    destinationGroupEncoding, destinationGroupPort,
+                                    destinationGroupProtocol});
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.destinationGroupUrl, body, options)
+            .map(this.extractDestinationGroupData)
+            .catch(this.handleError);
+    }
+
+    getSensors(): Observable<Sensor[]> {
+        return this.http.get(this.sensorUrl)
+            .map(this.extractSensorData)
+            .catch(this.handleError);
+    }
+    addSensor (sensorName: string): Observable<Sensor> {
+        let body = JSON.stringify({ sensorName });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.sensorUrl, body, options)
+            .map(this.extractSensorData)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body.subscription || {};
@@ -52,6 +90,16 @@ export class HttpService {
     private extractPolicyData(res: Response) {
         let body = res.json();
         return body.policyGroup || {};
+    }
+
+    private extractDestinationGroupData(res: Response) {
+        let body = res.json();
+        return body.destinationGroup || {};
+    }
+
+    private extractSensorData(res: Response) {
+        let body = res.json();
+        return body.sensor || {};
     }
 
     private handleError (error: any) {

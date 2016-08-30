@@ -1,10 +1,3 @@
-<h2>Create Subscription</h2>
-Name: <input #subscriptionName /> Group: <input #destinationGroupName /> Sensor: <input #sensorName /> Interval: <input #subscriptionInterval />
-<button (click)="addSubscription(subscriptionName.value, destinationGroupName.value,
-    sensorName.value, subscriptionInterval.value);
-    subscriptionName.value=''; destinationGroupName.value=''; sensorName.value=''; subscriptionInterval.value=''">Submit</button>
-<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-<h2>Subscription List:</h2>
 <table>
 <tr>
     <th>Name</th>
