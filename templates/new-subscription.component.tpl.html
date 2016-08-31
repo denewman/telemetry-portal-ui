@@ -2,10 +2,10 @@
     <tr>
         <th>Name: </th>
         <th>Destination Group:
-            <button class="add">+</button>
+            <button class="add" (click)="onNewDestinationGroupClick()">+</button>
         </th>
         <th>Sensor:
-            <button class="add">+</button>
+            <button class="add" (click)="onNewSensorClick()">+</button>
         </th>
         <th>Interval:</th>
     </tr>
@@ -34,5 +34,6 @@
         </td>
     </tr>
 </table>
-
+<new-sensor *ngIf="openNewSensorModal" (submitNewSensor)="submitNewSensor($event)" (closeSensorModal)="closeNewSensorModal()"></new-sensor>
+<new-destination-group *ngIf="openNewDestinationGroupModal" (submitNewDestinationGroup)="submitNewDestinationGroup($event)" (closeDestinationGroupModal)="closeNewDestinationGroupModal()"></new-destination-group>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

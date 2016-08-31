@@ -1,10 +1,11 @@
-import {Component, ViewChild, Output, EventEmitter, OnInit } from '@angular/core';
+import {Component, ViewChild, Output, EventEmitter, OnInit, ViewContainerRef } from '@angular/core';
 
 import { HttpService } from './http.service';
 
 import { Subscription } from './subscription';
 import { DestinationGroup } from './destination-group';
 import { Sensor } from './sensor';
+import { NewSensorComponent } from './new-sensor.component';
 
 @Component({
   selector: 'new-subscription',
@@ -21,7 +22,11 @@ export class NewSubscriptionComponent implements OnInit {
   sensors: Sensor[];
   mode = 'Observable';
 
-  constructor (private httpService: HttpService) {}
+  openNewSensorModal: boolean = false;
+  openNewDestinationGroupModal: boolean = false;
+
+  constructor (
+      private httpService: HttpService) {}
 
   ngOnInit() {
     this.getDestinationGroups();
@@ -49,5 +54,38 @@ export class NewSubscriptionComponent implements OnInit {
 
   onCancel() {
     this.cancel.emit();
+  }
+
+  onNewSensorClick() {
+    this.openNewSensorModal = true;
+  }
+
+  onNewDestinationGroupClick() {
+    this.openNewDestinationGroupModal = true;
+  }
+
+  submitNewSensor(sensor: Sensor) {
+    this.httpService.addSensor(sensor.sensorName)
+      .subscribe(
+            sensor => this.sensors.push(sensor),
+            error => this.errorMessage = <any>error);
+    this.openNewSensorModal = false;
+  }
+
+  submitNewDestinationGroup(destinationGroup: DestinationGroup) {
+    this.httpService.addDestinationGroup(destinationGroup.destinationGroupName, destinationGroup.destinationGroupAddress,
+                        destinationGroup.destinationGroupEncoding, destinationGroup.destinationGroupPort, destinationGroup.destinationGroupProtocol)
+      .subscribe(
+            destinationGroup => this.destinationGroups.push(destinationGroup),
+            error => this.errorMessage = <any>error);
+    this.openNewDestinationGroupModal = false;
+  }
+
+  closeNewSensorModal() {
+    this.openNewSensorModal = false;
+  }
+
+  closeNewDestinationGroupModal() {
+    this.openNewDestinationGroupModal = false;
   }
 }

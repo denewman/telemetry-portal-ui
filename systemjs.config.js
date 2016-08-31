@@ -7,13 +7,19 @@
     'app':                        'app', // 'dist',
     '@angular':                   'node_modules/@angular',
     'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
-    'rxjs':                       'node_modules/rxjs'
+    'rxjs':                       'node_modules/rxjs',
+    'tether':                     'node_modules/ng-lightning/node_modules/tether/dist/js',
+    'ts-helpers':                 'node_modules/ng-lightning/node_modules/ts-helpers',
+    'ng-lightning':               'node_modules/ng-lightning'
   };
   // packages tells the System loader how to load when no filename and/or no extension
   var packages = {
     'app':                        { main: 'main.js',  defaultExtension: 'js' },
     'rxjs':                       { defaultExtension: 'js' },
     'angular2-in-memory-web-api': { main: 'index.js', defaultExtension: 'js' },
+    'tether':                     { main: 'tether.js', defaultExtension: 'js' },
+    'ts-helpers':                 { main: 'index.js', defaultExtension: 'js' },
+    'ng-lightning':               { defaultExtenstion: 'js' }
   };
   var ngPackageNames = [
     'common',
@@ -26,6 +32,8 @@
     'router',
     'router-deprecated',
     'upgrade',
+    'tether',
+    'ts-helpers',
   ];
   // Individual files (~300 requests):
   function packIndex(pkgName) {

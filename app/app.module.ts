@@ -2,6 +2,7 @@ import { NgModule }      from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { NglModule, provideNglConfig } from 'ng-lightning/ng-lightning';
 
 import { AppComponent }  from './app.component';
 import { routing } from './app.routing';
@@ -21,6 +22,8 @@ import { ManagePolicyGroupsComponent } from './manage-policy-groups.component';
 import { HttpService } from './http.service';
 import { ConfigDataService } from './config-data.service';
 import { NewSubscriptionComponent } from './new-subscription.component';
+import { NewSensorComponent } from './new-sensor.component';
+import { NewDestinationGroupComponent } from './new-destination-group.component';
 
 @NgModule({
   imports:      [
@@ -28,7 +31,8 @@ import { NewSubscriptionComponent } from './new-subscription.component';
       FormsModule,
       routing,
       HttpModule,
-      JsonpModule
+      JsonpModule,
+      NglModule
   ],
   declarations: [
       AppComponent,
@@ -44,11 +48,15 @@ import { NewSubscriptionComponent } from './new-subscription.component';
       TabComponent,
       HomeComponent,
       SetConfigComponent,
-      NewSubscriptionComponent
+      NewSubscriptionComponent,
+      NewSensorComponent,
+      NewDestinationGroupComponent
+
   ],
     providers: [
         HttpService,
-        ConfigDataService
+        ConfigDataService,
+        provideNglConfig()
     ],
   bootstrap:    [ AppComponent ]
 })
