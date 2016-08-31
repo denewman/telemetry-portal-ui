@@ -1,15 +1,7 @@
-<tabs *ngIf="configDataService.selectedConfig.template=='Model Driven'">
+<tabs>
     <tab tabTitle="Subscription">
         <sub-home-buttons></sub-home-buttons>
     </tab>
-    <tab tabTitle="Visualization">
-        Content of visualization tab
-    </tab>
-    <tab tabTitle="Set Config">
-        <set-config></set-config>
-    </tab>
-</tabs>
-<tabs *ngIf="configDataService.selectedConfig.template=='Policy Driven'">
     <tab tabTitle="Policy">
         <policy-home-buttons></policy-home-buttons>
     </tab>
