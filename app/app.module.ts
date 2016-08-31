@@ -2,7 +2,6 @@ import { NgModule }      from '@angular/core';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { NglModule, provideNglConfig } from 'ng-lightning/ng-lightning';
 
 import { AppComponent }  from './app.component';
 import { routing } from './app.routing';
@@ -31,8 +30,7 @@ import { NewDestinationGroupComponent } from './new-destination-group.component'
       FormsModule,
       routing,
       HttpModule,
-      JsonpModule,
-      NglModule
+      JsonpModule
   ],
   declarations: [
       AppComponent,
@@ -55,8 +53,7 @@ import { NewDestinationGroupComponent } from './new-destination-group.component'
   ],
     providers: [
         HttpService,
-        ConfigDataService,
-        provideNglConfig()
+        ConfigDataService
     ],
   bootstrap:    [ AppComponent ]
 })
