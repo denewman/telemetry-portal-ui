@@ -1,0 +1,35 @@
+<table>
+    <tr>
+        <th>Name: </th>
+        <th>Collector:
+            <button class="add" (click)="onNewCollectorClick()">+</button>
+        </th>
+        <th>Policy:
+            <button class="add" (click)="onNewPolicyClick()">+</button>
+        </th>
+    </tr>
+    <tr>
+        <td><input class="name-input" #policyGroupName /></td>
+        <td>
+            <select #collectorName>
+                <option *ngFor="let collector of collectors" [value]="collector.collectorName">{{collector.collectorName}}</option>
+            </select>
+        </td>
+        <td>
+            <select #policyName>
+                <option *ngFor="let policy of policies" [value]="policy.policyName">{{policy.policyName}}</option>
+            </select>
+        </td>
+        <td>
+            <button class="submit" (click)="onSubmit(policyGroupName.value, collectorName.value,
+                policyName.value);
+                policyGroupName.value=''; collectorName.value=''; policyName.value='';">
+                Submit
+            </button>
+            <button class="cancel" (click)="onCancel()">Cancel</button>
+        </td>
+    </tr>
+</table>
+<new-collector *ngIf="openNewCollectorModal" (submitNewCollector)="submitNewCollector($event)" (closeCollectorModal)="closeNewCollectorModal()"></new-collector>
+<new-policy *ngIf="openNewPolicyModal" (submitNewPolicy)="submitNewPolicy($event)" (closePolicyModal)="closeNewPolicyModal()"></new-policy>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

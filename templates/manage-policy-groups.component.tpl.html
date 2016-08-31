@@ -1,4 +1,6 @@
 <div class="content">
-   <h2>Manage Policy Groups:</h2>
-   <policy-group-list></policy-group-list>
+   <h1>Policy Groups:</h1>
+   <button *ngIf="!newPolicy" (click)="onNewPolicyClick()">New Policy Group</button>
+   <new-policy-group *ngIf="newPolicy" (submit)="addPolicyGroup($event)" (cancel)="cancelNewPolicy()"></new-policy-group>
+   <policy-group-list [policyGroups]="policyGroups"></policy-group-list>
 </div>

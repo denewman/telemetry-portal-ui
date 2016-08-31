@@ -1,10 +1,15 @@
-<h2>Create Policy Group</h2>
-Name: <input #policyGroupName /> Group: <input #collector /> Sensor: <input #policy />
-<button (click)="addPolicyGroup(policyGroupName.value, collector.value, policy.value);
-    policyGroupName.value=''; collector.value=''; policy.value=''">Submit</button>
-<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>
-<h2>Policy Group List:</h2>
-<div *ngFor="let policyGroup of policyGroups">
-  Policy Group: {{policyGroup.policyGroupName}}    |   {{policyGroup.collector}}   |   {{policyGroup.policy}}
-</div>
+<table>
+<tr>
+    <th>Name</th>
+    <th>Collector</th>
+    <th>Policy</th>
+    <th>Edit</th>
+</tr>
+<tr *ngFor="let pol of policyGroups">
+    <td>{{pol.policyGroupName}}</td>
+    <td>{{pol.collectorName}}</td>
+    <td>{{pol.policyName}}</td>
+    <td>edit</td>
+</tr>
+</table>
 <div *ngIf="errorMessage">{{errorMessage}}</div>

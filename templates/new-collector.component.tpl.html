@@ -1,0 +1,29 @@
+<div class="popup">
+    <h2>New Collector</h2>
+    <table>
+        <tr>
+            <td>
+               Name: <input type="text" #name />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address: <input type="text" #address />
+            </td>
+            <td>
+                Encoding: <input type="text" #encoding />
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Port: <input type="text" #port />
+            </td>
+            <td>
+                Protocol: <input type="text" #protocol />
+            </td>
+        </tr>
+    </table>
+
+    <button class="submit" (click)="submit(name.value, address.value, encoding.value, port.value, protocol.value)">Submit</button>
+    <button class="cancel" (click)="cancel()">Cancel</button>
+</div>

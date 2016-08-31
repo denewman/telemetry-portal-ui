@@ -23,6 +23,9 @@ import { ConfigDataService } from './config-data.service';
 import { NewSubscriptionComponent } from './new-subscription.component';
 import { NewSensorComponent } from './new-sensor.component';
 import { NewDestinationGroupComponent } from './new-destination-group.component';
+import { NewPolicyGroupComponent } from './new-policy-group.component';
+import { NewCollectorComponent } from './new-collector.component';
+import { NewPolicyComponent } from './new-policy.component';
 
 @NgModule({
   imports:      [
@@ -48,7 +51,10 @@ import { NewDestinationGroupComponent } from './new-destination-group.component'
       SetConfigComponent,
       NewSubscriptionComponent,
       NewSensorComponent,
-      NewDestinationGroupComponent
+      NewDestinationGroupComponent,
+      NewPolicyGroupComponent,
+      NewCollectorComponent,
+      NewPolicyComponent
 
   ],
     providers: [

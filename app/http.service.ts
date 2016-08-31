@@ -6,6 +6,8 @@ import { Subscription } from './subscription';
 import { PolicyGroup } from './policy-group';
 import { DestinationGroup } from './destination-group';
 import { Sensor } from './sensor';
+import { Collector } from './collector';
+import { Policy } from './policy';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -13,9 +15,11 @@ export class HttpService {
     constructor (private http: Http) {}
 
     private subscriptionUrl = 'http://localhost:5002/subscription';
-    private policyGroupUrl = 'http://localhost:5002/policyGroups';
+    private policyGroupUrl = 'http://localhost:5002/policyGroup';
     private destinationGroupUrl = 'http://localhost:5002/destinationGroup';
     private sensorUrl = 'http://localhost:5002/sensor';
+    private collectorUrl = 'http://localhost:5002/collector';
+    private policyUrl = 'http://localhost:5002/policy';
 
     getSubscriptions(): Observable<Subscription[]> {
         return this.http.get(this.subscriptionUrl)
@@ -35,16 +39,16 @@ export class HttpService {
 
     getPolicyGroups(): Observable<PolicyGroup[]> {
         return this.http.get(this.policyGroupUrl)
-            .map(this.extractPolicyData)
+            .map(this.extractPolicyGroupData)
             .catch(this.handleError);
     }
-    addPolicyGroup (policyGroupName: string, collector: string, policy: string): Observable<PolicyGroup> {
-        let body = JSON.stringify({ policyGroupName, collector, policy });
+    addPolicyGroup (policyGroupName: string, collectorName: string, policyName: string): Observable<PolicyGroup> {
+        let body = JSON.stringify({ policyGroupName, collectorName, policyName });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.policyGroupUrl, body, options)
-            .map(this.extractPolicyData)
+            .map(this.extractPolicyGroupData)
             .catch(this.handleError);
     }
 
@@ -82,12 +86,52 @@ export class HttpService {
             .catch(this.handleError);
     }
 
+    getCollectors(): Observable<Collector[]> {
+        return this.http.get(this.collectorUrl)
+            .map(this.extractCollectorData)
+            .catch(this.handleError);
+    }
+
+    addCollector (collectorName: string, collectorAddress: string,
+                         collectorEncoding: string, collectorPort: string,
+                         collectorProtocol: string): Observable<Collector> {
+        let body = JSON.stringify({ collectorName, collectorAddress,
+                                    collectorEncoding, collectorPort,
+                                    collectorProtocol});
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.collectorUrl, body, options)
+            .map(this.extractCollectorData)
+            .catch(this.handleError);
+    }
+
+    getPolicies(): Observable<Policy[]> {
+        return this.http.get(this.policyUrl)
+            .map(this.extractPolicyData)
+            .catch(this.handleError);
+    }
+
+    addPolicy (policyName: string, policyDescription: string,
+                         policyComment: string, policyIdentifier: string,
+                         policyPeriod: number): Observable<Policy> {
+        let body = JSON.stringify({ policyName, policyDescription,
+                                    policyComment, policyIdentifier,
+                                    policyPeriod});
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.policyUrl, body, options)
+            .map(this.extractPolicyData)
+            .catch(this.handleError);
+    }
+
     private extractData(res: Response) {
         let body = res.json();
         return body.subscription || {};
     }
 
-    private extractPolicyData(res: Response) {
+    private extractPolicyGroupData(res: Response) {
         let body = res.json();
         return body.policyGroup || {};
     }
@@ -100,6 +144,16 @@ export class HttpService {
     private extractSensorData(res: Response) {
         let body = res.json();
         return body.sensor || {};
+    }
+
+    private extractCollectorData(res: Response) {
+        let body = res.json();
+        return body.collector || {};
+    }
+
+    private extractPolicyData(res: Response) {
+        let body = res.json();
+        return body.policy || {};
     }
 
     private handleError (error: any) {
