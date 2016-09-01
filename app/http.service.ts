@@ -76,8 +76,8 @@ export class HttpService {
             .map(this.extractSensorData)
             .catch(this.handleError);
     }
-    addSensor (sensorName: string): Observable<Sensor> {
-        let body = JSON.stringify({ sensorName });
+    addSensor (sensorName: string, sensorPaths: string[]): Observable<Sensor> {
+        let body = JSON.stringify({ sensorName, sensorPaths });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

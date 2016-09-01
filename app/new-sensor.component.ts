@@ -11,8 +11,31 @@ export class NewSensorComponent {
     @Output() closeSensorModal: EventEmitter<any> = new EventEmitter<any>();
     @Output() submitNewSensor: EventEmitter<Sensor> = new EventEmitter<Sensor>();
 
+    paths = ['Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
+        'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/...'];
+    pathsMap = {
+        'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters': false,
+        'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/...': false
+    };
+    pathsSelected = [];
+
+    setSelected(path, event) {
+        this.pathsMap[path] = event.target.checked;
+    }
+
+    updatePathsSelected() {
+        for (var x in this.pathsMap) {
+            if (this.pathsMap[x]) {
+                this.pathsSelected.push(x);
+            }
+        }
+        this.paths = this.pathsSelected;
+        this.pathsSelected = [];
+    }
+
     submit(sensorName: string) {
-        this.submitNewSensor.emit(new Sensor(sensorName));
+        this.updatePathsSelected();
+        this.submitNewSensor.emit(new Sensor(sensorName, this.paths));
     }
 
     cancel() {

@@ -1,9 +1,8 @@
 .popup {
-    margin: 100px auto;
     padding: 20px;
     background: #fff;
     border: 1px solid #666;
-    width: 350px;
+    width: 850px;
     border-radius: 6px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     position: absolute;
@@ -11,9 +10,24 @@
     right: 75px;
 }
 
-input {
+.form {
+    text-align: left;
+}
+
+.nameInput {
     font-size: 20px;
     width: 200px;
+    text-align: left;
+}
+
+.select {
+    font-size: 12px;
+    text-align: left;
+}
+
+.options {
+    text-align: left;
+    font-size: 20px;
 }
 
 button {

@@ -1,6 +1,14 @@
 <div class="popup">
+    <div class="form">
     <h2>New Sensor</h2>
-    Sensor Name: <input type="text" #sensorName />
+    Sensor Name: <input class="nameInput" type="text" #sensorName />
+    <div class="options">
+        Paths:
+        <div *ngFor="let path of paths">
+            <input class="select" type="checkbox" name="paths" value="{{ path }}" (change)="setSelected(path, $event)" />{{ path }}
+        </div>
+    </div>
+    </div>
     <button class="submit" (click)="submit(sensorName.value)">Submit</button>
     <button class="cancel" (click)="cancel()">Cancel</button>
 </div>

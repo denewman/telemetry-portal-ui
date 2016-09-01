@@ -1,4 +1,5 @@
 export class Sensor {
   constructor(
-    public sensorName: string) { }
+    public sensorName: string,
+    public sensorPaths: string[]) { }
 }
