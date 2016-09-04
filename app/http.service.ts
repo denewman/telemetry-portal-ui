@@ -14,12 +14,14 @@ import { Observable } from 'rxjs/Observable';
 export class HttpService {
     constructor (private http: Http) {}
 
-    private subscriptionUrl = 'http://localhost:5002/subscription';
-    private policyGroupUrl = 'http://localhost:5002/policyGroup';
-    private destinationGroupUrl = 'http://localhost:5002/destinationGroup';
-    private sensorUrl = 'http://localhost:5002/sensor';
-    private collectorUrl = 'http://localhost:5002/collector';
-    private policyUrl = 'http://localhost:5002/policy';
+    private url = "http://localhost:5002";
+
+    private subscriptionUrl = this.url + '/subscription';
+    private policyGroupUrl = this.url + '/policyGroup';
+    private destinationGroupUrl = this.url + '/destinationGroup';
+    private sensorUrl = this.url + '/sensor';
+    private collectorUrl = this.url + '/collector';
+    private policyUrl = this.url + '/policy';
 
     getSubscriptions(): Observable<Subscription[]> {
         return this.http.get(this.subscriptionUrl)
