@@ -1,0 +1,15 @@
+<table>
+<tr>
+    <th>Policy Group</th>
+    <th>Routers</th>
+    <th>on/off</th>
+    <th>Delete</th>
+</tr>
+<tr *ngFor="let link of policyRouterLinks">
+    <td>{{link.policyGroupName}}</td>
+    <td>{{link.routers}}</td>
+    <td>on/off</td>
+    <td>delete</td>
+</tr>
+</table>
+<div *ngIf="errorMessage">{{errorMessage}}</div>

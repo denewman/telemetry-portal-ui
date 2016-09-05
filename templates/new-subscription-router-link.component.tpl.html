@@ -1,0 +1,25 @@
+<table>
+    <tr>
+        <th>Subscription Name:</th>
+        <th>Routers:
+            <button class="add">+</button>
+        </th>
+    </tr>
+    <tr>
+        <td>
+            <select #subscriptionName>
+                <option *ngFor="let sub of subscriptions" [value]="sub.subscriptionName">{{sub.subscriptionName}}</option>
+            </select>
+        </td>
+        <td>
+            routers
+        </td>
+        <td>
+            <button class="submit" (click)="onSubmit(subscriptionName.value, routerName.value);
+                subscriptionName.value=''; routerName.value='';">
+                Submit
+            </button>
+            <button class="cancel" (click)="onCancel()">Cancel</button>
+        </td>
+    </tr>
+</table>

@@ -1,4 +1,4 @@
-import {Component, ViewChild, Output, EventEmitter, OnInit, ViewContainerRef } from '@angular/core';
+import {Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { HttpService } from './http.service';
 
@@ -74,7 +74,7 @@ export class NewPolicyGroupComponent implements OnInit {
 
   submitNewPolicy(policy: Policy) {
     this.httpService.addPolicy(policy.policyName, policy.policyDescription,
-                        policy.policyComment, policy.policyIdentifier, policy.policyPeriod)
+                        policy.policyComment, policy.policyIdentifier, policy.policyPeriod, policy.policyPaths)
       .subscribe(
             policy => this.policies.push(policy),
             error => this.errorMessage = <any>error);

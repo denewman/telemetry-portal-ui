@@ -26,6 +26,10 @@ import { NewDestinationGroupComponent } from './new-destination-group.component'
 import { NewPolicyGroupComponent } from './new-policy-group.component';
 import { NewCollectorComponent } from './new-collector.component';
 import { NewPolicyComponent } from './new-policy.component';
+import { SubscriptionRouterLinkListComponent } from './subscription-router-link-list.component';
+import { PolicyRouterLinkListComponent } from './policy-router-link-list.component';
+import { NewSubscriptionRouterLinkComponent } from './new-subscription-router-link.component';
+import { NewPolicyRouterLinkComponent } from './new-policy-router-link.component';
 
 @NgModule({
   imports:      [
@@ -54,7 +58,11 @@ import { NewPolicyComponent } from './new-policy.component';
       NewDestinationGroupComponent,
       NewPolicyGroupComponent,
       NewCollectorComponent,
-      NewPolicyComponent
+      NewPolicyComponent,
+      SubscriptionRouterLinkListComponent,
+      PolicyRouterLinkListComponent,
+      NewSubscriptionRouterLinkComponent,
+      NewPolicyRouterLinkComponent
 
   ],
     providers: [

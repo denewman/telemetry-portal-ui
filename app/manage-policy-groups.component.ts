@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HttpService } from './http.service';
 
@@ -17,7 +18,7 @@ export class ManagePolicyGroupsComponent implements OnInit {
 
   newPolicy: boolean = false;
 
-  constructor (private httpService: HttpService) {}
+  constructor (private httpService: HttpService, private router: Router) {}
 
   ngOnInit() { this.getPolicyGroups() }
 
@@ -43,5 +44,9 @@ export class ManagePolicyGroupsComponent implements OnInit {
 
   cancelNewPolicy() {
     this.newPolicy = false;
+  }
+
+  goToHome() {
+    this.router.navigate(['/home'])
   }
 }

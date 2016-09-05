@@ -1,4 +1,4 @@
-import {Component, ViewChild, Output, EventEmitter, OnInit, ViewContainerRef } from '@angular/core';
+import {Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { HttpService } from './http.service';
 

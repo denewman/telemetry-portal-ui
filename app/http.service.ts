@@ -8,6 +8,10 @@ import { DestinationGroup } from './destination-group';
 import { Sensor } from './sensor';
 import { Collector } from './collector';
 import { Policy } from './policy';
+import { Router } from './router';
+import { SubscriptionRouterLink } from './subscription-router-link';
+import { PolicyRouterLink } from './policy-router-link';
+
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -22,6 +26,9 @@ export class HttpService {
     private sensorUrl = this.url + '/sensor';
     private collectorUrl = this.url + '/collector';
     private policyUrl = this.url + '/policy';
+    private routerUrl = this.url + '/router';
+    private subscriptionRouterLinkUrl = this.url + '/subscriptionRouterLink';
+    private policyRouterLinkUrl = this.url + '/policyRouterLink';
 
     getSubscriptions(): Observable<Subscription[]> {
         return this.http.get(this.subscriptionUrl)
@@ -116,15 +123,60 @@ export class HttpService {
 
     addPolicy (policyName: string, policyDescription: string,
                          policyComment: string, policyIdentifier: string,
-                         policyPeriod: number): Observable<Policy> {
+                         policyPeriod: number, policyPaths: string[]): Observable<Policy> {
         let body = JSON.stringify({ policyName, policyDescription,
                                     policyComment, policyIdentifier,
-                                    policyPeriod});
+                                    policyPeriod, policyPaths});
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.policyUrl, body, options)
             .map(this.extractPolicyData)
+            .catch(this.handleError);
+    }
+
+    getRouters(): Observable<Router[]> {
+        return this.http.get(this.routerUrl)
+            .map(this.extractRouterData)
+            .catch(this.handleError);
+    }
+    addRouter (routerName: string, routerAddress: string): Observable<Sensor> {
+        let body = JSON.stringify({ routerName, routerAddress });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.routerUrl, body, options)
+            .map(this.extractRouterData)
+            .catch(this.handleError);
+    }
+
+    getSubscriptionRouterLinks(): Observable<SubscriptionRouterLink[]> {
+        return this.http.get(this.subscriptionRouterLinkUrl)
+            .map(this.extractSubscriptionRouterLinkData)
+            .catch(this.handleError);
+    }
+    addSubscriptionRouterLink (subscriptionName: string, routers: string[]): Observable<SubscriptionRouterLink> {
+        let body = JSON.stringify({ subscriptionName, routers });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.subscriptionRouterLinkUrl, body, options)
+            .map(this.extractSubscriptionRouterLinkData)
+            .catch(this.handleError);
+    }
+
+    getPolicyRouterLinks(): Observable<PolicyRouterLink[]> {
+        return this.http.get(this.policyRouterLinkUrl)
+            .map(this.extractPolicyRouterLinkData)
+            .catch(this.handleError);
+    }
+    addPolicyRouterLink (policyName: string, routers: string[]): Observable<PolicyRouterLink> {
+        let body = JSON.stringify({ policyName, routers });
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+
+        return this.http.post(this.policyRouterLinkUrl, body, options)
+            .map(this.extractPolicyRouterLinkData)
             .catch(this.handleError);
     }
 
@@ -156,6 +208,21 @@ export class HttpService {
     private extractPolicyData(res: Response) {
         let body = res.json();
         return body.policy || {};
+    }
+
+    private extractRouterData(res: Response) {
+        let body = res.json();
+        return body.router || {};
+    }
+
+    private extractSubscriptionRouterLinkData(res: Response) {
+        let body = res.json();
+        return body.subscriptionRouterLink || {};
+    }
+
+    private extractPolicyRouterLinkData(res: Response) {
+        let body = res.json();
+        return body.policyRouterLink || {};
     }
 
     private handleError (error: any) {

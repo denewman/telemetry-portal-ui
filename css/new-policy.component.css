@@ -27,6 +27,16 @@ input {
     font-size: 20px;
 }
 
+.select {
+    font-size: 12px;
+    text-align: left;
+}
+
+.options {
+    text-align: left;
+    font-size: 20px;
+}
+
 button {
     background-color: #4CAF50; /* Green */
     border: none;

@@ -23,6 +23,12 @@
             </td>
         </tr>
     </table>
+    <div class="options">
+        Paths:
+        <div *ngFor="let path of paths">
+            <input class="select" type="checkbox" name="paths" value="{{ path }}" (change)="setSelected(path, $event)" />{{ path }}
+        </div>
+    </div>
 
     <button class="submit" (click)="submit(name.value, description.value, comment.value, identifier.value, period.value)">Submit</button>
     <button class="cancel" (click)="cancel()">Cancel</button>

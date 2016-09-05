@@ -11,10 +11,33 @@ export class NewPolicyComponent {
     @Output() closePolicyModal: EventEmitter<any> = new EventEmitter<any>();
     @Output() submitNewPolicy: EventEmitter<Policy> = new EventEmitter<Policy>();
 
+    paths = ['RootOper.InfraStatistics.Interface(*).Latest.GenericCounters',
+        'RootOper.InfraStatistics.Interface(*).Latest...'];
+    pathsMap = {
+        'RootOper.InfraStatistics.Interface(*).Latest.GenericCounters': false,
+        'RootOper.InfraStatistics.Interface(*).Latest...': false
+    };
+    pathsSelected = [];
+
+    setSelected(path, event) {
+        this.pathsMap[path] = event.target.checked;
+    }
+
+    updatePathsSelected() {
+        for (var x in this.pathsMap) {
+            if (this.pathsMap[x]) {
+                this.pathsSelected.push(x);
+            }
+        }
+        this.paths = this.pathsSelected;
+        this.pathsSelected = [];
+    }
+
     submit(policyName: string, policyDescription: string, policyComment: string,
            policyIdentifier: string, policyPeriod: number) {
+        this.updatePathsSelected();
         this.submitNewPolicy.emit(new Policy(policyName, policyDescription,
-                            policyComment, policyIdentifier, policyPeriod));
+                            policyComment, policyIdentifier, policyPeriod, this.paths));
     }
 
     cancel() {

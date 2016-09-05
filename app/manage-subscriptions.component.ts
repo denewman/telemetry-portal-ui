@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { HttpService } from './http.service';
 
@@ -18,7 +19,7 @@ export class ManageSubscriptionsComponent implements OnInit {
 
   newSubscription: boolean = false;
 
-  constructor (private httpService: HttpService) {}
+  constructor (private httpService: HttpService, private router: Router) {}
 
   ngOnInit() { this.getSubscriptions(); }
 
@@ -45,5 +46,10 @@ export class ManageSubscriptionsComponent implements OnInit {
   cancelNewSubscription() {
     this.newSubscription = false;
   }
+
+  goToHome() {
+    this.router.navigate(['/home'])
+  }
+
 
 }

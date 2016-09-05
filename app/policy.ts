@@ -4,5 +4,6 @@ export class Policy {
     public policyDescription: string,
     public policyComment: string,
     public policyIdentifier: string,
-    public policyPeriod: number) { }
+    public policyPeriod: number,
+    public policyPaths: string[]) { }
 }

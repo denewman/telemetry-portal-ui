@@ -1,3 +1,7 @@
+<button (click)="goToHome()">Home</button>
 <div class="content">
-   <h2>Apply Subscriptions:</h2>
+   <h1>Apply Subscription:</h1>
+   <button *ngIf="!newSubscriptionRouterLink" (click)="onNewSubscriptionRouterLinkClick()">Apply Subscription</button>
+    <new-subscription-router-link *ngIf="newSubscriptionRouterLink" (submit)="addSubscriptionRouterLink($event)" (cancel)="cancelNewSubscriptionRouterLink()"></new-subscription-router-link>
+   <subscription-router-link-list [subscriptionRouterLinks]="subscriptionRouterLinks"></subscription-router-link-list>
 </div>

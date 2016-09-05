@@ -1,3 +1,6 @@
+<button (click)="goToHome()">Home</button>
 <div class="content">
-   <h2>Apply Policy Groups:</h2>
+   <h1>Apply Policy:</h1>
+   <button *ngIf="!newPolicyRouterLink" (click)="onNewPolicyRouterLinkClick()">Apply Policy</button>
+   <policy-router-link-list [policyRouterLinks]="policyRouterLinks"></policy-router-link-list>
 </div>
