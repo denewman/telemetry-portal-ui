@@ -13,11 +13,10 @@
         </td>
         <td>
             <div class="options">
-        Routers:
-        <div *ngFor="let router of routers">
-            <input class="select" type="checkbox" name="routers" value="{{ router.routerName }}" (change)="setSelected(router.routerName, $event)" />{{ router.routerName }}
-        </div>
-    </div>
+                <div *ngFor="let router of routers">
+                    <input class="select" type="checkbox" name="routers" value="{{ router.routerName }}" (change)="setSelected(router.routerName, $event)" />{{ router.routerName }}
+                </div>
+            </div>
         </td>
         <td>
             <button class="submit" (click)="onSubmit(subscriptionName.value);

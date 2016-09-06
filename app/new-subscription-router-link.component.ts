@@ -61,7 +61,7 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
   }
 
   onSubmit(subscriptionName: string) {
-    this.submit.emit(new SubscriptionRouterLink(subscriptionName, this.routersSelected, true));
+    this.submit.emit(new SubscriptionRouterLink(0, subscriptionName, this.routersSelected, true));
     this.routersSelected = [];
   }
 

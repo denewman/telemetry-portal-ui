@@ -165,11 +165,18 @@ export class HttpService {
             .catch(this.handleError);
     }
 
+    deleteSubscriptionRouterLink (linkId: number): Observable<any> {
+        return this.http.delete(this.subscriptionRouterLinkUrl + '/' + linkId)
+            .map((res:Response) => res.json())
+            .catch(this.handleError);
+    }
+
     getPolicyRouterLinks(): Observable<PolicyRouterLink[]> {
         return this.http.get(this.policyRouterLinkUrl)
             .map(this.extractPolicyRouterLinkData)
             .catch(this.handleError);
     }
+
     addPolicyRouterLink (policyGroupName: string, routers: string[], status: boolean): Observable<PolicyRouterLink> {
         let body = JSON.stringify({ policyGroupName, routers, status });
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -177,6 +184,12 @@ export class HttpService {
 
         return this.http.post(this.policyRouterLinkUrl, body, options)
             .map(this.extractPolicyRouterLinkData)
+            .catch(this.handleError);
+    }
+
+    deletePolicyRouterLink (linkId: number): Observable<any> {
+        return this.http.delete(this.policyRouterLinkUrl + '/' + linkId)
+            .map((res:Response) => res.json())
             .catch(this.handleError);
     }
 

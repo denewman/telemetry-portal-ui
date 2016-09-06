@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 
 import { PolicyRouterLink } from './policy-router-link';
 import './rxjs-operators';
+import {HttpService} from "./http.service";
 
 @Component({
   selector: 'policy-router-link-list',
@@ -10,5 +11,16 @@ import './rxjs-operators';
 })
 export class PolicyRouterLinkListComponent {
   @Input() policyRouterLinks: PolicyRouterLink[];
+
+  errorMessage: string;
+
+  constructor(private httpService: HttpService) { }
+
+  onDelete(policyRouterLink: PolicyRouterLink) {
+    this.httpService.deletePolicyRouterLink(policyRouterLink.linkId)
+        .subscribe();
+    var index = this.policyRouterLinks.indexOf(policyRouterLink);
+    this.policyRouterLinks.splice(index, 1);
+    }
 
 }

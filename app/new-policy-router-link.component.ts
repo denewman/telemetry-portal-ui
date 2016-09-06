@@ -61,7 +61,7 @@ export class NewPolicyRouterLinkComponent implements OnInit {
   }
 
   onSubmit(policyName: string) {
-    this.submit.emit(new PolicyRouterLink(policyName, this.routersSelected, true));
+    this.submit.emit(new PolicyRouterLink(0, policyName, this.routersSelected, true));
     this.routersSelected = [];
   }
 

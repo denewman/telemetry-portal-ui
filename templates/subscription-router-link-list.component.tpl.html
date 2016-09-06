@@ -9,7 +9,7 @@
     <td>{{link.subscriptionName}}</td>
     <td>{{link.routers}}</td>
     <td>{{ link.status }}</td>
-    <td>delete</td>
+    <td><a href="javascript:void(0)" (click)="onDelete(link)">delete</a></td>
 </tr>
 </table>
 <div *ngIf="errorMessage">{{errorMessage}}</div>
