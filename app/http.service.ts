@@ -140,7 +140,7 @@ export class HttpService {
             .map(this.extractRouterData)
             .catch(this.handleError);
     }
-    addRouter (routerName: string, routerAddress: string): Observable<Sensor> {
+    addRouter (routerName: string, routerAddress: string): Observable<Router> {
         let body = JSON.stringify({ routerName, routerAddress });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
@@ -155,8 +155,8 @@ export class HttpService {
             .map(this.extractSubscriptionRouterLinkData)
             .catch(this.handleError);
     }
-    addSubscriptionRouterLink (subscriptionName: string, routers: string[]): Observable<SubscriptionRouterLink> {
-        let body = JSON.stringify({ subscriptionName, routers });
+    addSubscriptionRouterLink (subscriptionName: string, routers: string[], status: boolean): Observable<SubscriptionRouterLink> {
+        let body = JSON.stringify({ subscriptionName, routers, status });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
@@ -170,8 +170,8 @@ export class HttpService {
             .map(this.extractPolicyRouterLinkData)
             .catch(this.handleError);
     }
-    addPolicyRouterLink (policyName: string, routers: string[]): Observable<PolicyRouterLink> {
-        let body = JSON.stringify({ policyName, routers });
+    addPolicyRouterLink (policyGroupName: string, routers: string[], status: boolean): Observable<PolicyRouterLink> {
+        let body = JSON.stringify({ policyGroupName, routers, status });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

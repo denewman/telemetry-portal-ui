@@ -1,0 +1,9 @@
+<div class="popup">
+    <div class="form">
+    <h2>New Router</h2>
+    Router Name: <input class="nameInput" type="text" #routerName />
+    Router Address: <input class="nameInput" type="text" #routerAddress />
+    </div>
+    <button class="submit" (click)="submit(routerName.value, routerAddress.value)">Submit</button>
+    <button class="cancel" (click)="cancel()">Cancel</button>
+</div>

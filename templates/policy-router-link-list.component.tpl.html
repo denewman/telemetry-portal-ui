@@ -8,7 +8,7 @@
 <tr *ngFor="let link of policyRouterLinks">
     <td>{{link.policyGroupName}}</td>
     <td>{{link.routers}}</td>
-    <td>on/off</td>
+    <td>{{ link.status }}</td>
     <td>delete</td>
 </tr>
 </table>

@@ -2,7 +2,7 @@
     <tr>
         <th>Subscription Name:</th>
         <th>Routers:
-            <button class="add">+</button>
+            <button class="add" (click)="onNewRouterClick()">+</button>
         </th>
     </tr>
     <tr>
@@ -12,14 +12,21 @@
             </select>
         </td>
         <td>
-            routers
+            <div class="options">
+        Routers:
+        <div *ngFor="let router of routers">
+            <input class="select" type="checkbox" name="routers" value="{{ router.routerName }}" (change)="setSelected(router.routerName, $event)" />{{ router.routerName }}
+        </div>
+    </div>
         </td>
         <td>
-            <button class="submit" (click)="onSubmit(subscriptionName.value, routerName.value);
-                subscriptionName.value=''; routerName.value='';">
+            <button class="submit" (click)="onSubmit(subscriptionName.value);
+                subscriptionName.value='';">
                 Submit
             </button>
             <button class="cancel" (click)="onCancel()">Cancel</button>
         </td>
     </tr>
 </table>
+<new-router *ngIf="openNewRouterModal" (submitNewRouter)="submitNewRouter($event)" (closeRouterModal)="closeNewRouterModal()"></new-router>
+<div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

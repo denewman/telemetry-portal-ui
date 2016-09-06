@@ -8,7 +8,8 @@ import { SubscriptionRouterLinkListComponent } from './subscription-router-link-
 
 @Component({
   selector: 'apply-subscriptions',
-  templateUrl: '../templates/apply-subscriptions.component.tpl.html'
+  templateUrl: '../templates/apply-subscriptions.component.tpl.html',
+  styleUrls: ['../css/apply-subscriptions.component.css']
 })
 export class ApplySubscriptionsComponent implements OnInit {
   errorMessage: string;
@@ -29,7 +30,8 @@ export class ApplySubscriptionsComponent implements OnInit {
   }
 
   addSubscriptionRouterLink(subscriptionRouterLink: SubscriptionRouterLink) {
-    this.httpService.addSubscriptionRouterLink(subscriptionRouterLink.subscriptionName, subscriptionRouterLink.routers)
+    this.httpService.addSubscriptionRouterLink(subscriptionRouterLink.subscriptionName,
+        subscriptionRouterLink.routers, subscriptionRouterLink.status)
         .subscribe(
             subscriptionRouterLink => this.subscriptionRouterLinks.push(subscriptionRouterLink),
             error => this.errorMessage = <any>error);

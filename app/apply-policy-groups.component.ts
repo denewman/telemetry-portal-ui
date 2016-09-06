@@ -8,7 +8,8 @@ import { PolicyRouterLinkListComponent } from './policy-router-link-list.compone
 
 @Component({
   selector: 'apply-policy-groups',
-  templateUrl: '../templates/apply-policy-groups.component.tpl.html'
+  templateUrl: '../templates/apply-policy-groups.component.tpl.html',
+  styleUrls: ['../css/apply-policy-groups.component.css']
 })
 export class ApplyPolicyGroupsComponent {
   errorMessage: string;
@@ -29,7 +30,8 @@ export class ApplyPolicyGroupsComponent {
   }
 
   addPolicyRouterLink(policyRouterLink: PolicyRouterLink) {
-    this.httpService.addPolicyRouterLink(policyRouterLink.policyName, policyRouterLink.routers)
+    this.httpService.addPolicyRouterLink(policyRouterLink.policyName,
+        policyRouterLink.routers, policyRouterLink.status)
         .subscribe(
             policyRouterLink => this.policyRouterLinks.push(policyRouterLink),
             error => this.errorMessage = <any>error);

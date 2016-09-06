@@ -30,6 +30,7 @@ import { SubscriptionRouterLinkListComponent } from './subscription-router-link-
 import { PolicyRouterLinkListComponent } from './policy-router-link-list.component';
 import { NewSubscriptionRouterLinkComponent } from './new-subscription-router-link.component';
 import { NewPolicyRouterLinkComponent } from './new-policy-router-link.component';
+import { NewRouterComponent } from './new-router.component';
 
 @NgModule({
   imports:      [
@@ -62,7 +63,8 @@ import { NewPolicyRouterLinkComponent } from './new-policy-router-link.component
       SubscriptionRouterLinkListComponent,
       PolicyRouterLinkListComponent,
       NewSubscriptionRouterLinkComponent,
-      NewPolicyRouterLinkComponent
+      NewPolicyRouterLinkComponent,
+      NewRouterComponent
 
   ],
     providers: [
