@@ -1,6 +1,9 @@
 export class Config {
 
     constructor(
-        public selectedTab: number
+        public configOption: string,
+        public username: string,
+        public password: string,
+        public port: number
     ) { }
 }
