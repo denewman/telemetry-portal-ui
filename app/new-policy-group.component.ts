@@ -73,7 +73,7 @@ export class NewPolicyGroupComponent implements OnInit {
   }
 
   submitNewPolicy(policy: Policy) {
-    this.httpService.addPolicy(policy.policyName, policy.policyDescription,
+    this.httpService.addPolicy(policy.policyName, policy.policyVersion, policy.policyDescription,
                         policy.policyComment, policy.policyIdentifier, policy.policyPeriod, policy.policyPaths)
       .subscribe(
             policy => this.policies.push(policy),

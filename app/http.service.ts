@@ -121,10 +121,10 @@ export class HttpService {
             .catch(this.handleError);
     }
 
-    addPolicy (policyName: string, policyDescription: string,
+    addPolicy (policyName: string, policyVersion: number, policyDescription: string,
                          policyComment: string, policyIdentifier: string,
                          policyPeriod: number, policyPaths: string[]): Observable<Policy> {
-        let body = JSON.stringify({ policyName, policyDescription,
+        let body = JSON.stringify({ policyName, policyVersion, policyDescription,
                                     policyComment, policyIdentifier,
                                     policyPeriod, policyPaths});
         let headers = new Headers({ 'Content-Type': 'application/json' });

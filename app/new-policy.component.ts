@@ -33,10 +33,10 @@ export class NewPolicyComponent {
         this.pathsSelected = [];
     }
 
-    submit(policyName: string, policyDescription: string, policyComment: string,
+    submit(policyName: string, policyVersion: number, policyDescription: string, policyComment: string,
            policyIdentifier: string, policyPeriod: number) {
         this.updatePathsSelected();
-        this.submitNewPolicy.emit(new Policy(policyName, policyDescription,
+        this.submitNewPolicy.emit(new Policy(policyName, policyVersion, policyDescription,
                             policyComment, policyIdentifier, policyPeriod, this.paths));
     }
 

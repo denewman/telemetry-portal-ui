@@ -5,6 +5,9 @@
             <td>
                Name: <input type="text" #name />
             </td>
+            <td>
+               Version: <input type="number" #version />
+            </td>
         </tr>
         <tr>
             <td>
@@ -30,6 +33,6 @@
         </div>
     </div>
 
-    <button class="submit" (click)="submit(name.value, description.value, comment.value, identifier.value, period.value)">Submit</button>
+    <button class="submit" (click)="submit(name.value, version.value, description.value, comment.value, identifier.value, period.value)">Submit</button>
     <button class="cancel" (click)="cancel()">Cancel</button>
 </div>
