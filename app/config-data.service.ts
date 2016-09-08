@@ -3,15 +3,16 @@ import { Config } from './config';
 
 @Injectable()
 export class ConfigDataService {
-    selectedConfig: Config;
+    selectedTab: number;
     constructor() {
-        console.log('data service initialized...');
-        this.selectedConfig = new Config('Model Driven');
+        this.selectedTab = 0;
     }
-    setSelectedConfig(template: string) {
-        this.selectedConfig = new Config(template);
+    setSelectedTab(selectedTab: number) {
+        console.log('setting '+ selectedTab + ' as selected tab');
+        this.selectedTab = selectedTab;
     }
-    getSelectedConfig() {
-        return this.selectedConfig;
+    getSelectedTab() {
+        console.log('getting ' + this.selectedTab + 'as selected tab');
+        return this.selectedTab;
     }
 }

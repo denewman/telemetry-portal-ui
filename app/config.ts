@@ -1,6 +1,6 @@
 export class Config {
 
     constructor(
-        public template: string
+        public selectedTab: number
     ) { }
 }

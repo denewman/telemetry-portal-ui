@@ -1,4 +1,7 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+
+import { ConfigDataService } from './config-data.service';
+
 import { SubHomeButtonComponent } from './sub-homebuttons.component';
 import { TabComponent } from './tab.component';
 import { Tab } from './tab.interface';
@@ -11,8 +14,12 @@ import { Tab } from './tab.interface';
 export class TabsComponent {
   tabs: Tab[] = [];
 
+  constructor(private configData: ConfigDataService) {}
+
+  selectedTab: number = this.configData.getSelectedTab();
+
   addTab(tab:Tab) {
-    if (this.tabs.length === 0) {
+    if (this.tabs.length === this.selectedTab) {
       tab.selected = true;
     }
 
@@ -24,6 +31,7 @@ export class TabsComponent {
       tab.selected = false;
     });
     tab.selected = true;
+    this.configData.setSelectedTab(this.tabs.indexOf(tab));
   }
 
 }

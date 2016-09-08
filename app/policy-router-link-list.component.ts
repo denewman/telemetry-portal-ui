@@ -20,7 +20,10 @@ export class PolicyRouterLinkListComponent {
     this.httpService.deletePolicyRouterLink(policyRouterLink.linkId)
         .subscribe();
     var index = this.policyRouterLinks.indexOf(policyRouterLink);
-    this.policyRouterLinks.splice(index, 1);
+    if (policyRouterLink.linkId >= 0) {
+      this.policyRouterLinks.splice(index, 1);
     }
+
+  }
 
 }

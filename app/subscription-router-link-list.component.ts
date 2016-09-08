@@ -21,7 +21,10 @@ export class SubscriptionRouterLinkListComponent {
     this.httpService.deleteSubscriptionRouterLink(subscriptionRouterLink.linkId)
         .subscribe();
     var index = this.subscriptionRouterLinks.indexOf(subscriptionRouterLink);
-    this.subscriptionRouterLinks.splice(index, 1);
+    if (subscriptionRouterLink.linkId >= 1) {
+      this.subscriptionRouterLinks.splice(index, 1);
     }
+
+  }
 
 }
