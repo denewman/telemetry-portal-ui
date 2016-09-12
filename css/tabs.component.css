@@ -3,12 +3,13 @@ ul {
     font-family: Arial;
     font-size: 18px;
     font-weight: bold;
-    width: 100%;
+    width: 94.9%;
+    padding-right: 50px;
+    padding-left: 0;
     overflow: hidden;
     list-style-type: none;
     background: #A3C159;
     margin: 0;
-    padding: 0;
 }
 
 

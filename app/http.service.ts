@@ -140,8 +140,9 @@ export class HttpService {
             .map(this.extractRouterData)
             .catch(this.handleError);
     }
-    addRouter (routerName: string, routerAddress: string): Observable<Router> {
-        let body = JSON.stringify({ routerName, routerAddress });
+    addRouter (routerName: string, routerAddress: string, routerUsername: string, routerPassword: string,
+                    routerPort: number): Observable<Router> {
+        let body = JSON.stringify({ routerName, routerAddress, routerUsername, routerPassword, routerPort });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

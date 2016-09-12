@@ -1,6 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 import { Router } from './router';
+import {ConfigDataService} from "./config-data.service";
+import {Config} from "./config";
 
 @Component({
     selector: 'new-router',
@@ -11,8 +13,14 @@ export class NewRouterComponent {
     @Output() closeRouterModal: EventEmitter<any> = new EventEmitter<any>();
     @Output() submitNewRouter: EventEmitter<Router> = new EventEmitter<Router>();
 
+    configData: Config;
+
+    constructor(private configDataService: ConfigDataService) {}
+
     submit(routerName: string, routerAddress: string) {
-        this.submitNewRouter.emit(new Router(routerName, routerAddress));
+        this.configData = this.configDataService.getConfig();
+        this.submitNewRouter.emit(new Router(routerName, routerAddress, this.configData.username,
+                                    this.configData.password, this.configData.port));
     }
 
     cancel() {
