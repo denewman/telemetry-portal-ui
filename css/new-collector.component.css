@@ -1,14 +1,14 @@
 .popup {
     margin: 100px auto;
     padding: 20px;
-    background: #fff;
+    background: #D8D8D8;
     border: 1px solid #666;
     width: 600px;
     border-radius: 6px;
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 20px;
-    right: 75px;
+    left: 300px;
 }
 
 table {
@@ -43,6 +43,7 @@ button {
     margin-left: 5px;
     margin-right: 5px;
     padding: 10px 20px;
+    border-radius:12px;
 }
 
 .cancel {
@@ -51,4 +52,23 @@ button {
     margin-left: 5px;
     margin-right: 5px;
     padding: 10px 20px;
+    border-radius:12px;
+}
+
+.submit:hover {
+	background-color:#5cbf2a;
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.submit:active {
+	position:relative;
+	top:1px;
+}
+
+.cancel:hover {
+	background-color: darkred;
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.cancel:active {
+	position:relative;
+	top:1px;
 }

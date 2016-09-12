@@ -1,7 +1,7 @@
 .content {
-    background: #fff;
+    background: #D8D8D8;
     color: #373737;
-    width: 1000px;
+    width: 99%;
     height: 800px;
     text-align: right;
 }
@@ -21,9 +21,20 @@ button {
     display: inline-block;
     font-size: 16px;
     margin-right: 20px;
+    border-radius:12px;
 }
 
 .homeButton {
-    background-color: lightgray;
-    color: black;
+    background-color: #4CAF50;
+    color: white;
+    border-radius:12px;
+}
+
+.homeButton:hover,button:hover {
+	background-color:#5cbf2a;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+.homeButton:active,button:active {
+	position:relative;
+	top:1px;
 }
