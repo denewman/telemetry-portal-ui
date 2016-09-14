@@ -4,7 +4,7 @@ import { HttpService } from './http.service';
 
 import { PolicyRouterLink } from './policy-router-link';
 import { Router } from './router';
-import {PolicyGroup} from "./policy-group";
+import { PolicyGroup } from "./policy-group";
 
 @Component({
   selector: 'new-policy-router-link',

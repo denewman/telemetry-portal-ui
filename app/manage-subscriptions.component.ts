@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { HttpService } from './http.service';
 
 import { Subscription } from './subscription';
-import { SubscriptionListComponent } from './subscription-list.component';
-import { NewSubscriptionComponent } from './new-subscription.component';
 
 @Component({
   selector: 'manage-subscriptions',

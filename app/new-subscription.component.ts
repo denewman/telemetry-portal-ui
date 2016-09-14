@@ -5,7 +5,6 @@ import { HttpService } from './http.service';
 import { Subscription } from './subscription';
 import { DestinationGroup } from './destination-group';
 import { Sensor } from './sensor';
-import { NewSensorComponent } from './new-sensor.component';
 
 @Component({
   selector: 'new-subscription',

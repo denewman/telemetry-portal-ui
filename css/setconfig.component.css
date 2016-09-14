@@ -11,3 +11,40 @@
    height: 34px;
    -webkit-appearance: none; 
 }
+
+input[type="text"]{
+   background: grey;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   border: 4px solid grey;
+   height: 34px;
+   -webkit-appearance: none; 
+   border-radius: 4px;
+}
+input[type="number"]{
+
+   background: grey;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   border: 4px solid grey;
+   height: 34px;
+   -webkit-appearance: none; 
+   border-radius: 4px;
+}
+
+button {
+    background-color: #4CAF50; /* Green */
+    margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    padding: 10px 20px;
+    border-radius:12px;
+}
+
+button:hover {
+	background-color:#5cbf2a;
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+}
+

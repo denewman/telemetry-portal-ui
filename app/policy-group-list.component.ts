@@ -1,7 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { PolicyGroup } from './policy-group';
 import './rxjs-operators';
+
+import { PolicyGroup } from './policy-group';
 
 @Component({
   selector: 'policy-group-list',

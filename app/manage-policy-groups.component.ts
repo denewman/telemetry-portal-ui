@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { HttpService } from './http.service';
 
 import { PolicyGroup } from './policy-group';
-import { PolicyGroupListComponent } from './policy-group-list.component';
 
 @Component({
   selector: 'manage-policy-groups',

@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { HttpService } from './http.service';
 
 import { SubscriptionRouterLink } from './subscription-router-link';
-import { SubscriptionRouterLinkListComponent } from './subscription-router-link-list.component';
 
 @Component({
   selector: 'apply-subscriptions',

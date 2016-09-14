@@ -1,8 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 
 import { Router } from './router';
-import {ConfigDataService} from "./config-data.service";
-import {Config} from "./config";
+import { ConfigDataService } from "./config-data.service";
+import { Config } from "./config";
 
 @Component({
     selector: 'new-router',

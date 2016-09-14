@@ -1,4 +1,4 @@
-import { Component, Output, ViewChild, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 import { Collector } from './collector';
 

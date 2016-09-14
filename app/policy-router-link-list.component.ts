@@ -1,8 +1,11 @@
 import { Component, Input } from '@angular/core';
 
-import { PolicyRouterLink } from './policy-router-link';
 import './rxjs-operators';
+
 import {HttpService} from "./http.service";
+
+import { PolicyRouterLink } from './policy-router-link';
+
 
 @Component({
   selector: 'policy-router-link-list',

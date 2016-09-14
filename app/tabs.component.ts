@@ -1,9 +1,6 @@
 import { Component } from '@angular/core';
 
 import { ConfigDataService } from './config-data.service';
-
-import { SubHomeButtonComponent } from './sub-homebuttons.component';
-import { TabComponent } from './tab.component';
 import { Tab } from './tab.interface';
 
 @Component({

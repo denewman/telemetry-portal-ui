@@ -1,8 +1,8 @@
 import { Component, Input } from '@angular/core';
 
-import { Subscription } from './subscription';
-import { NewSubscriptionComponent } from './new-subscription.component';
 import './rxjs-operators';
+
+import { Subscription } from './subscription';
 
 @Component({
   selector: 'subscription-list',

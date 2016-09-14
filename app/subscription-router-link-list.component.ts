@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 
+import './rxjs-operators';
+
 import { HttpService } from './http.service';
 
 import { SubscriptionRouterLink } from './subscription-router-link';
-import './rxjs-operators';
 
 @Component({
   selector: 'subscription-router-link-list',
