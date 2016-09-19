@@ -29,8 +29,11 @@ export class ManageSubscriptionsComponent implements OnInit {
   }
 
   addSubscription(subscription: Subscription) {
-    this.httpService.addSubscription(subscription.subscriptionName, subscription.destinationGroupName,
-        subscription.sensorName, subscription.subscriptionInterval)
+    this.httpService.addSubscription(subscription.subscriptionId,
+        subscription.subscriptionName,
+        subscription.destinationGroupName,
+        subscription.sensorName,
+        subscription.subscriptionInterval)
         .subscribe(
             subscription => this.subscriptions.push(subscription),
             error => this.errorMessage = <any>error);

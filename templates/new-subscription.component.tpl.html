@@ -1,5 +1,6 @@
 <table>
     <tr>
+        <th>Id: </th>
         <th>Name: </th>
         <th>Destination Group:
             <button class="add" (click)="onNewDestinationGroupClick()">+</button>
@@ -10,6 +11,7 @@
         <th>Interval (ms):</th>
     </tr>
     <tr>
+        <td><input class="number-input" type="number" min="1" step="1" #subscriptionId /></td>
         <td><input class="name-input" #subscriptionName /></td>
         <td>
             <select #destinationGroupName>
@@ -25,9 +27,9 @@
             <input class="number-input" type="number" min="0" step="1" #subscriptionInterval />
         </td>
         <td>
-            <button class="submit" (click)="onSubmit(subscriptionName.value, destinationGroupName.value,
+            <button class="submit" (click)="onSubmit(subscriptionId.value, subscriptionName.value, destinationGroupName.value,
                 sensorName.value, subscriptionInterval.value);
-                subscriptionName.value=''; destinationGroupName.value=''; sensorName.value=''; subscriptionInterval.value=''">
+                subscriptionId.value=''; subscriptionName.value=''; destinationGroupName.value=''; sensorName.value=''; subscriptionInterval.value=''">
                 Submit
             </button>
             <button class="cancel" (click)="onCancel()">Cancel</button>

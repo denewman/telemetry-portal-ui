@@ -46,9 +46,10 @@ export class NewSubscriptionComponent implements OnInit {
             error => this.errorMessage = <any>error);
   }
 
-  onSubmit(subscriptionName: string, destinationGroupName: string,
+  onSubmit(subscriptionId: number, subscriptionName: string, destinationGroupName: string,
                   sensorName: string, subscriptionInterval: number) {
-    this.submit.emit(new Subscription(subscriptionName, destinationGroupName, sensorName, subscriptionInterval));
+    this.submit.emit(new Subscription(subscriptionId, subscriptionName,
+                                      destinationGroupName, sensorName, subscriptionInterval));
   }
 
   onCancel() {
