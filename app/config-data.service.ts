@@ -7,7 +7,7 @@ export class ConfigDataService {
     config: Config;
     constructor() {
         this.selectedTab = 0;
-        this.config = new Config('SSH', 'cisco123', 'cisco123', 22);
+        this.config = new Config('SSH', 'rmitproject', 'r@mot@supp@rt', 5001);
     }
     setSelectedTab(selectedTab: number) {
         console.log('setting '+ selectedTab + ' as selected tab');
