@@ -8,6 +8,8 @@ body {
     font-size: 20px;
     padding-left: 100px;
     padding-right: 100px;
+
+    min-width: 570px; 
 }
 
 
