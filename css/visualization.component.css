@@ -1,11 +1,12 @@
 .content {
-    background: lightgray;
+    background: grey;
     color: #373737;
-    width: 1150px;
-    height: 80%;
     text-align: center;
     padding-top: 50px;
     padding-right: 25px;
     padding-left: 25px;
     padding-bottom: 5px;
+    align-content: center;
+    width: 1100px;
+    height: 450px;
 }

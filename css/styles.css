@@ -8,16 +8,13 @@ body {
     font-size: 20px;
     padding-left: 100px;
     padding-right: 100px;
-
-    min-width: 570px; 
 }
-
-
 
 h1 {
     padding: 10px 0;
     font-weight: 400;
     text-align: center;
+    width: 400px;
 }
 
 h2 {
@@ -62,7 +59,7 @@ p {
 .content {
     background: #fff;
     color: #373737;
-    width: 1000px;
+    width: 1150px;
     height: 800px;
     text-align: center;
 }

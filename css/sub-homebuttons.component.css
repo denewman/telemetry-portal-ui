@@ -1,25 +1,4 @@
-/****Original code
-****
-.home-button {
-    background-color: #e7e7e7;
-    border: 2px solid darkgray;;
-    color: black;
-    padding-top: 15px;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 15px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font: 24px 'Open Sans', sans-serif;
-    width: 200px;
-    height: 150px;
-}
 
-.home-button:hover {
-    background-color: lightgray;
-}
-****/
 
 .home-button {
     -moz-box-shadow: 3px 4px 0px 0px #1564ad;
