@@ -18,7 +18,7 @@ import { Observable } from 'rxjs/Observable';
 export class HttpService {
     constructor (private http: Http) {}
 
-    private url = "http://203.36.5.115:3000/flask"; //TODO: Change this address to production server.
+    private url = "http://localhost:5001";
 
     private subscriptionUrl = this.url + '/subscription';
     private policyGroupUrl = this.url + '/policyGroup';
