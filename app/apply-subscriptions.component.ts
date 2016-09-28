@@ -30,7 +30,7 @@ export class ApplySubscriptionsComponent implements OnInit {
 
   addSubscriptionRouterLink(subscriptionRouterLink: SubscriptionRouterLink) {
     this.httpService.addSubscriptionRouterLink(subscriptionRouterLink.subscriptionName,
-        subscriptionRouterLink.routers, subscriptionRouterLink.status)
+        subscriptionRouterLink.routers, subscriptionRouterLink.status, subscriptionRouterLink.configType)
         .subscribe(
             subscriptionRouterLink => this.subscriptionRouterLinks.push(subscriptionRouterLink),
             error => this.errorMessage = <any>error);
