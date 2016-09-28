@@ -8,7 +8,7 @@ import { ConfigDataService } from './config-data.service';
   styleUrls: ['../css/setconfig.component.css']
 })
 export class SetConfigComponent {
-  configOptions = ['SSH', 'Netconfig/Yang', 'YDK'];
+  configOptions = ['YDK', 'Netconfig/Yang', 'SSH'];
   constructor(public configDataService: ConfigDataService) {}
 
   onSubmit(configOption: string, username: string, password: string, port: number) {
