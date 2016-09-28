@@ -1,10 +1,12 @@
 import {Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { HttpService } from './http.service';
+import { ConfigDataService } from './config-data.service';
 
 import { SubscriptionRouterLink } from './subscription-router-link';
 import { Subscription } from './subscription';
 import { Router } from './router';
+import { Config } from "./config";
 
 @Component({
   selector: 'new-subscription-router-link',
@@ -24,8 +26,11 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
 
   openNewRouterModal: boolean = false;
 
+  configData: Config;
+
   constructor (
-      private httpService: HttpService) {}
+      private httpService: HttpService,
+      private configDataService: ConfigDataService) {}
 
   ngOnInit() {
     this.getRouters();
@@ -61,7 +66,9 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
   }
 
   onSubmit(subscriptionName: string) {
-    this.submit.emit(new SubscriptionRouterLink(0, subscriptionName, this.routersSelected, true));
+    this.configData = this.configDataService.getConfig();
+    this.submit.emit(new SubscriptionRouterLink(0, subscriptionName, this.routersSelected, true,
+        this.configData.configOption));
     this.routersSelected = [];
   }
 

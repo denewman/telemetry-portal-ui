@@ -156,8 +156,9 @@ export class HttpService {
             .map(this.extractSubscriptionRouterLinkData)
             .catch(this.handleError);
     }
-    addSubscriptionRouterLink (subscriptionName: string, routers: string[], status: boolean): Observable<SubscriptionRouterLink> {
-        let body = JSON.stringify({ subscriptionName, routers, status });
+    addSubscriptionRouterLink (subscriptionName: string, routers: string[],
+                               status: boolean, configType: string): Observable<SubscriptionRouterLink> {
+        let body = JSON.stringify({ subscriptionName, routers, status, configType });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
