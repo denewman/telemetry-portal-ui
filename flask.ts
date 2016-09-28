@@ -1,17 +1,23 @@
+var app = require('./index');
 var express = require('express');
 var router = express.Router();
+var bodyParser = require('body-parser');
+var request = require('request');
+var flaskURL = 'http://localhost:5001/';
+
+
+app.use(bodyParser.json());
 
 /* GET (single) */
 router.get('/:object/:ID', function(req, res, next) {
-    var request = require('request');
 
-    var _uri = 'http://localhost:5001/';
+    var apiURL = String(flaskURL);
 
-    _uri += req.params.object + '/' + req.params.ID;
+    apiURL += req.params.object + '/' + req.params.ID;
 
-    console.log(_uri);
+    console.log(apiURL);
 
-    request.get( _uri, function (error, response, body) {
+    request.get( apiURL, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body); 
             res.send(body);
@@ -21,15 +27,14 @@ router.get('/:object/:ID', function(req, res, next) {
 
 /* GET (all) */
 router.get('/:object', function(req, res, next) {
-    var request = require('request');
 
-    var _uri = 'http://localhost:5001/';
+    var apiURL = String(flaskURL);
 
-    _uri += req.params.object;
+    apiURL += req.params.object;
 
-    console.log( _uri);
+    console.log( apiURL);
 
-    request.get( _uri, function (error, response, body) {
+    request.get( apiURL, function (error, response, body) {
         if (!error && response.statusCode == 200) {
             console.log(body); 
             res.send(body);
@@ -37,35 +42,41 @@ router.get('/:object', function(req, res, next) {
     })
 });
 
+
 /* POST */
 router.post('/:object', function(req, res, next) {
 
-    var request = require('request');
+    var apiURL = String(flaskURL);
+    apiURL += req.params.object;
 
-    var options = {
-        uri: 'http://localhost:5001/' + req.params.object,
-        method: 'POST',
-        json: req.body
-    };
+    console.log("Request sent to: " + apiURL);
 
-    request(options, function (error, response, body) {
-        if (!error && response.statusCode == 200) {
-            console.log(body); // Print the shortened url.
-            res.send(body);
+    request.post(
+        apiURL,
+        { json: req.body },
+        function (error, response, body) {
+
+            console.log(req.body)
+
+            if (!error && response.statusCode == 200) {
+                console.log(body);
+                res.send(body);
+            }
         }
-    });
+    );
 
 });
 
+
 /* DELETE (single)*/
 router.delete('/:object/:ID', function(req, res, next) {
-    var request = require('request');
-    var _uri = 'http://localhost:5001/';
 
-    _uri += req.params.object + '/' + req.params.ID;
+    var apiURL = String(flaskURL);
+
+    apiURL += req.params.object + '/' + req.params.ID;
 
     var options = {
-        uri:  _uri,
+        uri:  apiURL,
         method: 'DELETE',
     };
 
@@ -79,13 +90,12 @@ router.delete('/:object/:ID', function(req, res, next) {
 
 /* DELETE (all) */
 router.delete('/:object', function(req, res, next) {
-    var request = require('request');
-    var _uri = 'http://localhost:5001/';
+    var apiURL = String(flaskURL);
 
-    _uri += req.params.object;
+    apiURL += req.params.object + '/' + req.params.ID;
 
     var options = {
-        uri:  _uri,
+        uri:  apiURL,
         method: 'DELETE',
     };
 
