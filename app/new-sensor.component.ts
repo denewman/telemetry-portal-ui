@@ -12,10 +12,10 @@ export class NewSensorComponent {
     @Output() submitNewSensor: EventEmitter<Sensor> = new EventEmitter<Sensor>();
 
     paths = ['Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters',
-        'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/...'];
+        'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/peak-counters'];
     pathsMap = {
         'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters': false,
-        'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/...': false
+        'Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/peak-counters': false
     };
     pathsSelected = [];
 
