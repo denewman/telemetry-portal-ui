@@ -10,7 +10,7 @@ select {
     width: 150px;
     font-size: 20px;
     height: 34px;
-    background: lightgray; 
+    background: white; 
 }
 
 option {
@@ -22,20 +22,24 @@ input {
 }
 
 .name-input {
-   background: lightgray;
+   background: white;
    width: 180px;
    padding: 5px;
    font-size: 16px;
    height: 34px;
+   border: 1px solid #A4A4A4;
+   border-radius: 4px;
    -webkit-appearance: none;
 }
 
 .number-input {
-   background: lightgray;
+   background: white;
    width: 100px;
    padding: 5px;
    font-size: 16px;
    height: 34px;
+   border: 1px solid #A4A4A4;
+   border-radius: 4px;
    -webkit-appearance: none; 
 }
 
