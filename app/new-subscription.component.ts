@@ -73,7 +73,7 @@ export class NewSubscriptionComponent implements OnInit {
             sensor => this.newSensor = sensor,
             error => this.errorMessage = <any>error);
 
-    if (this.errorMessage == null) {
+    if (!this.newSensor.sensorName == null) {
       this.sensors.push(this.newSensor);
     }
     this.openNewSensorModal = false;
