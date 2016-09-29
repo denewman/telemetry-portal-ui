@@ -19,6 +19,7 @@ export class NewSubscriptionComponent implements OnInit {
   errorMessage: string;
   destinationGroups: DestinationGroup[];
   sensors: Sensor[];
+  newSensor: Sensor;
   mode = 'Observable';
 
   openNewSensorModal: boolean = false;
@@ -64,11 +65,17 @@ export class NewSubscriptionComponent implements OnInit {
     this.openNewDestinationGroupModal = true;
   }
 
+
+
   submitNewSensor(sensor: Sensor) {
     this.httpService.addSensor(sensor.sensorName, sensor.sensorPaths)
       .subscribe(
-            sensor => this.sensors.push(sensor),
+            sensor => this.newSensor = sensor,
             error => this.errorMessage = <any>error);
+
+    if (this.errorMessage == null) {
+      this.sensors.push(this.newSensor);
+    }
     this.openNewSensorModal = false;
   }
 
