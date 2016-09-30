@@ -21,6 +21,7 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
   errorMessage: string;
   subscriptions: Subscription[];
   routers: Router[];
+  newRouter: Router;
   routersSelected: string[] = [];
   mode = 'Observable';
 
@@ -84,7 +85,12 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
     this.httpService.addRouter(router.routerName, router.routerAddress, router.routerUsername,
                                 router.routerPassword, router.routerPort)
       .subscribe(
-            router => this.routers.push(router),
+            router => {
+              this.newRouter = router;
+              if (this.newRouter.routerName) {
+                this.routers.push(router);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.openNewRouterModal = false;
   }
