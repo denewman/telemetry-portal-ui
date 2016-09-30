@@ -18,6 +18,7 @@ export class NewSubscriptionComponent implements OnInit {
 
   errorMessage: string;
   destinationGroups: DestinationGroup[];
+  newDestinationGroup: DestinationGroup;
   sensors: Sensor[];
   newSensor: Sensor;
   mode = 'Observable';
@@ -83,7 +84,11 @@ export class NewSubscriptionComponent implements OnInit {
     this.httpService.addDestinationGroup(destinationGroup.destinationGroupName, destinationGroup.destinationGroupAddress,
                         destinationGroup.destinationGroupEncoding, destinationGroup.destinationGroupPort, destinationGroup.destinationGroupProtocol)
       .subscribe(
-            destinationGroup => this.destinationGroups.push(destinationGroup),
+            destinationGroup => {
+              this.newDestinationGroup = destinationGroup;
+              if (this.newDestinationGroup.destinationGroupName) {
+                this.destinationGroups.push(destinationGroup);
+              }},
             error => this.errorMessage = <any>error);
     this.openNewDestinationGroupModal = false;
   }
