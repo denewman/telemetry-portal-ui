@@ -13,6 +13,7 @@ import { SubscriptionRouterLink } from './subscription-router-link';
 export class ApplySubscriptionsComponent implements OnInit {
   errorMessage: string;
   subscriptionRouterLinks: SubscriptionRouterLink[];
+  subscriptionRouterLink: SubscriptionRouterLink;
   mode = 'Observable';
 
   newSubscriptionRouterLink: boolean = false;
@@ -29,10 +30,17 @@ export class ApplySubscriptionsComponent implements OnInit {
   }
 
   addSubscriptionRouterLink(subscriptionRouterLink: SubscriptionRouterLink) {
+    if (!subscriptionRouterLink.subscriptionName || !subscriptionRouterLink.routers ||
+        !subscriptionRouterLink.status || !subscriptionRouterLink.configType) { return; }
     this.httpService.addSubscriptionRouterLink(subscriptionRouterLink.subscriptionName,
         subscriptionRouterLink.routers, subscriptionRouterLink.status, subscriptionRouterLink.configType)
         .subscribe(
-            subscriptionRouterLink => this.subscriptionRouterLinks.push(subscriptionRouterLink),
+            subscriptionRouterLink => {
+              this.subscriptionRouterLink = subscriptionRouterLink;
+              if (this.subscriptionRouterLink.subscriptionName) {
+                this.subscriptionRouterLinks.push(subscriptionRouterLink);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.newSubscriptionRouterLink = false;
   }
