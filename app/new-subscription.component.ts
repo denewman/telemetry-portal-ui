@@ -71,7 +71,8 @@ export class NewSubscriptionComponent implements OnInit {
     this.httpService.addSensor(sensor.sensorName, sensor.sensorPaths)
       .subscribe(
             sensor => {
-              if (sensor) {
+              this.newSensor = sensor;
+              if (this.newSensor) {
                 this.sensors.push(sensor);
               }
             },
