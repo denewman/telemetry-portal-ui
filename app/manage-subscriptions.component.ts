@@ -13,6 +13,7 @@ import { Subscription } from './subscription';
 export class ManageSubscriptionsComponent implements OnInit {
   errorMessage: string;
   subscriptions: Subscription[];
+  subscription: Subscription;
   mode = 'Observable';
 
   newSubscription: boolean = false;
@@ -35,7 +36,12 @@ export class ManageSubscriptionsComponent implements OnInit {
         subscription.sensorName,
         subscription.subscriptionInterval)
         .subscribe(
-            subscription => this.subscriptions.push(subscription),
+            subscription => {
+              this.subscription = subscription;
+              if (this.subscription.subscriptionName) {
+                this.subscriptions.push(subscription);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.newSubscription = false;
   }
