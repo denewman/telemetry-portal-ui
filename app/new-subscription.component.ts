@@ -70,12 +70,12 @@ export class NewSubscriptionComponent implements OnInit {
   submitNewSensor(sensor: Sensor) {
     this.httpService.addSensor(sensor.sensorName, sensor.sensorPaths)
       .subscribe(
-            sensor => this.newSensor = sensor,
+            sensor => {
+              if (sensor) {
+                this.sensors.push(sensor);
+              }
+            },
             error => this.errorMessage = <any>error);
-
-    if (this.newSensor) {
-      this.sensors.push(this.newSensor);
-    }
     this.openNewSensorModal = false;
   }
 
