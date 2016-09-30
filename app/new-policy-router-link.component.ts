@@ -19,6 +19,7 @@ export class NewPolicyRouterLinkComponent implements OnInit {
   errorMessage: string;
   policyGroups: PolicyGroup[];
   routers: Router[];
+  newRouter: Router;
   routersSelected: string[] = [];
   mode = 'Observable';
 
@@ -74,10 +75,17 @@ export class NewPolicyRouterLinkComponent implements OnInit {
   }
 
   submitNewRouter(router: Router) {
+    if (!router.routerName || !router.routerAddress || !router.routerUsername ||
+        !router.routerPassword || !router.routerPort) { return; }
     this.httpService.addRouter(router.routerName, router.routerAddress, router.routerUsername,
                                 router.routerPassword, router.routerPort)
       .subscribe(
-            router => this.routers.push(router),
+            router => {
+              this.newRouter = router;
+              if (this.newRouter.routerName) {
+                this.routers.push(router);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.openNewRouterModal = false;
   }
