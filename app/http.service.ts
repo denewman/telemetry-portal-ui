@@ -11,6 +11,7 @@ import { Policy } from './policy';
 import { Router } from './router';
 import { SubscriptionRouterLink } from './subscription-router-link';
 import { PolicyRouterLink } from './policy-router-link';
+import { StatusCode } from './status-code';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -59,6 +60,12 @@ export class HttpService {
 
         return this.http.post(this.policyGroupUrl, body, options)
             .map(this.extractPolicyGroupData)
+            .catch(this.handleError);
+    }
+
+    deletePolicyGroup (policyGroupName: string): Observable<StatusCode> {
+        return this.http.delete(this.policyGroupUrl + '/' + policyGroupName)
+            .map(this.extractStatusCode)
             .catch(this.handleError);
     }
 
@@ -239,6 +246,11 @@ export class HttpService {
     private extractPolicyRouterLinkData(res: Response) {
         let body = res.json();
         return body.policyRouterLink || {};
+    }
+
+    private extractStatusCode(res: Response) {
+        let body = res.json();
+        return body.statusCode || {};
     }
 
     private handleError (error: any) {

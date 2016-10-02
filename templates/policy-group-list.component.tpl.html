@@ -9,7 +9,7 @@
     <td>{{pol.policyGroupName}}</td>
     <td>{{pol.collectorName}}</td>
     <td>{{pol.policyName}}</td>
-    <td>edit</td>
+    <td><a href="javascript:void(0)" (click)="onDelete(pol)">delete</a></td>
 </tr>
 </table>
 <div *ngIf="errorMessage">{{errorMessage}}</div>
