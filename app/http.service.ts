@@ -48,6 +48,12 @@ export class HttpService {
             .catch(this.handleError);
     }
 
+    deleteSubscription (subscriptionName: string): Observable<string> {
+        return this.http.delete(this.subscriptionUrl + '/' + subscriptionName)
+            .map(this.extractStatusCode)
+            .catch(this.handleError);
+    }
+
     getPolicyGroups(): Observable<PolicyGroup[]> {
         return this.http.get(this.policyGroupUrl)
             .map(this.extractPolicyGroupData)
@@ -65,12 +71,6 @@ export class HttpService {
 
     deletePolicyGroup (policyGroupName: string): Observable<StatusCode> {
         return this.http.delete(this.policyGroupUrl + '/' + policyGroupName)
-            .map(this.extractStatusCode)
-            .catch(this.handleError);
-    }
-
-    deleteSubscription (subscriptionName: string): Observable<string> {
-        return this.http.delete(this.subscriptionUrl + '/' + subscriptionName)
             .map(this.extractStatusCode)
             .catch(this.handleError);
     }
@@ -181,9 +181,9 @@ export class HttpService {
             .catch(this.handleError);
     }
 
-    deleteSubscriptionRouterLink (linkId: number): Observable<any> {
+    deleteSubscriptionRouterLink (linkId: number): Observable<string> {
         return this.http.delete(this.subscriptionRouterLinkUrl + '/' + linkId)
-            .map((res:Response) => res.json())
+            .map(this.extractStatusCode)
             .catch(this.handleError);
     }
 
@@ -203,9 +203,9 @@ export class HttpService {
             .catch(this.handleError);
     }
 
-    deletePolicyRouterLink (linkId: number): Observable<any> {
+    deletePolicyRouterLink (linkId: number): Observable<string> {
         return this.http.delete(this.policyRouterLinkUrl + '/' + linkId)
-            .map((res:Response) => res.json())
+            .map(this.extractStatusCode)
             .catch(this.handleError);
     }
 

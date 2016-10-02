@@ -13,6 +13,7 @@ import { SubscriptionRouterLink } from './subscription-router-link';
 })
 export class SubscriptionRouterLinkListComponent {
   @Input() subscriptionRouterLinks: SubscriptionRouterLink[];
+  statusCode: any;
 
   errorMessage: string;
 
@@ -20,12 +21,15 @@ export class SubscriptionRouterLinkListComponent {
 
   onDelete(subscriptionRouterLink: SubscriptionRouterLink) {
     this.httpService.deleteSubscriptionRouterLink(subscriptionRouterLink.linkId)
-        .subscribe();
-    var index = this.subscriptionRouterLinks.indexOf(subscriptionRouterLink);
-    if (subscriptionRouterLink.linkId >= 1) {
-      this.subscriptionRouterLinks.splice(index, 1);
-    }
-
+        .subscribe(
+            statusCode => {
+              this.statusCode = statusCode;
+              var index = this.subscriptionRouterLinks.indexOf(subscriptionRouterLink);
+              if (this.statusCode === "200" && index >= 0) {
+                this.subscriptionRouterLinks.splice(index, 1);
+              }
+            },
+            error => this.errorMessage = error
+        );
   }
-
 }

@@ -15,18 +15,22 @@ import { PolicyRouterLink } from './policy-router-link';
 export class PolicyRouterLinkListComponent {
   @Input() policyRouterLinks: PolicyRouterLink[];
 
+  statusCode: any;
+
   errorMessage: string;
 
   constructor(private httpService: HttpService) { }
 
   onDelete(policyRouterLink: PolicyRouterLink) {
     this.httpService.deletePolicyRouterLink(policyRouterLink.linkId)
-        .subscribe();
-    var index = this.policyRouterLinks.indexOf(policyRouterLink);
-    if (policyRouterLink.linkId >= 0) {
-      this.policyRouterLinks.splice(index, 1);
-    }
-
+        .subscribe(
+            statusCode => {
+              this.statusCode = statusCode;
+              var index = this.policyRouterLinks.indexOf(policyRouterLink);
+              if (this.statusCode === "200" && index >= 0) {
+                this.policyRouterLinks.splice(index, 1);
+              }
+            },
+            error => this.errorMessage = error);
   }
-
 }
