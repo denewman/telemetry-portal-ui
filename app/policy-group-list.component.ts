@@ -26,7 +26,8 @@ export class PolicyGroupListComponent {
             statusCode => {
               this.statusCode = statusCode;
               var index = this.policyGroups.indexOf(policyGroup);
-              if (this.statusCode.statusCode && index >= 0) {
+              if (this.statusCode && index >= 0) {
+                console.log(this.statusCode);
                 this.policyGroups.splice(index, 1);
               }
             },
