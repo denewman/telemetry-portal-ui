@@ -13,7 +13,7 @@
     <td>{{sub.destinationGroupName}}</td>
     <td>{{sub.sensorName}}</td>
     <td>{{sub.subscriptionInterval}}</td>
-    <td>edit</td>
+    <td><a href="javascript:void(0)" (click)="onDelete(sub)">delete</a></td>
 </tr>
 </table>
 <div *ngIf="errorMessage">{{errorMessage}}</div>
