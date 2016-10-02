@@ -69,6 +69,12 @@ export class HttpService {
             .catch(this.handleError);
     }
 
+    deleteSubscription (subscriptionName: string): Observable<StatusCode> {
+        return this.http.delete(this.subscriptionUrl + '/' + subscriptionName)
+            .map(this.extractStatusCode)
+            .catch(this.handleError);
+    }
+
     getDestinationGroups(): Observable<DestinationGroup[]> {
         return this.http.get(this.destinationGroupUrl)
             .map(this.extractDestinationGroupData)
