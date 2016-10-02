@@ -37,7 +37,8 @@ export class HttpService {
     }
     addSubscription (subscriptionId: number, subscriptionName: string, destinationGroupName: string,
                      sensorName: string, subscriptionInterval: number): Observable<Subscription> {
-        let body = JSON.stringify({ subscriptionName, destinationGroupName, sensorName, subscriptionInterval });
+        let body = JSON.stringify({ subscriptionId, subscriptionName, destinationGroupName, sensorName,
+                                    subscriptionInterval });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
