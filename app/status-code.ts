@@ -1,4 +1,4 @@
 export class StatusCode {
   constructor(
-    public statusCode: number) { }
+    public statusCode: string) { }
 }
