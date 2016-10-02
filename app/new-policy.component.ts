@@ -12,10 +12,10 @@ export class NewPolicyComponent {
     @Output() submitNewPolicy: EventEmitter<Policy> = new EventEmitter<Policy>();
 
     paths = ['RootOper.InfraStatistics.Interface(*).Latest.GenericCounters',
-        'RootOper.InfraStatistics.Interface(*).Latest...'];
+        'RootOper.InfraStatistics.Interface.Latest.DataRate'];
     pathsMap = {
         'RootOper.InfraStatistics.Interface(*).Latest.GenericCounters': false,
-        'RootOper.InfraStatistics.Interface(*).Latest...': false
+        'RootOper.InfraStatistics.Interface.Latest.DataRate': false
     };
     pathsSelected = [];
 
