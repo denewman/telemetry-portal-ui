@@ -37,7 +37,7 @@ export class ApplyPolicyGroupsComponent {
             policyRouterLink => {
               this.policyRouterLink = policyRouterLink;
               if (this.policyRouterLink.policyName) {
-                this.policyRouterLink.push(policyRouterLink);
+                this.policyRouterLinks.push(policyRouterLink);
               }
             },
             error => this.errorMessage = <any>error);
