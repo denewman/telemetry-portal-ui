@@ -18,7 +18,9 @@ export class NewPolicyGroupComponent implements OnInit {
 
   errorMessage: string;
   collectors: Collector[];
+  newCollector: Collector;
   policies: Policy[];
+  newPolicy: Policy;
   mode = 'Observable';
 
   openNewCollectorModal: boolean = false;
@@ -64,19 +66,35 @@ export class NewPolicyGroupComponent implements OnInit {
   }
 
   submitNewCollector(collector: Collector) {
+    if (!collector.collectorName || !collector.collectorAddress || !collector.collectorEncoding ||
+        !collector.collectorPort || !collector.collectorProtocol) { return; }
     this.httpService.addCollector(collector.collectorName, collector.collectorAddress,
         collector.collectorEncoding, collector.collectorPort, collector.collectorProtocol)
       .subscribe(
-            collector => this.collectors.push(collector),
+            collector => {
+              this.newCollector = collector;
+              if (this.newCollector.collectorName) {
+                this.collectors.push(collector);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.openNewCollectorModal = false;
   }
 
   submitNewPolicy(policy: Policy) {
+    if (!policy.policyName || !policy.policyVersion || !policy.policyDescription ||
+        !policy.policyComment || !policy.policyIdentifier || !policy.policyPeriod || !policy.policyPaths) {
+      return;
+    }
     this.httpService.addPolicy(policy.policyName, policy.policyVersion, policy.policyDescription,
                         policy.policyComment, policy.policyIdentifier, policy.policyPeriod, policy.policyPaths)
       .subscribe(
-            policy => this.policies.push(policy),
+            policy => {
+              this.newPolicy = policy;
+              if (this.newPolicy.policyName) {
+                this.policies.push(policy);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.openNewPolicyModal = false;
   }

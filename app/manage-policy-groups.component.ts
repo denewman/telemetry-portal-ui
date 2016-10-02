@@ -13,6 +13,7 @@ import { PolicyGroup } from './policy-group';
 export class ManagePolicyGroupsComponent implements OnInit {
   errorMessage: string;
   policyGroups: PolicyGroup[];
+  policyGroup: PolicyGroup;
   mode = 'Observable';
 
   newPolicy: boolean = false;
@@ -29,10 +30,18 @@ export class ManagePolicyGroupsComponent implements OnInit {
   }
 
   addPolicyGroup(policyGroup: PolicyGroup) {
+    if (!policyGroup.policyGroupName || !policyGroup.collectorName || !policyGroup.policyName) {
+      return;
+    }
     this.httpService.addPolicyGroup(policyGroup.policyGroupName, policyGroup.collectorName,
         policyGroup.policyName)
         .subscribe(
-            policyGroup => this.policyGroups.push(policyGroup),
+            policyGroup => {
+              this.policyGroup = policyGroup;
+              if (this.policyGroup.policyGroupName) {
+                this.policyGroups.push(policyGroup);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.newPolicy = false;
   }

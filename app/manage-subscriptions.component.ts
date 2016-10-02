@@ -30,6 +30,8 @@ export class ManageSubscriptionsComponent implements OnInit {
   }
 
   addSubscription(subscription: Subscription) {
+    if (!subscription.subscriptionId || !subscription.subscriptionName || !subscription.destinationGroupName
+        || !subscription.sensorName || !subscription.subscriptionInterval) { return; }
     this.httpService.addSubscription(subscription.subscriptionId,
         subscription.subscriptionName,
         subscription.destinationGroupName,

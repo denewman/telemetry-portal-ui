@@ -69,6 +69,7 @@ export class NewSubscriptionComponent implements OnInit {
 
 
   submitNewSensor(sensor: Sensor) {
+    if (!sensor.sensorName || !sensor.sensorPaths) { return; }
     this.httpService.addSensor(sensor.sensorName, sensor.sensorPaths)
       .subscribe(
             sensor => {
@@ -81,8 +82,12 @@ export class NewSubscriptionComponent implements OnInit {
   }
 
   submitNewDestinationGroup(destinationGroup: DestinationGroup) {
+    if (!destinationGroup.destinationGroupName || !destinationGroup.destinationGroupAddress ||
+        !destinationGroup.destinationGroupEncoding || !destinationGroup.destinationGroupPort ||
+        !destinationGroup.destinationGroupProtocol) { return; }
     this.httpService.addDestinationGroup(destinationGroup.destinationGroupName, destinationGroup.destinationGroupAddress,
-                        destinationGroup.destinationGroupEncoding, destinationGroup.destinationGroupPort, destinationGroup.destinationGroupProtocol)
+                        destinationGroup.destinationGroupEncoding, destinationGroup.destinationGroupPort,
+                        destinationGroup.destinationGroupProtocol)
       .subscribe(
             destinationGroup => {
               this.newDestinationGroup = destinationGroup;

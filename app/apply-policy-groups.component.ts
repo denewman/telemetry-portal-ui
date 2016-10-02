@@ -13,6 +13,7 @@ import { PolicyRouterLink } from './policy-router-link';
 export class ApplyPolicyGroupsComponent {
   errorMessage: string;
   policyRouterLinks: PolicyRouterLink[];
+  policyRouterLink: PolicyRouterLink;
   mode = 'Observable';
 
   newPolicyRouterLink: boolean = false;
@@ -29,10 +30,16 @@ export class ApplyPolicyGroupsComponent {
   }
 
   addPolicyRouterLink(policyRouterLink: PolicyRouterLink) {
+    if (!policyRouterLink.policyName || !policyRouterLink.routers) { return; }
     this.httpService.addPolicyRouterLink(policyRouterLink.policyName,
         policyRouterLink.routers, policyRouterLink.status)
         .subscribe(
-            policyRouterLink => this.policyRouterLinks.push(policyRouterLink),
+            policyRouterLink => {
+              this.policyRouterLink = policyRouterLink;
+              if (this.policyRouterLink.policyName) {
+                this.policyRouterLink.push(policyRouterLink);
+              }
+            },
             error => this.errorMessage = <any>error);
     this.newPolicyRouterLink = false;
   }
