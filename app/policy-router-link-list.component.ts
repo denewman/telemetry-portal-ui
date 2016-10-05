@@ -27,7 +27,7 @@ export class PolicyRouterLinkListComponent {
             statusCode => {
               this.statusCode = statusCode;
               var index = this.policyRouterLinks.indexOf(policyRouterLink);
-              if (this.statusCode === "200" && index >= 0) {
+              if (this.statusCode == "200" && index >= 0) {
                 this.policyRouterLinks.splice(index, 1);
               }
             },

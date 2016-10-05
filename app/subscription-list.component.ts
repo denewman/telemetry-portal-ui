@@ -27,7 +27,7 @@ export class SubscriptionListComponent {
             statusCode => {
               this.statusCode = statusCode;
               var index = this.subscriptions.indexOf(subscription);
-              if (this.statusCode === "200" && index >= 0) {
+              if (this.statusCode === "400" && index >= 0) {
                 this.subscriptions.splice(index, 1);
               }
             },
