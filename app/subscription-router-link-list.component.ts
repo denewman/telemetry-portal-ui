@@ -25,7 +25,7 @@ export class SubscriptionRouterLinkListComponent {
             statusCode => {
               this.statusCode = statusCode;
               var index = this.subscriptionRouterLinks.indexOf(subscriptionRouterLink);
-              if (this.statusCode === "200" && index >= 0) {
+              if (this.statusCode == "200" && index >= 0) {
                 this.subscriptionRouterLinks.splice(index, 1);
               }
             },
