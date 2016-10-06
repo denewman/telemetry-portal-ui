@@ -36,6 +36,7 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
   ngOnInit() {
     this.getRouters();
     this.getSubscriptions();
+    this.configData = this.configDataService.getConfig();
   }
 
   setSelected(router, event) {
