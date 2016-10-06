@@ -14,7 +14,7 @@ export class NewRouterComponent implements OnInit {
     @Output() submitNewRouter: EventEmitter<Router> = new EventEmitter<Router>();
 
     configOptions = ['YDK', 'Netconfig/Yang', 'SSH'];
-    configType: string;
+    configOption: string;
 
     configData: Config;
 
@@ -22,7 +22,7 @@ export class NewRouterComponent implements OnInit {
 
     ngOnInit() {
         this.configData = this.configDataService.getConfig();
-        this.configType = this.configData.configOption;
+        this.configOption = this.configData.configOption;
   }
 
     submit(routerName: string, routerAddress: string, username: string, password: string,
