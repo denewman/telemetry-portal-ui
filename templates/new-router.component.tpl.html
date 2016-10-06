@@ -35,8 +35,7 @@
                     Config Type:
                 </td>
                 <td>
-                    <select id="configType" required [(ngModel)]="configType"
-                        name="configType" #configType="ngModel">
+                    <select id="configType" #configType>
                         <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
                     </select>
                 </td>
