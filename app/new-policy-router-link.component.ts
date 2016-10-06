@@ -36,6 +36,7 @@ export class NewPolicyRouterLinkComponent implements OnInit {
   ngOnInit() {
     this.getPolicyGroups();
     this.getRouters();
+    this.configData = this.configDataService.getConfig();
   }
 
   setSelected(router, event) {
