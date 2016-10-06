@@ -31,9 +31,9 @@ export class ApplySubscriptionsComponent implements OnInit {
 
   addSubscriptionRouterLink(subscriptionRouterLink: SubscriptionRouterLink) {
     if (!subscriptionRouterLink.subscriptionName || !subscriptionRouterLink.routers ||
-        !subscriptionRouterLink.status || !subscriptionRouterLink.configType) { return; }
+        !subscriptionRouterLink.status) { return; }
     this.httpService.addSubscriptionRouterLink(subscriptionRouterLink.subscriptionName,
-        subscriptionRouterLink.routers, subscriptionRouterLink.status, subscriptionRouterLink.configType)
+        subscriptionRouterLink.routers, subscriptionRouterLink.status)
         .subscribe(
             subscriptionRouterLink => {
               this.subscriptionRouterLink = subscriptionRouterLink;

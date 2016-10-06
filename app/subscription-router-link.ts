@@ -3,6 +3,5 @@ export class SubscriptionRouterLink {
     public linkId: number,
     public subscriptionName: string,
     public routers: string[],
-    public status: boolean,
-    public configType: string) { }
+    public status: boolean) { }
 }

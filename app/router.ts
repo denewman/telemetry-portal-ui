@@ -4,5 +4,6 @@ export class Router {
     public routerAddress: string,
     public routerUsername: string,
     public routerPassword: string,
-    public routerPort: number) { }
+    public routerPort: number,
+    public configType: string) { }
 }

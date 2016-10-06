@@ -155,8 +155,8 @@ export class HttpService {
             .catch(this.handleError);
     }
     addRouter (routerName: string, routerAddress: string, routerUsername: string, routerPassword: string,
-                    routerPort: number): Observable<Router> {
-        let body = JSON.stringify({ routerName, routerAddress, routerUsername, routerPassword, routerPort });
+                    routerPort: number, configType: string): Observable<Router> {
+        let body = JSON.stringify({ routerName, routerAddress, routerUsername, routerPassword, routerPort, configType });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 
@@ -171,8 +171,8 @@ export class HttpService {
             .catch(this.handleError);
     }
     addSubscriptionRouterLink (subscriptionName: string, routers: string[],
-                               status: boolean, configType: string): Observable<SubscriptionRouterLink> {
-        let body = JSON.stringify({ subscriptionName, routers, status, configType });
+                               status: boolean): Observable<SubscriptionRouterLink> {
+        let body = JSON.stringify({ subscriptionName, routers, status });
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
 

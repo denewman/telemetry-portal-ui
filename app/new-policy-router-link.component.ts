@@ -1,10 +1,12 @@
 import {Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { HttpService } from './http.service';
+import { ConfigDataService } from './config-data.service';
 
 import { PolicyRouterLink } from './policy-router-link';
 import { Router } from './router';
 import { PolicyGroup } from "./policy-group";
+import { Config } from './config';
 
 @Component({
   selector: 'new-policy-router-link',
@@ -25,8 +27,11 @@ export class NewPolicyRouterLinkComponent implements OnInit {
 
   openNewRouterModal: boolean = false;
 
+  configData: Config;
+
   constructor (
-      private httpService: HttpService) {}
+      private httpService: HttpService,
+      private configDataService: ConfigDataService) {}
 
   ngOnInit() {
     this.getPolicyGroups();
@@ -78,7 +83,7 @@ export class NewPolicyRouterLinkComponent implements OnInit {
     if (!router.routerName || !router.routerAddress || !router.routerUsername ||
         !router.routerPassword || !router.routerPort) { return; }
     this.httpService.addRouter(router.routerName, router.routerAddress, router.routerUsername,
-                                router.routerPassword, router.routerPort)
+                                router.routerPassword, router.routerPort, this.configData.configOption)
       .subscribe(
             router => {
               this.newRouter = router;

@@ -68,8 +68,7 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
 
   onSubmit(subscriptionName: string) {
     this.configData = this.configDataService.getConfig();
-    this.submit.emit(new SubscriptionRouterLink(0, subscriptionName, this.routersSelected, true,
-        this.configData.configOption));
+    this.submit.emit(new SubscriptionRouterLink(0, subscriptionName, this.routersSelected, true));
     this.routersSelected = [];
   }
 
@@ -83,9 +82,9 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
 
   submitNewRouter(router: Router) {
     if (!router.routerName || !router.routerAddress || !router.routerUsername ||
-        !router.routerPassword || !router.routerPort) { return; }
+        !router.routerPassword || !router.routerPort) { return }
     this.httpService.addRouter(router.routerName, router.routerAddress, router.routerUsername,
-                                router.routerPassword, router.routerPort)
+                                router.routerPassword, router.routerPort, this.configData.configOption)
       .subscribe(
             router => {
               this.newRouter = router;
