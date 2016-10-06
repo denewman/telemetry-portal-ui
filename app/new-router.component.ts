@@ -20,7 +20,7 @@ export class NewRouterComponent {
     submit(routerName: string, routerAddress: string) {
         this.configData = this.configDataService.getConfig();
         this.submitNewRouter.emit(new Router(routerName, routerAddress, this.configData.username,
-                                    this.configData.password, this.configData.port));
+                                    this.configData.password, this.configData.port, this.configData.configOption));
     }
 
     cancel() {
