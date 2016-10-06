@@ -4,26 +4,44 @@
         <table>
             <tr>
                 <td>
-                    Router Name: <input class="nameInput" type="text" #routerName />
+                    Router Name:
                 </td>
                 <td>
-                    Router Address: <input class="nameInput" type="text" #routerAddress />
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    Username: <input class="nameInput" type="text" [value]="configDataService.config.username" #username />
+                    <input class="nameInput" type="text" #routerName />
                 </td>
                 <td>
-                    Password: <input class="nameInput" type="text" [value]="configDataService.config.password" #password />
+                    Router Address:
+                </td>
+                <td>
+                    <input class="nameInput" type="text" #routerAddress />
                 </td>
             </tr>
             <tr>
                 <td>
-                    Config Type: <input class="nameInput" type="text" [value]="configDataService.config.configOption" #configType />
+                    Username:
                 </td>
                 <td>
-                    Port: <input class="nameInput" type="number" [value]="configDataService.config.port" #port />
+                    <input class="nameInput" type="text" [value]="configDataService.config.username" #username />
+                </td>
+                <td>
+                    Password:
+                </td>
+                <td>
+                    <input class="nameInput" type="text" [value]="configDataService.config.password" #password />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Config Type:
+                </td>
+                <td>
+                    <input class="nameInput" type="text" [value]="configDataService.config.configOption" #configType />
+                </td>
+                <td>
+                    Port:
+                </td>
+                <td>
+                    <input class="nameInput" type="number" [value]="configDataService.config.port" #port />
                 </td>
             </tr>
     </table>
