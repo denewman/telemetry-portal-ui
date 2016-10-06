@@ -21,13 +21,13 @@
                     Username:
                 </td>
                 <td>
-                    <input class="nameInput" type="text" [value]="configDataService.config.username" #username />
+                    <input class="nameInput" type="text" [value]="configData.username" #username />
                 </td>
                 <td class="text">
                     Password:
                 </td>
                 <td>
-                    <input class="nameInput" type="text" [value]="configDataService.config.password" #password />
+                    <input class="nameInput" type="text" [value]="configData.password" #password />
                 </td>
             </tr>
             <tr>
@@ -35,7 +35,7 @@
                     Config Type:
                 </td>
                 <td>
-                    <select id="configType" #configType>
+                    <select id="configType" required [(ngModel)]="configType" name="configType" #configType>
                         <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
                     </select>
                 </td>
