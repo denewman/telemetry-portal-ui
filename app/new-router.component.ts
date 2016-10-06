@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 
 import { Router } from './router';
 import { ConfigDataService } from "./config-data.service";
@@ -9,7 +9,7 @@ import { Config } from "./config";
     templateUrl: '../templates/new-router.component.tpl.html',
     styleUrls: ['../css/new-router.component.css']
 })
-export class NewRouterComponent {
+export class NewRouterComponent implements OnInit {
     @Output() closeRouterModal: EventEmitter<any> = new EventEmitter<any>();
     @Output() submitNewRouter: EventEmitter<Router> = new EventEmitter<Router>();
 
@@ -17,10 +17,14 @@ export class NewRouterComponent {
 
     constructor(private configDataService: ConfigDataService) {}
 
-    submit(routerName: string, routerAddress: string) {
-        this.configData = this.configDataService.getConfig();
-        this.submitNewRouter.emit(new Router(routerName, routerAddress, this.configData.username,
-                                    this.configData.password, this.configData.port, this.configData.configOption));
+    ngOnInit() {
+    this.configData = this.configDataService.getConfig();
+  }
+
+    submit(routerName: string, routerAddress: string, username: string, password: string,
+           configType: string, port: number) {
+        this.submitNewRouter.emit(new Router(routerName, routerAddress, username,
+                                    password, port, configType));
     }
 
     cancel() {
