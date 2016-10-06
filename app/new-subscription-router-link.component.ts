@@ -85,7 +85,7 @@ export class NewSubscriptionRouterLinkComponent implements OnInit {
     if (!router.routerName || !router.routerAddress || !router.routerUsername ||
         !router.routerPassword || !router.routerPort) { return }
     this.httpService.addRouter(router.routerName, router.routerAddress, router.routerUsername,
-                                router.routerPassword, router.routerPort, this.configData.configOption)
+                                router.routerPassword, router.routerPort, router.configType)
       .subscribe(
             router => {
               this.newRouter = router;
