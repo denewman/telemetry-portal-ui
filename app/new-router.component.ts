@@ -13,7 +13,7 @@ export class NewRouterComponent implements OnInit {
     @Output() closeRouterModal: EventEmitter<any> = new EventEmitter<any>();
     @Output() submitNewRouter: EventEmitter<Router> = new EventEmitter<Router>();
 
-    configOptions = ['YDK', 'SSH'];
+    configOptions = ['YDK', 'Netconfig/Yang', 'SSH'];
     configType: string;
 
     configData: Config;
