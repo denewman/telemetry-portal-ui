@@ -13,12 +13,16 @@ export class NewRouterComponent implements OnInit {
     @Output() closeRouterModal: EventEmitter<any> = new EventEmitter<any>();
     @Output() submitNewRouter: EventEmitter<Router> = new EventEmitter<Router>();
 
+    configOptions = ['YDK', 'SSH'];
+    configType: string;
+
     configData: Config;
 
     constructor(private configDataService: ConfigDataService) {}
 
     ngOnInit() {
-    this.configData = this.configDataService.getConfig();
+        this.configData = this.configDataService.getConfig();
+        this.configType = this.configDataService.config.configOption;
   }
 
     submit(routerName: string, routerAddress: string, username: string, password: string,
