@@ -36,14 +36,14 @@
                 </td>
                 <td>
                     <select id="configType" [value]="configOption" #configType>
-                        <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
+                        <option *ngFor="let option of configOptions" (change)="changePort(option)" [value]="option">{{option}}</option>
                     </select>
                 </td>
                 <td class="text">
                     Port:
                 </td>
                 <td>
-                    <input class="nameInput" type="number" [value]="configDataService.config.port" #port />
+                    <input class="nameInput" type="number" [value]="configDataService.config.port" [(ngModel)]="port" #port />
                 </td>
             </tr>
     </table>

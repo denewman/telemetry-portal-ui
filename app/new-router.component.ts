@@ -15,6 +15,7 @@ export class NewRouterComponent implements OnInit {
 
     configOptions = ['YDK', 'Netconfig/Yang', 'SSH'];
     configOption: string;
+    port: number;
 
     configData: Config;
 
@@ -28,10 +29,16 @@ export class NewRouterComponent implements OnInit {
     submit(routerName: string, routerAddress: string, username: string, password: string,
            configType: string, port: number) {
         this.submitNewRouter.emit(new Router(routerName, routerAddress, username,
-                                    password, port, configType));
+                                    password, this.port, configType));
     }
 
     cancel() {
         this.closeRouterModal.emit();
+    }
+
+    changePort(configType: string) {
+        if (configType == 'SSH') {
+            this.port = 5000;
+        }
     }
 }
