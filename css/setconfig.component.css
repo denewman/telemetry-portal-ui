@@ -51,7 +51,11 @@ button {
 }
 
 button:disabled {
-    background-color: lightgray;
+    background-color: darkgray;
+}
+
+button:disabled:hover {
+    background-color: darkgray;
 }
 
 button:hover {

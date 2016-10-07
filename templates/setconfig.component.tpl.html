@@ -4,7 +4,7 @@
         Configuration Options:
     </div>
     <div>
-        <select id="configOption" required [(ngModel)]="configDataService.config.configOption"
+        <select (change)="enableSubmit()" id="configOption" required [(ngModel)]="configDataService.config.configOption"
                 name="configOption" #configOption="ngModel">
             <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
         </select>
@@ -19,13 +19,13 @@
         Router Default Password:
     </div>
     <div>
-        <input type="text" [value]="configDataService.config.password" #password />
+        <input type="text" (change)="enableSubmit()" [value]="configDataService.config.password" #password />
     </div>
     <div>
         Default TCP Port:
     </div>
     <div>
-        <input type="number" [value]="configDataService.config.port" min="0" step="1" #port />
+        <input type="number" (change)="enableSubmit()" [value]="configDataService.config.port" min="0" step="1" #port />
     </div>
     <button (click)="onSubmit(configOption.value, username.value, password.value, port.value)" [disabled]="disableSubmit">Submit</button>
 </div>
