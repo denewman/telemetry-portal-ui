@@ -9,6 +9,8 @@ import { ConfigDataService } from './config-data.service';
 })
 export class SetConfigComponent {
   configOptions = ['YDK', 'Netconfig/Yang', 'SSH'];
+  disableSubmit: boolean = true;
+
   constructor(public configDataService: ConfigDataService) {}
 
   onSubmit(configOption: string, username: string, password: string, port: number) {

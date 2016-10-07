@@ -27,5 +27,5 @@
     <div>
         <input type="number" [value]="configDataService.config.port" min="0" step="1" #port />
     </div>
-    <button (click)="onSubmit(configOption.value, username.value, password.value, port.value)">Submit</button>
+    <button (click)="onSubmit(configOption.value, username.value, password.value, port.value)" [disabled]="disableSubmit">Submit</button>
 </div>
