@@ -24,6 +24,7 @@ export class NewRouterComponent implements OnInit {
     ngOnInit() {
         this.configData = this.configDataService.getConfig();
         this.configOption = this.configData.configOption;
+        this.port = this.configData.port;
   }
 
     submit(routerName: string, routerAddress: string, username: string, password: string,
