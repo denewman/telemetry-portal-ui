@@ -13,7 +13,7 @@
         Router Default Username:
     </div>
     <div>
-        <input type="text" [value]="configDataService.config.username" #username />
+        <input type="text" (onChange)="enableSubmit()" [value]="configDataService.config.username" #username />
     </div>
     <div>
         Router Default Password:

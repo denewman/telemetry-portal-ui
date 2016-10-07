@@ -13,6 +13,10 @@ export class SetConfigComponent {
 
   constructor(public configDataService: ConfigDataService) {}
 
+  enableSubmit() {
+    this.disableSubmit = false;
+  }
+
   onSubmit(configOption: string, username: string, password: string, port: number) {
     this.configDataService.setConfig(configOption, username, password, port);
     this.configDataService.setSelectedTab(0);
