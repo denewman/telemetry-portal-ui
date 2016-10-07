@@ -30,7 +30,7 @@ export class NewRouterComponent implements OnInit {
     submit(routerName: string, routerAddress: string, username: string, password: string,
            configType: string, port: number) {
         this.submitNewRouter.emit(new Router(routerName, routerAddress, username,
-                                    password, this.port, configType));
+                                    password, port, configType));
     }
 
     cancel() {
