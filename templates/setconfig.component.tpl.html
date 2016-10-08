@@ -1,6 +1,6 @@
 <div class="config">
     <h2>Set Config:</h2>
-    <div>
+    <div id="position1">
         Configuration Options:
     </div>
     <div>
@@ -9,23 +9,27 @@
             <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
         </select>
     </div>
-    <div>
+      <br>
+    <div id="position2">
         Router Default Username:
     </div>
     <div>
         <input type="text" (keypress)="enableSubmit()" [value]="configDataService.config.username" #username />
     </div>
-    <div>
+        <br>
+    <div id="position3">
         Router Default Password:
     </div>
     <div>
         <input type="text" (keypress)="enableSubmit()" [value]="configDataService.config.password" #password />
     </div>
-    <div>
+        <br>
+    <div id="position4">
         Default TCP Port:
     </div>
     <div>
         <input type="number" (keypress)="enableSubmit()" [value]="configDataService.config.port" min="0" step="1" #port />
     </div>
+    <br>
     <button (click)="onSubmit(configOption.value, username.value, password.value, port.value)" [disabled]="disableSubmit">Submit</button>
 </div>
