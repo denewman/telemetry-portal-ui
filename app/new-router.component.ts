@@ -25,7 +25,7 @@ export class NewRouterComponent implements OnInit {
         this.configData = this.configDataService.getConfig();
         this.configOption = this.configData.configOption;
         this.routerPort = this.configData.port;
-  }
+    }
 
     submit(routerName: string, routerAddress: string, username: string, password: string,
            configType: string, port: number) {
@@ -38,7 +38,6 @@ export class NewRouterComponent implements OnInit {
     }
 
     changePort(configOption: string) {
-        console.log(configOption);
         if (configOption == 'SSH') {
             this.routerPort = 5000;
         }
