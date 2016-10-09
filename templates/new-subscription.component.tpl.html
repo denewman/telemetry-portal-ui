@@ -1,3 +1,4 @@
+<form>
 <table>
     <tr>
         <th>Id: </th>
@@ -11,8 +12,8 @@
         <th>Interval (ms):</th>
     </tr>
     <tr>
-        <td><input class="number-input" type="number" min="1" step="1" #subscriptionId /></td>
-        <td><input class="name-input" #subscriptionName /></td>
+        <td><input class="number-input" type="number" min="1" step="1" #subscriptionId required/></td>
+        <td><input class="name-input" #subscriptionName required/></td>
         <td>
             <select #destinationGroupName>
                 <option *ngFor="let group of destinationGroups" [value]="group.destinationGroupName">{{group.destinationGroupName}}</option>
@@ -24,18 +25,20 @@
             </select>
         </td>
         <td>
-            <input class="number-input" type="number" min="0" step="1" #subscriptionInterval />
+            <input class="number-input" type="number" min="0" step="1" #subscriptionInterval required/>
         </td>
         <td>
             <button class="submit" (click)="onSubmit(subscriptionId.value, subscriptionName.value, destinationGroupName.value,
                 sensorName.value, subscriptionInterval.value);
-                subscriptionId.value=''; subscriptionName.value=''; destinationGroupName.value=''; sensorName.value=''; subscriptionInterval.value=''">
+                ">
                 Submit
             </button>
-            <button class="cancel" (click)="onCancel()">Cancel</button>
+            <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
         </td>
     </tr>
 </table>
+</form>
+
 <new-sensor *ngIf="openNewSensorModal" (submitNewSensor)="submitNewSensor($event)" (closeSensorModal)="closeNewSensorModal()"></new-sensor>
 <new-destination-group *ngIf="openNewDestinationGroupModal" (submitNewDestinationGroup)="submitNewDestinationGroup($event)" (closeDestinationGroupModal)="closeNewDestinationGroupModal()"></new-destination-group>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

@@ -13,8 +13,25 @@ export class NewDestinationGroupComponent {
 
     submit(destinationGroupName: string, destinationGroupAddress: string, destinationGroupEncoding: string,
            destinationGroupPort: string, destinationGroupProtocol: string) {
-        this.submitNewDestinationGroup.emit(new DestinationGroup(destinationGroupName, destinationGroupAddress,
+           var ipRegExp = new RegExp('(^(\\d{1,3}\.){3}(\\d{1,3})$)|(^([\\da-fA-F]{1,4}:){7}([\\da-fA-F]{1,4})$)');
+           var portRegExp = new RegExp('^\\d{1,5}$');
+           
+
+           if(!destinationGroupAddress||!destinationGroupName||!destinationGroupEncoding||!destinationGroupPort||!destinationGroupProtocol)
+           {
+               return;
+
+           }
+           else if(!ipRegExp.test(destinationGroupAddress)||!portRegExp.test(destinationGroupPort))
+           {
+
+                return;
+           }else
+           {
+
+            this.submitNewDestinationGroup.emit(new DestinationGroup(destinationGroupName, destinationGroupAddress,
                             destinationGroupEncoding, destinationGroupPort, destinationGroupProtocol));
+           }
     }
 
     cancel() {
