@@ -35,7 +35,7 @@
                     Config Type:
                 </td>
                 <td>
-                    <select id="configType" [value]="configOption" #configType>
+                    <select id="configType" [value]="configOption" (change)="changePort('SSH')" #configType>
                         <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
                     </select>
                 </td>
