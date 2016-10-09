@@ -35,7 +35,7 @@
                     Config Type:
                 </td>
                 <td>
-                    <select id="configType" [(ngModel)]="configOption" #configType="ngModel" (change)="changePort()">
+                    <select id="configType" [(ngModel)]="configOption" #configType="ngModel" (change)="changePort(configType.value)">
                         <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
                     </select>
                 </td>
