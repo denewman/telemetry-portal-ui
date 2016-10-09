@@ -40,7 +40,7 @@ export class NewRouterComponent implements OnInit {
 
     changePort(configType: string) {
         if (configType == 'SSH') {
-            this.port = 5000;
+            this.port = '5000';
         }
     }
 }
