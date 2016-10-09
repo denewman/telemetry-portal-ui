@@ -37,7 +37,8 @@ export class NewRouterComponent implements OnInit {
         this.closeRouterModal.emit();
     }
 
-    changePort() {
+    changePort(configOption: string) {
+        console.log(configOption);
         if (this.configOption == 'SSH') {
             this.routerPort = 5000;
         }
