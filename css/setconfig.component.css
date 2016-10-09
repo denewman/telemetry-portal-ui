@@ -1,5 +1,23 @@
 .config {
     text-align: center;
+
+}
+
+#position1{ 
+    position:relative;
+    left:-30px
+}
+#position2{ 
+    position:relative;
+    left:-15px
+}
+#position3{ 
+    position:relative;
+    left:-15px
+}
+#position4{ 
+    position:relative;
+    left:-48px
 }
 
 .config select {
