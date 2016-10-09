@@ -5,7 +5,7 @@
     </div>
     <div>
         <select (change)="enableSubmit()" (change)="changePort($event.target.value)" id="configOption" required
-                [(ngModel)]="configDataService.config.configOption" name="configOption" #configOption="ngModel">
+                [(ngModel)]="configOption" name="configOption" #configOption="ngModel">
             <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
         </select>
     </div>
