@@ -39,8 +39,11 @@ export class NewRouterComponent implements OnInit {
 
     changePort(configOption: string) {
         console.log(configOption);
-        if (this.configOption == 'SSH') {
+        if (configOption == 'SSH') {
             this.routerPort = 5000;
+        }
+        else if(configOption == 'YDK') {
+            this.routerPort = 5001;
         }
     }
 }
