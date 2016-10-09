@@ -10,13 +10,13 @@ import { ConfigDataService } from './config-data.service';
 export class SetConfigComponent implements OnInit {
   configOptions = ['YDK', 'Netconfig/Yang', 'SSH'];
   disableSubmit: boolean = true;
-  configOption: string;
+  configType: string;
   routerPort: number;
 
   constructor(public configDataService: ConfigDataService) {}
 
   ngOnInit() {
-        this.configOption = this.configDataService.config.configOption;
+        this.configType = this.configDataService.config.configOption;
         this.routerPort = this.configDataService.config.port;
   }
 
