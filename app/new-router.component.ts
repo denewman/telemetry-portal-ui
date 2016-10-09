@@ -15,7 +15,7 @@ export class NewRouterComponent implements OnInit {
 
     configOptions = ['YDK', 'Netconfig/Yang', 'SSH'];
     configOption: string;
-    port: string;
+    routerPort: number;
 
     configData: Config;
 
@@ -24,8 +24,7 @@ export class NewRouterComponent implements OnInit {
     ngOnInit() {
         this.configData = this.configDataService.getConfig();
         this.configOption = this.configData.configOption;
-        this.port = this.configData.port.toString();
-        console.log(this.port);
+        this.routerPort = this.configData.port;
   }
 
     submit(routerName: string, routerAddress: string, username: string, password: string,
@@ -40,7 +39,7 @@ export class NewRouterComponent implements OnInit {
 
     changePort(configType: string) {
         if (configType == 'SSH') {
-            this.port = '5000';
+            this.routerPort = 5000;
         }
     }
 }
