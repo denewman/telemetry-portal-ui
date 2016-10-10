@@ -13,12 +13,14 @@
                 title="ipv4 or ipv6 address"  />
             </td>
             <td>
+
                 Encoding: <br/>
                 <input type="radio" name="encoding" value="JSON" checked="checked" #encoding /> JSON
                 <input type="radio" name="encoding" value="GBP" disabled="true" #encoding /> <span class="greyed">GBP</span>
                 <!--<select #encoding>
                     <option *ngFor="let e of encodings" [value]="e">{{e}}</option>
                 </select>-->
+
             </td>
         </tr>
         <tr>
@@ -26,17 +28,21 @@
                Port: <input type="text" #port required pattern="^\d{1,5}$"  title="a number between 0 and 65535" />
             </td>
             <td>
+
                 IP Family Type: <br/>
                 <input type="radio" name="IPFamilyType" value="IPV4" checked="checked" #IPFamilyType /> IPV4
                 <input type="radio" name="IPFamilyType" value="IPV6" disabled="true" #IPFamilyType /> <span class="greyed">IPV6</span>
                 <!--<select #IPFamilyType >
                     <option *ngFor="let ipft of IPFamilyTypes" [value]="ipft">{{ipft}}</option>                               
                 </select>-->
+
             </td>
         </tr>
     </table>
 
+
     <button class="submit" (click)="submit(name.value, address.value, encoding.value, port.value, IPFamilyType.value)">Submit</button>
     <button class="cancel" (click)="cancel()">Cancel</button>
 </div>
+
 

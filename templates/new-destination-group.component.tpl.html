@@ -13,9 +13,11 @@
                 Address: <input type="text" #address required pattern="(^(\d{1,3}\.){3}(\d{1,3})$)|(^([\da-fA-F]{1,4}:){7}([\da-fA-F]{1,4})$)" title="ipv4 or ipv6 address" />
             </td>
             <td>
+
                 Encoding: <br/>
                 <input type="radio" name="encoding" value="SELF-DESCRIBING-GPB" checked="checked" #encoding /> SELF-DESCRIBING-GPB
                 <input type="radio" name="encoding" value="GPB" disabled="true" #encoding /> <span class="greyed">GPB</span>
+
             </td>
         </tr>
         <tr>
@@ -23,9 +25,11 @@
                Port: <input type="text" #port required pattern="^\d{1,5}$"  title="a number between 0 and 65535" />
             </td>
             <td>
+
                 Protocol: <br/>
                 <input type="radio" name="protocol" value="tcp" checked="checked" #protocol /> TCP
                 <input type="radio" name="protocol" value="grpc" disabled="true" #protocol /> <span class="greyed">GRPC</span>
+
             </td>
         </tr>
     </table>
