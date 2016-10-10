@@ -66,8 +66,6 @@ export class NewSubscriptionComponent implements OnInit {
     this.openNewDestinationGroupModal = true;
   }
 
-
-
   submitNewSensor(sensor: Sensor) {
     if (!sensor.sensorName || !sensor.sensorPaths) { return; }
     this.httpService.addSensor(sensor.sensorName, sensor.sensorPaths)

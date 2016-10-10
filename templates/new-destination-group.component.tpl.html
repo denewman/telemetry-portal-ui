@@ -11,7 +11,9 @@
                 Address: <input type="text" #address />
             </td>
             <td>
-                Encoding: <input type="text" #encoding />
+                Encoding: <br/>
+                <input type="radio" name="encoding" value="SELF-DESCRIBING-GPB" checked="checked" #encoding /> SELF-DESCRIBING-GPB
+                <input type="radio" name="encoding" value="GPB" disabled="true" #encoding /> <span class="greyed">GPB</span>
             </td>
         </tr>
         <tr>
@@ -19,7 +21,9 @@
                Port: <input type="text" #port />
             </td>
             <td>
-                Protocol: <input type="text" #protocol />
+                Protocol: <br/>
+                <input type="radio" name="protocol" value="tcp" checked="checked" #protocol /> TCP
+                <input type="radio" name="protocol" value="grpc" disabled="true" #protocol /> <span class="greyed">GRPC</span>
             </td>
         </tr>
     </table>

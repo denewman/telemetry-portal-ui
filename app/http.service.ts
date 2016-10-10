@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { Subscription } from './subscription';
 import { PolicyGroup } from './policy-group';
@@ -19,7 +20,7 @@ import { Observable } from 'rxjs/Observable';
 export class HttpService {
     constructor (private http: Http) {}
 
-    private url = "http://203.36.5.115:3000/flask"; //TODO: Change this address to production server.
+    private url = "http://localhost:3000/flask"; //TODO: Change this address to production server(203.36.5.115).
 
     private subscriptionUrl = this.url + '/subscription';
     private policyGroupUrl = this.url + '/policyGroup';
@@ -33,7 +34,7 @@ export class HttpService {
 
     getSubscriptions(): Observable<Subscription[]> {
         return this.http.get(this.subscriptionUrl)
-            .map(this.extractData)
+            .map(this.extractSubscription)
             .catch(this.handleError);
     }
     addSubscription (subscriptionId: number, subscriptionName: string, destinationGroupName: string,
@@ -80,6 +81,13 @@ export class HttpService {
             .map(this.extractDestinationGroupData)
             .catch(this.handleError);
     }
+
+    getDestinationGroup(destinationGroupName: string): Observable<DestinationGroup> {
+        return  this.http.get(this.destinationGroupUrl + '/' + destinationGroupName)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     addDestinationGroup (destinationGroupName: string, destinationGroupAddress: string,
                          destinationGroupEncoding: string, destinationGroupPort: string,
                          destinationGroupProtocol: string): Observable<DestinationGroup> {
@@ -210,6 +218,11 @@ export class HttpService {
     }
 
     private extractData(res: Response) {
+    let body = res.json();
+    return body.data || { };
+    }
+
+    private extractSubscription(res: Response) {
         let body = res.json();
         return body.subscription || {};
     }

@@ -18,6 +18,7 @@ export class ManageSubscriptionsComponent implements OnInit {
 
   newSubscription: boolean = false;
 
+
   constructor (private httpService: HttpService, private router: Router) {}
 
   ngOnInit() { this.getSubscriptions(); }
@@ -49,16 +50,17 @@ export class ManageSubscriptionsComponent implements OnInit {
   }
 
   onNewSubscriptionClick() {
+    console.log("New sub clicked");
     this.newSubscription = true;
   }
 
   cancelNewSubscription() {
+    console.log("cancel sub clicked");
     this.newSubscription = false;
   }
 
   goToHome() {
     this.router.navigate(['/home'])
   }
-
 
 }
