@@ -1,14 +1,16 @@
 <div class="popup">
+    <form>
     <h2>New Collector</h2>
     <table>
         <tr>
             <td>
-               Name: <input type="text" #name />
+               Name: <input type="text" #name required />
             </td>
         </tr>
         <tr>
             <td>
-                Address: <input type="text" #address />
+                Address: <input type="text" #address  required pattern="(^(\d{1,3}\.){3}(\d{1,3})$)|(^([\da-fA-F]{1,4}:){7}([\da-fA-F]{1,4})$)"
+                title="ipv4 or ipv6 address"  />
             </td>
             <td>
                 Encoding: <br/>
@@ -21,7 +23,7 @@
         </tr>
         <tr>
             <td>
-               Port: <input type="text" #port />
+               Port: <input type="text" #port required pattern="^\d{1,5}$"  title="a number between 0 and 65535" />
             </td>
             <td>
                 IP Family Type: <br/>
@@ -37,3 +39,4 @@
     <button class="submit" (click)="submit(name.value, address.value, encoding.value, port.value, IPFamilyType.value)">Submit</button>
     <button class="cancel" (click)="cancel()">Cancel</button>
 </div>
+
