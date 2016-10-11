@@ -1,3 +1,4 @@
+
 .popup {
     margin: 100px auto;
     padding: 20px;
@@ -11,6 +12,7 @@
     left: 300px;
 }
 
+
 table {
     color: black;
     text-align: right;
@@ -23,8 +25,16 @@ td {
 }
 
 
-input {
-    font-size: 20px;
+.attribute{
+   background: white;
+   width: 268px;
+   padding: 5px;
+   font-size: 16px;
+   border: 1px solid grey;
+   height: 34px;
+   -webkit-appearance: none;
+   border-radius:4px;
+   font-size: 20px;
 }
 
 button {
@@ -37,42 +47,8 @@ button {
     font-size: 16px;
 }
 
-input[type="text"]{
-   background: white;
-   width: 268px;
-   padding: 5px;
-   font-size: 16px;
-   border: 1px solid grey;
-   height: 34px;
-   -webkit-appearance: none;
-   border-radius:4px;
-}
 
-.greyed{
-    color: dimgrey
-}
-
-select {
-     width: 268px;
-    font-size: 20px;
-    height: 34px;
-    background: white;
-}
-
-option {
-    font-size: 20px;
-}
-
-.submit {
-    background-color: #4CAF50; /* Green */
-    margin-top: 20px;
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 10px 20px;
-    border-radius:12px;
-}
-
-.cancel {
+.close {
     background-color: red;
     margin-top: 20px;
     margin-left: 5px;
@@ -81,20 +57,12 @@ option {
     border-radius:12px;
 }
 
-.submit:hover {
-	background-color:#5cbf2a;
+.close:hover {
+	background-color: darkred;
      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
 }
-.submit:active {
+.close:active {
 	position:relative;
 	top:1px;
 }
 
-.cancel:hover {
-	background-color: darkred;
-     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-}
-.cancel:active {
-	position:relative;
-	top:1px;
-}

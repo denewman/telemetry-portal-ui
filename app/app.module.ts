@@ -12,10 +12,10 @@ import { TabsComponent } from './tabs.component';
 import { TabComponent } from './tab.component';
 import { HomeComponent } from './home.component';
 import { SetConfigComponent } from './setconfig.component';
-import {ManageSubscriptionsComponent} from "./manage-subscriptions.component";
-import {ApplySubscriptionsComponent} from "./apply-subscriptions.component";
+import { ManageSubscriptionsComponent} from "./manage-subscriptions.component";
+import { ApplySubscriptionsComponent} from "./apply-subscriptions.component";
 import { ApplyPolicyGroupsComponent } from './apply-policy-groups.component';
-import {SubscriptionListComponent} from "./subscription-list.component";
+import { SubscriptionListComponent} from "./subscription-list.component";
 import { PolicyGroupListComponent } from './policy-group-list.component';
 import { ManagePolicyGroupsComponent } from './manage-policy-groups.component';
 import { HttpService } from './http.service';
@@ -31,6 +31,8 @@ import { PolicyRouterLinkListComponent } from './policy-router-link-list.compone
 import { NewSubscriptionRouterLinkComponent } from './new-subscription-router-link.component';
 import { NewPolicyRouterLinkComponent } from './new-policy-router-link.component';
 import { NewRouterComponent } from './new-router.component';
+import { ViewDestinationGroupComponent } from './view-destination-group.component'
+ 
 
 @NgModule({
   imports:      [
@@ -64,7 +66,8 @@ import { NewRouterComponent } from './new-router.component';
       PolicyRouterLinkListComponent,
       NewSubscriptionRouterLinkComponent,
       NewPolicyRouterLinkComponent,
-      NewRouterComponent
+      NewRouterComponent,
+      ViewDestinationGroupComponent
 
   ],
     providers: [

@@ -1,0 +1,28 @@
+<div class="popup">
+    <h2>View Destination Group</h2>
+    <table *ngIf='destinationGroup'>
+        <tr>
+            <td>
+               Name: <div class="attribute" >{{destinationGroup.destinationGroupName}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address: <div class="attribute" >{{destinationGroup.destinationGroupAddress}}</div>
+            </td>
+            <td>
+                Encoding: <div class="attribute" >{{destinationGroup.destinationGroupEncoding}}</div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Port: <div class="attribute" >{{destinationGroup.destinationGroupPort}}</div>
+            </td>
+            <td>
+                Protocol: <div class="attribute" >{{destinationGroup.destinationGroupProtocol}}</div>
+            </td>
+        </tr>
+    </table>
+
+    <button class="close" (click)="closeModal()">Close</button>
+</div>

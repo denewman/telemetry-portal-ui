@@ -41,6 +41,10 @@ input[type="text"]{
    border-radius:4px;
 }
 
+.greyed{
+    color: dimgrey
+}
+
 button {
     background-color: #4CAF50; /* Green */
     border: none;
