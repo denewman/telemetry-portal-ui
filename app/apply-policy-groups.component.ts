@@ -36,6 +36,7 @@ export class ApplyPolicyGroupsComponent {
         .subscribe(
             policyRouterLink => {
               this.policyRouterLink = policyRouterLink;
+              console.log(policyRouterLink.policyName);
               if (this.policyRouterLink.policyName) {
                 this.policyRouterLinks.push(policyRouterLink);
               }
