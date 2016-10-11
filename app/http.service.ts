@@ -107,6 +107,13 @@ export class HttpService {
             .map(this.extractSensorData)
             .catch(this.handleError);
     }
+
+    getSensor(sensorName: string): Observable<Sensor> {
+        return this.http.get(this.sensorUrl + '/' + sensorName)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     addSensor (sensorName: string, sensorPaths: string[]): Observable<Sensor> {
         let body = JSON.stringify({ sensorName, sensorPaths });
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -120,6 +127,12 @@ export class HttpService {
     getCollectors(): Observable<Collector[]> {
         return this.http.get(this.collectorUrl)
             .map(this.extractCollectorData)
+            .catch(this.handleError);
+    }
+
+    getCollector(collectorName: string): Observable<Collector> {
+        return this.http.get(this.collectorUrl + '/' + collectorName)
+            .map(this.extractData)
             .catch(this.handleError);
     }
 
@@ -143,6 +156,12 @@ export class HttpService {
             .catch(this.handleError);
     }
 
+    getPolicy(policyName: string) {
+        return this.http.get(this.policyUrl + '/' + policyName)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     addPolicy (policyName: string, policyVersion: number, policyDescription: string,
                          policyComment: string, policyIdentifier: string,
                          policyPeriod: number, policyPaths: string[]): Observable<Policy> {
@@ -162,6 +181,13 @@ export class HttpService {
             .map(this.extractRouterData)
             .catch(this.handleError);
     }
+
+    getRouter(routerName: string) {
+        return this.http.get(this.routerUrl + '/' + routerName)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     addRouter (routerName: string, routerAddress: string, routerUsername: string, routerPassword: string,
                     routerPort: number, configType: string): Observable<Router> {
         let body = JSON.stringify({ routerName, routerAddress, routerUsername, routerPassword, routerPort, configType });

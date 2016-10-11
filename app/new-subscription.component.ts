@@ -29,8 +29,8 @@ export class NewSubscriptionComponent implements OnInit {
   @ViewChild('subscriptionId')       subscriptionId :ElementRef;
   @ViewChild('subscriptionName')     subscriptionName :ElementRef;
   @ViewChild('destinationGroupName') destinationGroupName :ElementRef;
-  @ViewChild('sensorName')sensorName :ElementRef;
-  @ViewChild('subscriptionInterval')subscriptionInterval :ElementRef;
+  @ViewChild('sensorName')           sensorName :ElementRef;
+  @ViewChild('subscriptionInterval') subscriptionInterval :ElementRef;
 
   constructor (
       private httpService: HttpService) {}
@@ -67,7 +67,7 @@ export class NewSubscriptionComponent implements OnInit {
                       this.destinationGroupName.nativeElement.value=''; 
                       this.sensorName.nativeElement.value=''; 
                       this.subscriptionInterval.nativeElement.value=''                       
-
+                
                       this.submit.emit(new Subscription(subscriptionId, subscriptionName,
                                       destinationGroupName, sensorName, subscriptionInterval));
                   }

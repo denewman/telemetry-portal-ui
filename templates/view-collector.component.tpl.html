@@ -1,0 +1,30 @@
+<div class="popup">
+    <h2>View Collector</h2>
+    <table *ngIf="collector">
+        <tr>
+            <td>
+               Name: <span class="attribute">{{collector.collectorName}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Address: <span class="attribute">{{collector.collectorAddress}}</span>
+            </td>
+            <td>
+                Encoding: <span class="attribute">{{collector.collectorEncoding}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Port: <span class="attribute">{{collector.collectorPort}}</span>
+            </td>
+            <td>
+                IP Family Type: <span class="attribute">{{collector.collectorProtocol}}</span>
+            </td>
+        </tr>
+    </table>
+
+    <button class="close" (click)="closeModal()">Close</button>
+</div>
+
+

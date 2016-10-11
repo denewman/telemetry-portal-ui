@@ -6,5 +6,5 @@ export class Policy {
     public policyComment: string,
     public policyIdentifier: string,
     public policyPeriod: number,
-    public policyPaths: string[]) { }
+    public policyPath: string[]) { }
 }
