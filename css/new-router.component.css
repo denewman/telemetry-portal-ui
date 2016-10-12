@@ -1,4 +1,5 @@
 .popup {
+    margin: 100px auto;
     padding: 20px;
     background: #D8D8D8;
     border: 1px solid #666;
@@ -7,7 +8,7 @@
     box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 20px;
-    left: 150px;
+    left: 250px;
 }
 
 .form {
