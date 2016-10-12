@@ -1,5 +1,5 @@
 <ul class="tabs">
-    <li class="tab" *ngFor="let tab of tabs" (click)="selectTab(tab)" [style.background] = "tab.selected ? 'lightgrey': '#A3C159'">
+    <li class="tab" *ngFor="let tab of tabs" (click)="selectTab(tab)" [style.background] = "tab.selected ? 'lightgrey': '#A3C159'" [style.color] = "tab.selected ? '4D4B4B': 'white'">
         {{ tab.tabTitle }}
     </li>
 </ul>
