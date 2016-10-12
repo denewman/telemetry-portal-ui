@@ -13,7 +13,6 @@ select {
    font-size: 16px;
    border: 1px solid grey;
    height: 34px;
-   -webkit-appearance: none; 
 }
 
 option {
