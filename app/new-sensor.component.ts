@@ -34,6 +34,9 @@ export class NewSensorComponent {
     }
 
     submit(sensorName: string) {
+        if (!sensorName) {
+            return;
+        }
         this.updatePathsSelected();
         this.submitNewSensor.emit(new Sensor(sensorName, this.paths));
     }
