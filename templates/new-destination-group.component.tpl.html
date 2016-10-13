@@ -1,42 +1,37 @@
 <div class="popup">
-
-    <form>
     <h2>New Destination Group</h2>
-    <table>
-        <tr>
-            <td>
-               Name: <input type="text" #name  required />
-            </td>
-        </tr>
-        <tr>
-            <td>
-                Address: <input type="text" #address required pattern="(^(\d{1,3}\.){3}(\d{1,3})$)|(^([\da-fA-F]{1,4}:){7}([\da-fA-F]{1,4})$)" title="ipv4 or ipv6 address" />
-            </td>
-            <td>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <table>
+            <tr>
+                <td>
+                Name: <input type="text" name="name" ngModel  required />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Address: <input type="text" name="address" ngModel required pattern="(^(\d{1,3}\.){3}(\d{1,3})$)|(^([\da-fA-F]{1,4}:){7}([\da-fA-F]{1,4})$)" title="ipv4 or ipv6 address" />
+                </td>
+                <td>
+                    Encoding: <br/>
+                    <input type="radio" name="encoding" value="SELF-DESCRIBING-GPB" ngModel required checked /> SELF-DESCRIBING-GPB
+                    <input type="radio" name="encoding" value="GPB" disabled="true" ngModel required /> <span class="greyed">GPB</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Port: <input type="text" name="port" ngModel required pattern="^\d{1,5}$"  title="a number between 0 and 65535" />
+                </td>
+                <td>
 
-                Encoding: <br/>
-                <input type="radio" name="encoding" value="SELF-DESCRIBING-GPB" checked="checked" #encoding /> SELF-DESCRIBING-GPB
-                <input type="radio" name="encoding" value="GPB" disabled="true" #encoding /> <span class="greyed">GPB</span>
+                    Protocol: <br/>
+                    <input type="radio" name="protocol" value="TCP" ngModel required checked /> TCP
+                    <input type="radio" name="protocol" value="GRPC" ngModel required disabled="true" /> <span class="greyed">GRPC</span>
 
-            </td>
-        </tr>
-        <tr>
-            <td>
-               Port: <input type="text" #port required pattern="^\d{1,5}$"  title="a number between 0 and 65535" />
-            </td>
-            <td>
+                </td>
+            </tr>
+        </table>
 
-                Protocol: <br/>
-                <input type="radio" name="protocol" value="tcp" checked="checked" #protocol /> TCP
-                <input type="radio" name="protocol" value="grpc" disabled="true" #protocol /> <span class="greyed">GRPC</span>
-
-            </td>
-        </tr>
-    </table>
-
-    <button class="submit" (click)="submit(name.value, address.value, encoding.value, port.value, protocol.value)">Submit</button>
-    <button type="button" class="cancel" (click)="cancel()">Cancel</button>
-
+        <button type="submit" class="submit">Submit</button>
+        <button type="button" class="cancel" (click)="cancel()">Cancel</button>
     </form>
-
 </div>

@@ -33,16 +33,18 @@ export class ManagePolicyGroupsComponent implements OnInit {
     if (!policyGroup.policyGroupName || !policyGroup.collectorName || !policyGroup.policyName) {
       return;
     }
-    this.httpService.addPolicyGroup(policyGroup.policyGroupName, policyGroup.collectorName,
-        policyGroup.policyName)
+    this.httpService.addPolicyGroup(
+      policyGroup.policyGroupName, 
+      policyGroup.collectorName,
+      policyGroup.policyName)
         .subscribe(
-            policyGroup => {
-              this.policyGroup = policyGroup;
-              if (this.policyGroup.policyGroupName) {
-                this.policyGroups.push(policyGroup);
-              }
-            },
-            error => this.errorMessage = <any>error);
+          policyGroup => {
+            this.policyGroup = policyGroup;
+            if (this.policyGroup.policyGroupName) {
+              this.policyGroups.push(policyGroup);
+            }
+          },
+          error => this.errorMessage = <any>error);
     this.newPolicy = false;
   }
 

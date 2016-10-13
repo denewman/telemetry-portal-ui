@@ -1,47 +1,38 @@
 <div class="popup">
-    <form>
-        <h2>New Collector</h2>
+    <h2>New Collector</h2>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <table>
             <tr>
                 <td>
-                    Name: <input type="text" #name required />
+                    Name: <input type="text" name="collectorName" ngModel required />
                 </td>
             </tr>
             <tr>
                 <td>
-                    Address: <input type="text" #address  required pattern="(^(\d{1,3}\.){3}(\d{1,3})$)|(^([\da-fA-F]{1,4}:){7}([\da-fA-F]{1,4})$)"
-                    title="ipv4 or ipv6 address"  />
+                    Address: <input type="text" name="collectorAddress" ngModel required pattern="(^(\d{1,3}\.){3}(\d{1,3})$)|(^([\da-fA-F]{1,4}:){7}([\da-fA-F]{1,4})$)"
+                                title="ipv4 or ipv6 address"  />
                 </td>
                 <td>
-
                     Encoding: <br/>
-                    <input type="radio" name="encoding" value="JSON" checked="checked" #encoding /> JSON
-                    <input type="radio" name="encoding" value="GBP" disabled="true" #encoding /> <span class="greyed">GBP</span>
-                    <!--<select #encoding>
-                        <option *ngFor="let e of encodings" [value]="e">{{e}}</option>
-                    </select>-->
-
+                    <input type="radio" name="collectorEncoding" value="JSON" checked ngModel required/> JSON
+                    <input type="radio" name="collectorEncoding" value="GBP" disabled="true" ngModel required/> <span class="greyed">GBP</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    Port: <input type="text" #port required pattern="^\d{1,5}$"  title="a number between 0 and 65535" />
+                    Port: <input type="text" name="collectorPort" ngModel required pattern="^\d{1,5}$"  title="a number between 0 and 65535" />
                 </td>
                 <td>
-
                     IP Family Type: <br/>
-                    <input type="radio" name="IPFamilyType" value="IPV4" checked="checked" #IPFamilyType /> IPV4
-                    <input type="radio" name="IPFamilyType" value="IPV6" disabled="true" #IPFamilyType /> <span class="greyed">IPV6</span>
-                    <!--<select #IPFamilyType >
-                        <option *ngFor="let ipft of IPFamilyTypes" [value]="ipft">{{ipft}}</option>
-                    </select>-->
-
+                    <input type="radio" name="collectorIPFamilyType" value="IPV4" checked ngModel required/> IPV4
+                    <input type="radio" name="collectorIPFamilyType" value="IPV6" disabled="true" ngModel required/> <span class="greyed">IPV6</span>
                 </td>
             </tr>
         </table>
+
+        <button class="submit" type="submit" >Submit</button>
+        <button class="cancel" type="button" (click)="onCancel()">Cancel</button>
     </form>
-    <button class="submit" (click)="submit(name.value, address.value, encoding.value, port.value, IPFamilyType.value)">Submit</button>
-    <button class="cancel" (click)="cancel()">Cancel</button>
 </div>
 
 

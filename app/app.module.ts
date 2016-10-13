@@ -31,7 +31,11 @@ import { PolicyRouterLinkListComponent } from './policy-router-link-list.compone
 import { NewSubscriptionRouterLinkComponent } from './new-subscription-router-link.component';
 import { NewPolicyRouterLinkComponent } from './new-policy-router-link.component';
 import { NewRouterComponent } from './new-router.component';
-import { ViewDestinationGroupComponent } from './view-destination-group.component'
+import { ViewDestinationGroupComponent } from './view-destination-group.component';
+import { ViewSensorComponent } from './view-sensor.component';
+import { ViewPolicyComponent } from './view-policy.component';
+import { ViewCollectorComponent } from './view-collector.component';
+
  
 
 @NgModule({
@@ -67,7 +71,10 @@ import { ViewDestinationGroupComponent } from './view-destination-group.componen
       NewSubscriptionRouterLinkComponent,
       NewPolicyRouterLinkComponent,
       NewRouterComponent,
-      ViewDestinationGroupComponent
+      ViewDestinationGroupComponent,
+      ViewSensorComponent,
+      ViewPolicyComponent,
+      ViewCollectorComponent
 
   ],
     providers: [

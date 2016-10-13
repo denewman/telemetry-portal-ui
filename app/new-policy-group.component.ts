@@ -83,11 +83,11 @@ export class NewPolicyGroupComponent implements OnInit {
 
   submitNewPolicy(policy: Policy) {
     if (!policy.policyName || !policy.policyVersion || !policy.policyDescription ||
-        !policy.policyComment || !policy.policyIdentifier || !policy.policyPeriod || !policy.policyPaths) {
+        !policy.policyComment || !policy.policyIdentifier || !policy.policyPeriod || !policy.policyPath) {
       return;
     }
     this.httpService.addPolicy(policy.policyName, policy.policyVersion, policy.policyDescription,
-                        policy.policyComment, policy.policyIdentifier, policy.policyPeriod, policy.policyPaths)
+                        policy.policyComment, policy.policyIdentifier, policy.policyPeriod, policy.policyPath)
       .subscribe(
             policy => {
               this.newPolicy = policy;

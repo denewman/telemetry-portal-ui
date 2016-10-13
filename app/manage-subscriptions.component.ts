@@ -33,19 +33,23 @@ export class ManageSubscriptionsComponent implements OnInit {
   addSubscription(subscription: Subscription) {
     if (!subscription.subscriptionId || !subscription.subscriptionName || !subscription.destinationGroupName
         || !subscription.sensorName || !subscription.subscriptionInterval) { return; }
-    this.httpService.addSubscription(subscription.subscriptionId,
-        subscription.subscriptionName,
-        subscription.destinationGroupName,
-        subscription.sensorName,
-        subscription.subscriptionInterval)
-        .subscribe(
-            subscription => {
-              this.subscription = subscription;
-              if (this.subscription.subscriptionName) {
-                this.subscriptions.push(subscription);
-              }
-            },
-            error => this.errorMessage = <any>error);
+    
+    console.log(subscription);
+
+    this.httpService.addSubscription(
+      subscription.subscriptionId,
+      subscription.subscriptionName,
+      subscription.destinationGroupName,
+      subscription.sensorName,
+      subscription.subscriptionInterval)
+      .subscribe(
+        subscription => {
+          this.subscription = subscription;
+          if (this.subscription.subscriptionName) {
+            this.subscriptions.push(this.subscription);
+          }
+        },
+        error => this.errorMessage = <any>error);
     this.newSubscription = false;
   }
 

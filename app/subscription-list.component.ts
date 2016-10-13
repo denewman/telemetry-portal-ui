@@ -6,6 +6,7 @@ import './rxjs-operators';
 
 import { Subscription } from './subscription';
 import { DestinationGroup } from './destination-group';
+import { Sensor } from './sensor';
 import { StatusCode } from './status-code';
 
 @Component({
@@ -17,43 +18,41 @@ export class SubscriptionListComponent {
   @Input() subscriptions: Subscription[];
 
   statusCode: any;
-  destinationGroupPack: DestinationGroup[];
   destinationGroup: DestinationGroup;
+  sensor: Sensor;
   errorMessage: string;
   mode = 'Observable';
 
   viewDestinationGroup: boolean = false;
+  viewSensor: boolean = false;
 
   constructor(private httpService: HttpService) { }
 
   onDestinationGroupClick(dgName: string){
-
-    console.log(dgName);
-
     this.httpService.getDestinationGroup(dgName)
       .subscribe(
         destinationGroup => this.destinationGroup = destinationGroup,
-        //destinationGroupPack => this.destinationGroupPack = destinationGroupPack,
         error => this.errorMessage = <any>error
       );
 
-    //this.destinationGroup = this.destinationGroupPack[0];
-
-/*
-    this.destinationGroup = new DestinationGroup(
-      "testDG1",
-      "0.0.0.0",
-      "gpd",
-      "2000",
-      "http"
-    )
-*/
     this.viewDestinationGroup = true;
   }
 
   viewDestinationGroupClose(){
-    console.log("Event received, trying to close modal");
     this.viewDestinationGroup = false;
+  }
+
+  onSensorClick(sensorName: string){
+    this.httpService.getSensor(sensorName)
+      .subscribe(
+        sensor => this.sensor = sensor,
+        error => this.errorMessage = <any>error
+      );
+    this.viewSensor = true;
+  }
+
+  viewSensorClose(){
+    this.viewSensor = false;
   }
 
   onDelete(subscription: Subscription) {

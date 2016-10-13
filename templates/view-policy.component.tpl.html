@@ -1,0 +1,39 @@
+<div class="popup">
+    <h2>View Policy</h2>
+    <table *ngIf="policy">
+        <tr>
+            <td>
+               Name: <span class="attribute">{{policy.policyName}}</span>
+            </td>
+            <td>
+               Version: <span class="attribute">{{policy.policyVersion}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Description: <span class="attribute">{{policy.policyDescription}}</span>
+            </td>
+            <td>
+                Comment: <span class="attribute">{{policy.policyComment}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+               Identifier: <span class="attribute">{{policy.policyIdentifier}}</span>
+            </td>
+            <td>
+                Period: <span class="attribute">{{policy.policyPeriod}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Paths: <br>
+                <ul>
+                    <li *ngFor="let path of policy.policyPath">{{ path }}</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+    <button class="close" (click)="closeModal()">Close</button>
+</div>

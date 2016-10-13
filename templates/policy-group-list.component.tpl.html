@@ -7,9 +7,13 @@
 </tr>
 <tr *ngFor="let pol of policyGroups">
     <td>{{pol.policyGroupName}}</td>
-    <td>{{pol.collectorName}}</td>
-    <td>{{pol.policyName}}</td>
+    <td><a href="javascript:void(0)" (click)="onCollectorClick(pol.collectorName)">{{pol.collectorName}}</a></td>
+    <td><a href="javascript:void(0)" (click)="onPolicyClick(pol.policyName)">{{pol.policyName}}</a></td>
     <td><a href="javascript:void(0)" (click)="onDelete(pol)">delete</a></td>
 </tr>
 </table>
+
+<view-collector *ngIf="viewCollector" (close)="viewCollectorModalClose()" [collector]="collector" ></view-collector>
+<view-policy *ngIf="viewPolicy" (close)="viewPolicyModalClose()" [policy]="policy" ></view-policy>
+
 <div *ngIf="errorMessage">{{errorMessage}}</div>
