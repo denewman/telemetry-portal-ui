@@ -1,4 +1,5 @@
-import {Component, Output, EventEmitter, OnInit ,ViewChild,ElementRef } from '@angular/core';
+import {Component, Output, EventEmitter, OnInit } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 import { HttpService } from './http.service';
 
@@ -26,12 +27,6 @@ export class NewSubscriptionComponent implements OnInit {
   openNewSensorModal: boolean = false;
   openNewDestinationGroupModal: boolean = false;
 
-  @ViewChild('subscriptionId')       subscriptionId :ElementRef;
-  @ViewChild('subscriptionName')     subscriptionName :ElementRef;
-  @ViewChild('destinationGroupName') destinationGroupName :ElementRef;
-  @ViewChild('sensorName')           sensorName :ElementRef;
-  @ViewChild('subscriptionInterval') subscriptionInterval :ElementRef;
-
   constructor (
       private httpService: HttpService) {}
 
@@ -54,23 +49,16 @@ export class NewSubscriptionComponent implements OnInit {
             error => this.errorMessage = <any>error);
   }
 
-  onSubmit(subscriptionId: number, subscriptionName: string, destinationGroupName: string,
-                  sensorName: string, subscriptionInterval: number) {
-                      /* put validation in method */
-                  if(!subscriptionId||!subscriptionName||!destinationGroupName||!sensorName||!subscriptionInterval)
-                  {
-                    return;
-                  }
-                  else{
-                      this.subscriptionId.nativeElement.value=''; 
-                      this.subscriptionName.nativeElement.value=''; 
-                      this.destinationGroupName.nativeElement.value=''; 
-                      this.sensorName.nativeElement.value=''; 
-                      this.subscriptionInterval.nativeElement.value=''                       
-                
-                      this.submit.emit(new Subscription(subscriptionId, subscriptionName,
-                                      destinationGroupName, sensorName, subscriptionInterval));
-                  }
+  onSubmit(f:NgForm) {
+    this.submit.emit(
+      new Subscription(
+        f.value.subscriptionId,
+        f.value.subscriptionName,
+        f.value.destinationGroupName, 
+        f.value.sensorName, 
+        f.value.subscriptionInterval
+      )
+    );
   }
 
   onCancel() {

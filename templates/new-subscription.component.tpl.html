@@ -1,41 +1,39 @@
-<table>
-    <tr>
-        <th>Id: </th>
-        <th>Name: </th>
-        <th>Destination Group:
-            <button class="add" (click)="onNewDestinationGroupClick()">+</button>
-        </th>
-        <th>Sensor:
-            <button class="add" (click)="onNewSensorClick()">+</button>
-        </th>
-        <th>Interval (ms):</th>
-    </tr>
-    <tr>
-        <td><input class="number-input" type="number" min="1" step="1" #subscriptionId required/></td>
-        <td><input class="name-input" #subscriptionName required/></td>
-        <td>
-            <select #destinationGroupName>
-                <option *ngFor="let group of destinationGroups" [value]="group.destinationGroupName">{{group.destinationGroupName}}</option>
-            </select>
-        </td>
-        <td>
-            <select #sensorName>
-                <option *ngFor="let sensor of sensors" [value]="sensor.sensorName">{{sensor.sensorName}}</option>
-            </select>
-        </td>
-        <td>
-            <input class="number-input" type="number" min="0" step="1" #subscriptionInterval required/>
-        </td>
-        <td>
-            <button class="submit" (click)="onSubmit(subscriptionId.value, subscriptionName.value, destinationGroupName.value,
-                sensorName.value, subscriptionInterval.value);
-                ">
-                Submit
-            </button>
-            <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
-        </td>
-    </tr>
-</table>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <table>
+        <tr>
+            <th>Id: </th>
+            <th>Name: </th>
+            <th>Destination Group:
+                <button type="button" class="add" (click)="onNewDestinationGroupClick()">+</button>
+            </th>
+            <th>Sensor:
+                <button type="button" class="add" (click)="onNewSensorClick()">+</button>
+            </th>
+            <th>Interval (ms):</th>
+        </tr>
+        <tr>
+            <td><input class="number-input" type="number" min="1" step="1" name="subscriptionId" ngModel required/></td>
+            <td><input class="name-input" type="text" name="subscriptionName" ngModel required/></td>
+            <td>
+                <select name="destinationGroupName" ngModel required>
+                    <option *ngFor="let group of destinationGroups" [value]="group.destinationGroupName">{{group.destinationGroupName}}</option>
+                </select>
+            </td>
+            <td>
+                <select name="sensorName" ngModel required>
+                    <option *ngFor="let sensor of sensors" [value]="sensor.sensorName">{{sensor.sensorName}}</option>
+                </select>
+            </td>
+            <td>
+                <input class="number-input" type="number" min="0" step="1" name="subscriptionInterval" ngModel required/>
+            </td>
+            <td>
+                <button class="submit" type="submit">Submit</button>
+                <button type="button" class="cancel" (click)="onCancel()">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
 
 <new-sensor *ngIf="openNewSensorModal" (submitNewSensor)="submitNewSensor($event)" (closeSensorModal)="closeNewSensorModal()"></new-sensor>
 <new-destination-group *ngIf="openNewDestinationGroupModal" (submitNewDestinationGroup)="submitNewDestinationGroup($event)" (closeDestinationGroupModal)="closeNewDestinationGroupModal()"></new-destination-group>

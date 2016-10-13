@@ -45,7 +45,7 @@ export class HttpService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.subscriptionUrl, body, options)
-            .map(this.extractData)
+            .map(this.extractSubscription)
             .catch(this.handleError);
     }
 
