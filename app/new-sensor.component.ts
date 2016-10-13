@@ -34,7 +34,7 @@ export class NewSensorComponent {
     }
 
     submit(sensorName: string) {
-        if (!sensorName || this.pathsSelected.length < 1) {
+        if (!sensorName) {
             return;
         }
         this.updatePathsSelected();
