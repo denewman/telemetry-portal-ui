@@ -13,7 +13,6 @@ import { Router } from './router';
 import { SubscriptionRouterLink } from './subscription-router-link';
 import { PolicyRouterLink } from './policy-router-link';
 import { StatusCode } from './status-code';
-
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
