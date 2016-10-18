@@ -1,4 +1,6 @@
 <div class="popup">
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
     <div class="form">
         <h2>New Router</h2>
         <table>
@@ -7,13 +9,13 @@
                     Router Name:
                 </td>
                 <td>
-                    <input class="nameInput" type="text" #routerName />
+                    <input class="nameInput" type="text" ngModel name="name" required/>
                 </td>
                 <td class="text">
                     Router Address:
                 </td>
                 <td>
-                    <input class="nameInput" type="text" #routerAddress />
+                    <input class="nameInput" type="text" ngModel name="address"  required pattern="(^(\d{1,3}\.){3}(\d{1,3})$)|(^([\da-fA-F]{1,4}:){7}([\da-fA-F]{1,4})$)" title="ipv4 or ipv6 address" />
                 </td>
             </tr>
             <tr>
@@ -21,13 +23,13 @@
                     Username:
                 </td>
                 <td>
-                    <input class="nameInput" type="text" [value]="configData.username" #username />
+                    <input class="nameInput" type="text" [(ngModel)]="configData.username"  name="username" required />
                 </td>
                 <td class="text">
                     Password:
                 </td>
                 <td>
-                    <input class="nameInput" type="text" [value]="configData.password" #password />
+                    <input class="nameInput" type="text" [(ngModel)]="configData.password" name="password" required />
                 </td>
             </tr>
             <tr>
@@ -35,7 +37,7 @@
                     Config Type:
                 </td>
                 <td>
-                    <select id="configType" [(ngModel)]="configOption" #configType="ngModel" (change)="changePort($event.target.value)">
+                    <select id="configType" [(ngModel)]="configOption" name="configType"  (change)="changePort($event.target.value)">
                         <option *ngFor="let option of configOptions" [value]="option">{{option}}</option>
                     </select>
                 </td>
@@ -43,11 +45,12 @@
                     Port:
                 </td>
                 <td>
-                    <input class="nameInput" type="number" [(ngModel)]="routerPort" #port />
+                    <input class="nameInput" type="number" [(ngModel)]="routerPort" name="port" />
                 </td>
             </tr>
     </table>
     </div>
-    <button class="submit" (click)="submit(routerName.value, routerAddress.value, username.value, password.value, configType.value, port.value)">Submit</button>
-    <button class="cancel" (click)="cancel()">Cancel</button>
+    <button  class="submit" >Submit</button>
+    <button class="cancel" type="button" (click)="cancel()">Cancel</button>
+</form>
 </div>

@@ -3,6 +3,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { Router } from './router';
 import { ConfigDataService } from "./config-data.service";
 import { Config } from "./config";
+import { NgForm } from '@angular/forms';
 
 @Component({
     selector: 'new-router',
@@ -26,6 +27,18 @@ export class NewRouterComponent implements OnInit {
         this.configOption = this.configData.configOption;
         this.routerPort = this.configData.port;
     }
+
+    onSubmit(f:NgForm){
+        this.submitNewRouter.emit(
+            new Router(
+                f.value.name, 
+                f.value.address, 
+                f.value.username,
+                f.value.password, 
+                f.value.port, 
+                f.value.configType));
+    }
+
 
     submit(routerName: string, routerAddress: string, username: string, password: string,
            configType: string, port: number) {
