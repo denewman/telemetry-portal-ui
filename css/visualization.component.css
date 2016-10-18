@@ -11,6 +11,17 @@
     height: 450px;
 }
 
+.left {
+  float: left;
+  width: 500px;
+  height: 320px;
+}
+.right {
+  float:right;
+  width: 500px;
+  height: 320px;
+}
+
 button {
     background-color: #4CAF50; /* Green */
     border: none;
