@@ -1,14 +1,15 @@
 <div class="content">
+  <div>
       Query:<input type="text" class="nameInput" id='a' size="30" name="a" #queryName>
       <button class="submit" (click)="submit(queryName.value)">POST Query</button>
       <button class="btn" id="calculate" (click)="onTestGet()">Show Graph</button>
-   
+  </div>
        <!-- <p>{{getData}}</p>  -->
-       <div *ngIf="show > 0">
-     <iframe width="700" height="300" frameborder="0" scrolling="no" src="https://plot.ly/~rmit-s3471293-Zhongyang-Wang/8.embed"></iframe>     
+       <div class="left" *ngIf="show > 0">
+     <iframe width="510" height="320" frameborder="0" scrolling="no" src="https://plot.ly/~rmit-s3471293-Zhongyang-Wang/8.embed"></iframe>     
      </div>
-     <div *ngIf="show > 0">
-      <iframe width="700" height="300" frameborder="0" scrolling="no" src="https://plot.ly/~rmit-s3471293-Zhongyang-Wang/6.embed"></iframe>
+     <div class="right" *ngIf="show > 0">
+      <iframe width="510" height="320" frameborder="0" scrolling="no" src="https://plot.ly/~rmit-s3471293-Zhongyang-Wang/6.embed"></iframe>
     </div>
 
 </div>
