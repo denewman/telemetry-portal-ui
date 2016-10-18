@@ -3,8 +3,10 @@
       <button class="submit" (click)="submit(queryName.value)">POST Query</button>
       <button class="btn" id="calculate" (click)="onTestGet()">Show Graph</button>
    
-        <p>{{getData}}</p>
-          
+       <!-- <p>{{getData}}</p>  -->
+       <div *ngIf="show > 0">
+     <iframe width="700" height="300" frameborder="0" scrolling="no" src="https://plot.ly/~rmit-s3471293-Zhongyang-Wang/8.embed"></iframe>     
+     </div>
      <div *ngIf="show > 0">
       <iframe width="700" height="300" frameborder="0" scrolling="no" src="https://plot.ly/~rmit-s3471293-Zhongyang-Wang/6.embed"></iframe>
     </div>
