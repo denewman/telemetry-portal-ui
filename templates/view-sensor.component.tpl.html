@@ -1,9 +1,11 @@
 <div class="popup">
     <div *ngIf="sensor">
         <h2>View Sensor</h2>
-        Sensor Name: <div class="attribute" >{{sensor.sensorName}}</div>
+        <p>Sensor Name:</p> 
+        <div class="attribute" >{{sensor.sensorName}}</div>
+        <br>
         <div class="options">
-            Paths:
+           <p> Paths:</p>
             <ul>
                 <li *ngFor="let path of sensor.sensorPath">{{ path }}</li>
             </ul>
