@@ -1,31 +1,33 @@
-<table>
-    <tr>
-        <th>Policy Group Name:</th>
-        <th>Routers:
-            <button class="add" (click)="onNewRouterClick()">+</button>
-        </th>
-    </tr>
-    <tr>
-        <td>
-            <select #policyGroupName>
-                <option *ngFor="let policy of policyGroups" [value]="policy.policyGroupName">{{policy.policyGroupName}}</option>
-            </select>
-        </td>
-        <td>
-            <div class="options">
-                <div *ngFor="let router of routers">
-                    <input class="select" type="checkbox" name="routers" value="{{ router.routerName }}" (change)="setSelected(router.routerName, $event)" />{{ router.routerName }}
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <table>
+        <tr>
+            <th>Policy Group Name:</th>
+            <th>Routers:
+                <button class="add" (click)="onNewRouterClick()">+</button>
+            </th>
+        </tr>
+        <tr>
+            <td>
+                <select #policyGroupName>
+                    <option *ngFor="let policy of policyGroups" [value]="policy.policyGroupName">{{policy.policyGroupName}}</option>
+                </select>
+            </td>
+            <td>
+                <div class="options">
+                    <div *ngFor="let router of routers">
+                        <input class="select" type="checkbox" name="routers" value="{{ router.routerName }}" (change)="setSelected(router.routerName, $event)" />{{ router.routerName }}
+                    </div>
                 </div>
-            </div>
-        </td>
-        <td>
-            <button class="submit" (click)="onSubmit(policyGroupName.value);
-                policyGroupName.value='';">
-                Submit
-            </button>
-            <button class="cancel" (click)="onCancel()">Cancel</button>
-        </td>
-    </tr>
-</table>
+            </td>
+            <td>
+                <button class="submit" type="submit" (click)="onSubmit(policyGroupName.value);
+                    policyGroupName.value='';">
+                    Submit
+                </button>
+                <button class="cancel" type="button" (click)="onCancel()">Cancel</button>
+            </td>
+        </tr>
+    </table>
+</form>
 <new-router *ngIf="openNewRouterModal" (submitNewRouter)="submitNewRouter($event)" (closeRouterModal)="closeNewRouterModal()"></new-router>
 <div class="error" *ngIf="errorMessage">{{errorMessage}}</div>

@@ -31,6 +31,9 @@ import { PolicyRouterLinkListComponent } from './policy-router-link-list.compone
 import { NewSubscriptionRouterLinkComponent } from './new-subscription-router-link.component';
 import { NewPolicyRouterLinkComponent } from './new-policy-router-link.component';
 import { NewRouterComponent } from './new-router.component';
+import { ViewSubscriptionComponent } from './view-subscription.component';
+import { ViewPolicyGroupComponent } from './view-policy-group.component';
+import { ViewRouterComponent } from './view-router.component';
 import { ViewDestinationGroupComponent } from './view-destination-group.component';
 import { ViewSensorComponent } from './view-sensor.component';
 import { ViewPolicyComponent } from './view-policy.component';
@@ -71,6 +74,9 @@ import { ViewCollectorComponent } from './view-collector.component';
       NewSubscriptionRouterLinkComponent,
       NewPolicyRouterLinkComponent,
       NewRouterComponent,
+      ViewSubscriptionComponent,
+      ViewPolicyGroupComponent,
+      ViewRouterComponent,
       ViewDestinationGroupComponent,
       ViewSensorComponent,
       ViewPolicyComponent,

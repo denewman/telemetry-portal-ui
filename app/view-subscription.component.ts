@@ -1,17 +1,15 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-
 import './rxjs-operators';
-
-import { DestinationGroup } from './destination-group';
-
+import { Subscription } from './subscription';
 
 @Component({
-    selector: 'view-destination-group',
-    templateUrl: '../templates/view-destination-group.component.tpl.html',
+    selector: 'view-subscription',
+    templateUrl: '../templates/view-subscripton.component.tpl.html',
     styleUrls: ['../css/view-object.component.css']
 })
-export class ViewDestinationGroupComponent {
-    @Input() destinationGroup: DestinationGroup;
+
+export class ViewSubscriptionComponent {
+    @Input() subscription: Subscription;
     @Output() close: EventEmitter<any> = new EventEmitter<any>();
 
     errorMessage: string;

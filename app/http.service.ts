@@ -19,7 +19,7 @@ import { Observable } from 'rxjs/Observable';
 export class HttpService {
     constructor (private http: Http) {}
 
-    private url = "http://203.36.5.115:3000/flask"; //TODO: Change this address to production server(203.36.5.115)
+    private url = "http://localhost:3000/flask"; //TODO: Change this address to production server(203.36.5.115)
 
     private subscriptionUrl = this.url + '/subscription';
     private policyGroupUrl = this.url + '/policyGroup';
@@ -36,6 +36,13 @@ export class HttpService {
             .map(this.extractSubscription)
             .catch(this.handleError);
     }
+
+    getSubscription(subscriptionName: string): Observable<Subscription> {
+        return this.http.get(this.subscriptionUrl + "/" + subscriptionName)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     addSubscription (subscriptionId: number, subscriptionName: string, destinationGroupName: string,
                      sensorName: string, subscriptionInterval: number): Observable<Subscription> {
         let body = JSON.stringify({ subscriptionId, subscriptionName, destinationGroupName, sensorName,
@@ -59,6 +66,13 @@ export class HttpService {
             .map(this.extractPolicyGroupData)
             .catch(this.handleError);
     }
+
+    getPolicyGroup(policyGroupName: string): Observable<PolicyGroup>{
+        return this.http.get(this.policyGroupUrl + "/" + policyGroupName)
+            .map(this.extractData)
+            .catch(this.handleError);
+    }
+
     addPolicyGroup (policyGroupName: string, collectorName: string, policyName: string): Observable<PolicyGroup> {
         let body = JSON.stringify({ policyGroupName, collectorName, policyName });
         let headers = new Headers({ 'Content-Type': 'application/json' });

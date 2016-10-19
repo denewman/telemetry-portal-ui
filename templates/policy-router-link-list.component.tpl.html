@@ -2,14 +2,20 @@
 <tr>
     <th>Policy Group</th>
     <th>Routers</th>
-    <th>on/off</th>
+    <!--<th>on/off</th>-->
     <th>Delete</th>
 </tr>
 <tr *ngFor="let link of policyRouterLinks">
-    <td>{{link.policyGroupName}}</td>
-    <td>{{link.routers}}</td>
-    <td>{{ link.status }}</td>
-    <td><a href="javascript:void(0)" (click)="onDelete(link)">delete</a></td>
+    <td><a href="javascript:void(0)" (click)="onViewPolicyGroupClick(link.policyGroupName)">{{link.policyGroupName}}</a></td>
+    <td>
+        <ul>
+            <li *ngFor="let router of link.routers"><a href="javascript:void(0)" (click)="onViewRouterClick(router)">{{router}}</a></li>
+        </ul>
+    </td>
+    <!--<td>{{ link.status }}</td>-->
+    <td><a href="javascript:void(0)" (click)="onDelete(link.policyGroupName)">delete</a></td>
 </tr>
 </table>
+<view-policy-group *ngIf="viewPolicyGroup" (close)="onViewPolicyGroupClose()" [policyGroup]="policyGroup"></view-policy-group>
+<view-router *ngIf="viewRouter" (close)="onViewRouterClose()" [router]="router"></view-router>
 <div *ngIf="errorMessage">{{errorMessage}}</div>

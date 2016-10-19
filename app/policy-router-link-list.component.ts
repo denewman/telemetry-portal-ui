@@ -5,6 +5,8 @@ import './rxjs-operators';
 import {HttpService} from "./http.service";
 
 import { PolicyRouterLink } from './policy-router-link';
+import { PolicyGroup } from './policy-group';
+import { Router } from './router';
 
 
 @Component({
@@ -15,11 +17,42 @@ import { PolicyRouterLink } from './policy-router-link';
 export class PolicyRouterLinkListComponent {
   @Input() policyRouterLinks: PolicyRouterLink[];
 
-  statusCode: any;
+  viewPolicyGroup: boolean;
+  viewRouter: boolean;
 
+  policyGroup: PolicyGroup;
+  router: Router;
+
+  statusCode: any;
   errorMessage: string;
 
   constructor(private httpService: HttpService) { }
+
+  onViewPolicyGroupClick(policyGroupName: string){
+    this.httpService.getPolicyGroup(policyGroupName)
+      .subscribe(
+        policyGroup => this.policyGroup = policyGroup,
+        error => this.errorMessage = <any>error
+      );
+    this.viewPolicyGroup = true;
+  }
+
+  onViewPolicyGroupClose(){
+    this.viewPolicyGroup = false;
+  }
+
+  onViewRouterClick(routerName: string){
+    this.httpService.getRouter(routerName)
+      .subscribe(
+          router => this.router = router,
+          error => this.errorMessage = <any>error
+      );
+    this.viewRouter = true;
+  }
+
+  onViewRouterClose(){
+    this.viewRouter = false;
+  }
 
   onDelete(policyRouterLink: PolicyRouterLink) {
     this.httpService.deletePolicyRouterLink(policyRouterLink.linkId)

@@ -1,0 +1,51 @@
+<div class="popup">
+    <h2>View Router</h2>
+    <table *ngIf="router">
+        <tr>
+            <td class="text">
+                Router Name:
+            </td>
+            <td>
+                <span class="attribute">{{router.routerName}}</span>
+            </td>
+            <td class="text">
+                Router Address:
+            </td>
+            <td>
+                <span class="attribute">{{router.routerAddress}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="text">
+                Username:
+            </td>
+            <td>
+                <span class="attribute">{{router.routerUsername}}</span>
+            </td>
+            <td class="text">
+                Password:
+            </td>
+            <td>
+                <span class="attribute">{{router.routerPassword}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="text">
+                Config Type:
+            </td>
+            <td>
+                <span class="attribute">{{router.configType}}</span>
+            </td>
+            <td class="text">
+                Port:
+            </td>
+            <td>
+                <span class="attribute">{{router.routerPort}}</span>
+            </td>
+        </tr>
+    </table>
+
+    <button class="close" (click)="closeModal()">Close</button>
+</div>
+
+

@@ -1,15 +1,25 @@
 <table>
-<tr>
-    <th>Subscription</th>
-    <th>Routers</th>
-    <th>on/off</th>
-    <th>Delete</th>
-</tr>
-<tr *ngFor="let link of subscriptionRouterLinks">
-    <td>{{link.subscriptionName}}</td>
-    <td>{{link.routers}}</td>
-    <td>{{ link.status }}</td>
-    <td><a href="javascript:void(0)" (click)="onDelete(link)">delete</a></td>
-</tr>
+    <tr>
+        <th>Subscription</th>
+        <th>Routers</th>
+        <!--<th>on/off</th>-->
+        <th>Delete</th>
+    </tr>
+    <tr *ngFor="let link of subscriptionRouterLinks">
+        <td>
+            <a href="javascript:void(0)" (click)="onViewSubscriptionClick(link.subscriptionName)"> 
+                {{link.subscriptionName}}
+            </a>
+        </td>
+        <td>
+            <ul>
+                <li *ngFor="let router of link.routers"><a href="javascript:void(0)" (click)="onViewRouterClick(router)">{{router}}</a></li>
+            </ul>
+        </td>
+        <!--<td>{{ link.status }}</td>-->
+        <td><a href="javascript:void(0)" (click)="onDelete(link)">delete</a></td>
+    </tr>
 </table>
+<view-subscription *ngIf="viewSubscription" (close)="onViewSubscriptionClose()" [subscription]="subscription"></view-subscription>
+<view-router *ngIf="viewRouter" (close)="onViewRouterClose()" [router]="router"></view-router>
 <div *ngIf="errorMessage">{{errorMessage}}</div>

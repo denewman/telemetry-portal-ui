@@ -2,16 +2,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import './rxjs-operators';
 
-import { DestinationGroup } from './destination-group';
+import { PolicyGroup } from './policy-group';
 
 
 @Component({
-    selector: 'view-destination-group',
-    templateUrl: '../templates/view-destination-group.component.tpl.html',
+    selector: 'view-policy-group',
+    templateUrl: '../templates/view-policy-group.component.tpl.html',
     styleUrls: ['../css/view-object.component.css']
 })
-export class ViewDestinationGroupComponent {
-    @Input() destinationGroup: DestinationGroup;
+export class ViewPolicyGroupComponent  {
+    @Input() policyGroup: PolicyGroup;
     @Output() close: EventEmitter<any> = new EventEmitter<any>();
 
     errorMessage: string;

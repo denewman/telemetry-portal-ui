@@ -1,0 +1,22 @@
+<div class="popup">
+    <h2>View Policy Group</h2>
+    <table *ngIf="policyGroup">
+        <tr>
+            <td>
+               Name: <span class="attribute">{{policyGroup.policyGroupName}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Collector: <span class="attribute">{{policyGroup.collectorName}}</span>
+            </td>
+            <td>
+                Policy: <span class="attribute">{{policyGroup.policyName}}</span>
+            </td>
+        </tr>
+    </table>
+
+    <button class="close" (click)="closeModal()">Close</button>
+</div>
+
+
