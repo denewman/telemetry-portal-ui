@@ -31,6 +31,34 @@ export class HttpService {
     private subscriptionRouterLinkUrl = this.url + '/subscriptionRouterLink';
     private policyRouterLinkUrl = this.url + '/policyRouterLink';
 
+    private dvurl = this.url+'/visualization';
+    dataVisualization(): Observable<any[]> {
+        return this.http.get(this.dvurl)
+            .map(this.extractVisual)
+            .catch(this.handleError);
+    }
+
+    addQuery(queryName: string): Observable<String[]> {
+        let body = JSON.stringify({queryName});
+        let headers = new Headers({ 'Content-Type': 'application/json' });
+        let options = new RequestOptions({ headers: headers });
+        console.log(queryName);
+        return this.http.post(this.dvurl,body,options)
+            .map(this.extractTable)
+            .catch(this.handleError);
+    }
+
+    extractTable(res:Response){
+    let body = res.json();
+    return body;
+    }
+
+    extractVisual(res:Response){
+    console.log(res);
+    let body = res.json();
+    return body;
+    }
+
     getSubscriptions(): Observable<Subscription[]> {
         return this.http.get(this.subscriptionUrl)
             .map(this.extractSubscription)

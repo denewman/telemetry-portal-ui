@@ -30,6 +30,7 @@ export class ApplySubscriptionsComponent implements OnInit {
   }
 
   addSubscriptionRouterLink(subscriptionRouterLink: SubscriptionRouterLink) {
+  
     if (!subscriptionRouterLink.subscriptionName || !subscriptionRouterLink.routers ||
         !subscriptionRouterLink.status) { return; }
     this.httpService.addSubscriptionRouterLink(subscriptionRouterLink.subscriptionName,
@@ -42,6 +43,7 @@ export class ApplySubscriptionsComponent implements OnInit {
               }
             },
             error => this.errorMessage = <any>error);
+
     this.newSubscriptionRouterLink = false;
   }
 
