@@ -2,49 +2,30 @@
     <h2>View Router</h2>
     <table *ngIf="router">
         <tr>
-            <td class="text">
-                Router Name:
+            <td>
+                Router Name: <div class="attribute">{{router.routerName}}</div>
             </td>
             <td>
-                <span class="attribute">{{router.routerName}}</span>
-            </td>
-            <td class="text">
-                Router Address:
-            </td>
-            <td>
-                <span class="attribute">{{router.routerAddress}}</span>
+                Router Address: <div class="attribute">{{router.routerAddress}}</div>
             </td>
         </tr>
         <tr>
-            <td class="text">
-                Username:
+            <td>
+                Username:<div class="attribute">{{router.routerUsername}}</div>
             </td>
             <td>
-                <span class="attribute">{{router.routerUsername}}</span>
-            </td>
-            <td class="text">
-                Password:
-            </td>
-            <td>
-                <span class="attribute">{{router.routerPassword}}</span>
+                Password: <div class="attribute">{{router.routerPassword}}</div>
             </td>
         </tr>
         <tr>
-            <td class="text">
-                Config Type:
+            <td>
+                Config Type:<div class="attribute">{{router.configType}}</div>
             </td>
             <td>
-                <span class="attribute">{{router.configType}}</span>
-            </td>
-            <td class="text">
-                Port:
-            </td>
-            <td>
-                <span class="attribute">{{router.routerPort}}</span>
+                Port: <div class="attribute">{{router.routerPort}}</div>
             </td>
         </tr>
     </table>
-
     <button class="close" (click)="closeModal()">Close</button>
 </div>
 

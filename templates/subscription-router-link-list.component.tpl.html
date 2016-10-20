@@ -20,6 +20,6 @@
         <td><a href="javascript:void(0)" (click)="onDelete(link)">delete</a></td>
     </tr>
 </table>
-<view-subscription *ngIf="viewSubscription" (close)="onViewSubscriptionClose()" [subscription]="subscription"></view-subscription>
+<view-sub *ngIf="viewSubscription" (close)="onViewSubscriptionClose()" [subscription]="subscription"></view-sub>
 <view-router *ngIf="viewRouter" (close)="onViewRouterClose()" [router]="router"></view-router>
 <div *ngIf="errorMessage">{{errorMessage}}</div>

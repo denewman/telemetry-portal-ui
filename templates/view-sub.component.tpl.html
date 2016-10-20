@@ -1,0 +1,27 @@
+<div class="popup">
+    <h2>View Subscription</h2>
+    <table *ngIf="subscription">
+        <tr>
+            <td>
+                ID: <div class="attribute"> {{subscription.subscriptionId}} </div>
+            </td>
+        </tr>
+        <tr>
+            <td> 
+                Name: <div class="attribute"> {{subscription.subscriptionName}} </div>   
+            </td>
+            <td>
+                Sensor: <div class="attribute"> {{subscription.sensorName}}</div>
+            </td>
+        </tr>
+                <tr>
+            <td> 
+                Destination Group: <div class="attribute"> {{subscription.destinationGroupName}} </div>   
+            </td>
+            <td>
+                Interval: <div class="attribute"> {{subscription.subscriptionInterval}}</div>
+            </td>
+        </tr>
+    </table>
+    <button class="close" (click)="closeModal()">Close</button>
+</div>
