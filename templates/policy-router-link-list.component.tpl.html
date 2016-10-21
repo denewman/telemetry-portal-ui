@@ -13,7 +13,7 @@
         </ul>
     </td>
     <!--<td>{{ link.status }}</td>-->
-    <td><a href="javascript:void(0)" (click)="onDelete(link.policyGroupName)">delete</a></td>
+    <td><a href="javascript:void(0)" (click)="onDelete(link)">delete</a></td>
 </tr>
 </table>
 <view-policy-group *ngIf="viewPolicyGroup" (close)="onViewPolicyGroupClose()" [policyGroup]="policyGroup"></view-policy-group>
