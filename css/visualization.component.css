@@ -11,15 +11,11 @@
     height: 450px;
 }
 
-.left {
-  float: left;
-  width: 500px;
-  height: 320px;
+#calculate1{
+background-color:green;
 }
-.right {
-  float:right;
-  width: 500px;
-  height: 320px;
+#calculate2{
+background-color:green;
 }
 
 button {
