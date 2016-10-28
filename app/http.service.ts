@@ -33,12 +33,7 @@ export class HttpService {
     private resetDBUrl = this.url + '/resetDB';
 
     private dvurl = this.url+'/visualization';
-    dataVisualization(): Observable<any[]> {
-        return this.http.get(this.dvurl)
-            .map(this.extractVisual)
-            .catch(this.handleError);
-    }
-
+ 
     addQuery(queryName: string): Observable<String[]> {
         let body = JSON.stringify({queryName});
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -50,12 +45,6 @@ export class HttpService {
     }
 
     extractTable(res:Response){
-    let body = res.json();
-    return body;
-    }
-
-    extractVisual(res:Response){
-    console.log(res);
     let body = res.json();
     return body;
     }
