@@ -15,19 +15,18 @@ export class VisualizationComponent {
   errorMsg:string;
   image:string;
   show: boolean = false;
+  showGraph:boolean = false;
+  showbtn:boolean = false;
 
 
-  onTestGet(){
-    this.show = !this.show;
+  showTable(){
+    this.show = true;
+    this.showGraph = false;
+  }
 
-    this.httpService.dataVisualization()
-       .subscribe(
-        data=>this.image = JSON.stringify(data),
-        error=>this.errorMsg = error,
-        ()=>console.log("done")
-    );
-    //console.log("data" + this.getData);
-    //console.log("err" + this.errorMsg);
+  showPlot(){
+     this.show = false;
+    this.showGraph = true;
   }
 
   submit(queryName: string) {
@@ -38,10 +37,13 @@ export class VisualizationComponent {
         error=>this.errorMsg = error,
         ()=>console.log("done")
             );
-
     if (this.show == true){
       this.show = !this.show;
     }
+    if (this.showGraph == true){
+      this.showGraph = !this.showGraph;
+    }
+    this.showbtn = true;
     //console.log("data" + this.getData);
     //console.log("err" + this.errorMsg);
   }
