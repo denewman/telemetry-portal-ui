@@ -13,7 +13,10 @@
     <td><a href="javascript:void(0)" (click)="onDestinationGroupClick(sub.destinationGroupName)">{{sub.destinationGroupName}}</a></td>
     <td><a href="javascript:void(0)" (click)="onSensorClick(sub.sensorName)">{{sub.sensorName}}</a></td>
     <td>{{sub.subscriptionInterval}}</td>
-    <td><a href="javascript:void(0)" (click)="onDelete(sub)">delete</a></td>
+    <td>
+        <a href="javascript:void(0)" (click)="onDelete(sub)">delete</a>
+    </td>
+
 </tr>
 </table>
 <view-destination-group *ngIf="viewDestinationGroup" (close)="viewDestinationGroupClose()" [destinationGroup]="destinationGroup" ></view-destination-group>

@@ -30,6 +30,7 @@ export class HttpService {
     private routerUrl = this.url + '/router';
     private subscriptionRouterLinkUrl = this.url + '/subscriptionRouterLink';
     private policyRouterLinkUrl = this.url + '/policyRouterLink';
+    private resetDBUrl = this.url + '/resetDB';
 
     private dvurl = this.url+'/visualization';
     dataVisualization(): Observable<any[]> {
@@ -280,6 +281,12 @@ export class HttpService {
 
     deletePolicyRouterLink (linkId: number): Observable<string> {
         return this.http.delete(this.policyRouterLinkUrl + '/' + linkId)
+            .map(this.extractStatusCode)
+            .catch(this.handleError);
+    }
+
+    resetDB(): Observable<string>{
+        return this.http.get(this.resetDBUrl)
             .map(this.extractStatusCode)
             .catch(this.handleError);
     }

@@ -32,4 +32,9 @@
     </div>
     <br>
     <button (click)="onSubmit(configOption.value, username.value, password.value, port.value)" [disabled]="disableSubmit">Submit ✓</button>
+
+    <button (click)="onResetClick()">Reset Database</button>
+
+    <confirm-dialog *ngIf="viewResetConfirm" [message]="resetConfirmMessage" (OK)="onResetConfirm()" (cancel)="onResetCancel()"></confirm-dialog>
+
 </div>

@@ -15,6 +15,7 @@ export class NewDestinationGroupComponent {
 
     //This form uses template driven validation.
     onSubmit(f:NgForm){
+        console.log("Submit Clicked")
         this.submitNewDestinationGroup.emit(
             new DestinationGroup(
                 f.value.name,

@@ -5,4 +5,5 @@
    <br><br>
    <new-subscription *ngIf="newSubscription" (submit)="addSubscription($event)" (cancel)="cancelNewSubscription()"></new-subscription>
    <subscription-list [subscriptions]="subscriptions"></subscription-list>
+   <info-message *ngIf="showInfoMessage" [wait]="false" [message]="infoMessage" (close)="onCloseInfoMessage()"></info-message>
 </div>

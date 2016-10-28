@@ -15,8 +15,10 @@ export class ManageSubscriptionsComponent implements OnInit {
   subscriptions: Subscription[];
   subscription: Subscription;
   mode = 'Observable';
+  infoMessage: string;
 
   newSubscription: boolean = false;
+  showInfoMessage: boolean = false;
 
 
   constructor (private httpService: HttpService, private router: Router) {}
@@ -51,6 +53,13 @@ export class ManageSubscriptionsComponent implements OnInit {
         },
         error => this.errorMessage = <any>error);
     this.newSubscription = false;
+    //TODO: Check if successfull
+    this.infoMessage = "Subscription added successfully!";
+    this.showInfoMessage = true;
+  }
+
+  onCloseInfoMessage(){
+      this.showInfoMessage = false;
   }
 
   onNewSubscriptionClick() {

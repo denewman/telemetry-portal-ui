@@ -14,7 +14,13 @@
                 <td>
                     Encoding: <br/>
                     <input type="radio" name="encoding" value="SELF-DESCRIBING-GPB" ngModel required checked /> SELF-DESCRIBING-GPB
-                    <input type="radio" name="encoding" value="GPB" disabled="true" ngModel required /> <span class="greyed">GPB</span>
+
+                    <!--
+                        For future development, use the folowing radio button once GPB has been implemented
+
+                    <input type="radio" name="encoding" value="GPB" ngModel required /> GPB
+                    -->
+                    <input type="radio" name="encodingDisabled" value="GPB" ngModel disabled /> <span class="greyed">GPB</span>
                 </td>
             </tr>
             <tr>
@@ -25,7 +31,12 @@
 
                     Protocol: <br/>
                     <input type="radio" name="protocol" value="TCP" ngModel required checked /> TCP
-                    <input type="radio" name="protocol" value="GRPC" ngModel required disabled="true" /> <span class="greyed">GRPC</span>
+                    <!--
+                        For future development, use the folowing radio button once GRPC has been implemented
+                        
+                    <input type="radio" name="protocol" value="GRPC" ngModel required /> GRPC
+                    -->
+                    <input type="radio" name="protocolDisabled" value="GRPC" ngModel disabled /> <span class="greyed">GRPC</span>
 
                 </td>
             </tr>
